@@ -16,6 +16,8 @@ struct WatchYourMindApp: App {
 
     var body: some Scene {
         
+        
+        
         WindowGroup {
       MainView()
 //            TableListUser(animals: WatchYourMindApp.animals)
