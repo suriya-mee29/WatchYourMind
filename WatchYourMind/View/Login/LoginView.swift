@@ -17,6 +17,7 @@ struct LoginView: View {
     @State var isLoading : Bool = false
     @State var showAlert : Bool = false
     @State var alertMessage : String = ""
+    @ObservedObject var psychologistManagement = PsychologistManagement()
     
 
     // MARK: - FUNCTION
@@ -41,7 +42,7 @@ struct LoginView: View {
     var body: some View {
         
             VStack {
-                Text("watch my mind".uppercased())
+                Text("watch your mind".uppercased())
                     .font(.title)
                     .fontWeight(.black)
                     .foregroundColor(Color.black)
@@ -105,40 +106,40 @@ struct LoginView: View {
                     .padding(.horizontal)
                     
                     Button(action: {
-                        
-//                        self.validate(usename: self.username, password: self.password){ (valide,mgs) in
-//                            print(valide)
-//                            print(mgs)
-//
-//
-//                            if valide{
-//                                self.isLoading = true
-//                                user.singIn(username: self.username, password: self.password){ (userdata ,mgs) in
-//                                    if mgs == "success"{
-//                                        DispatchQueue.main.async {
-//                                            user.displayData()
-//                                            if let data = userdata {
-//                                                self.dt = data
-//                                                self.isAuthen = true
-//                                            }
-//
-//                                        }
-//
-//                                        print(self.isLoading)
-//
-//                                    }else{
-//                                        self.showAlert = true
-//                                        self.alertMessage = mgs
-//                                    }
-//
-//                                }
-//                            }else{
-//                                self.showAlert = true
-//                                self.alertMessage = mgs
-//                            }
-//                        }
+                        if !isLoading {
+                            isLoading = true
+                        if username != "" {
+                            if password != "" {
+                                self.psychologistManagement.signIn(email: self.username, pwd: self.password) { status, msg in
+                                    
+                                    if status {
+                                        self.isAuthen = true
+                                    }else{
+                                        self.alertMessage = "Error: \(msg)"
+                                        self.isLoading = false
+                                        self.showAlert = true
+                                       
+                                    }
+                                    
+                                }
+                                
+                            }else{
+                                self.alertMessage = "Plese enter your password"
+                                self.isLoading = false
+                                self.showAlert = true
+                                
+                            }
+                            
+                        }else{
+                            self.alertMessage = "Plese enter your emial"
+                            self.isLoading = false
+                            self.showAlert = true
+                            
+                        }
                         
                         
+                        
+                        }
                     }, label: {
                         HStack {
                             Text("UserName")

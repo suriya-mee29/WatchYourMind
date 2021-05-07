@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		51FD717526453412002C3CE6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 51FD717426453412002C3CE6 /* GoogleService-Info.plist */; };
+		51FD717826453750002C3CE6 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 51FD717726453750002C3CE6 /* FirebaseAuth */; };
+		51FD717A26453750002C3CE6 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 51FD717926453750002C3CE6 /* FirebaseFirestore */; };
+		51FD717C26453750002C3CE6 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 51FD717B26453750002C3CE6 /* FirebaseStorage */; };
+		51FD718026453B4A002C3CE6 /* PsychologistManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FD717F26453B4A002C3CE6 /* PsychologistManagement.swift */; };
+		51FD718226455478002C3CE6 /* ContentView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FD718126455478002C3CE6 /* ContentView2.swift */; };
 		96029D5125FB40A600BB6433 /* AutoActivityData.json in Resources */ = {isa = PBXBuildFile; fileRef = 96029D5025FB40A600BB6433 /* AutoActivityData.json */; };
 		9603749A260C99E000677C04 /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96037499260C99E000677C04 /* ToDoItem.swift */; };
 		9603749C260C9A7C00677C04 /* SearchView2Continue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9603749B260C9A7C00677C04 /* SearchView2Continue.swift */; };
@@ -114,7 +120,6 @@
 		9686E84526037DD7000EB806 /* TableListUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9686E84426037DD7000EB806 /* TableListUser.swift */; };
 		9689BB912607D1AD00D5655E /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 9689BB902607D1AD00D5655E /* SwiftUICharts */; };
 		968F5A55263BE5BF003CACEA /* DeleteActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968F5A54263BE5BE003CACEA /* DeleteActivity.swift */; };
-		968F5A5A263BF9C7003CACEA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 968F5A59263BF9C7003CACEA /* GoogleService-Info.plist */; };
 		968F5A66263C2329003CACEA /* AutoActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968F5A65263C2329003CACEA /* AutoActivityViewModel.swift */; };
 		96A72775263027F300F639B8 /* PickerImageActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A72774263027F300F639B8 /* PickerImageActivity.swift */; };
 		96ADE4BC2608A5EC0029F37D /* CardAssign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ADE4BB2608A5EC0029F37D /* CardAssign.swift */; };
@@ -160,6 +165,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		51FD717426453412002C3CE6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		51FD717F26453B4A002C3CE6 /* PsychologistManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PsychologistManagement.swift; sourceTree = "<group>"; };
+		51FD718126455478002C3CE6 /* ContentView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView2.swift; sourceTree = "<group>"; };
 		96029D5025FB40A600BB6433 /* AutoActivityData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AutoActivityData.json; sourceTree = "<group>"; };
 		96037499260C99E000677C04 /* ToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
 		9603749B260C9A7C00677C04 /* SearchView2Continue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView2Continue.swift; sourceTree = "<group>"; };
@@ -267,7 +275,6 @@
 		9686E84426037DD7000EB806 /* TableListUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableListUser.swift; sourceTree = "<group>"; };
 		9689BB502607BC3400D5655E /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = "../../../Downloads/ChartView-master/Package.swift"; sourceTree = "<group>"; };
 		968F5A54263BE5BE003CACEA /* DeleteActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteActivity.swift; sourceTree = "<group>"; };
-		968F5A59263BF9C7003CACEA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		968F5A65263C2329003CACEA /* AutoActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoActivityViewModel.swift; sourceTree = "<group>"; };
 		9691770126394E5D005576E3 /* WatchYourMind.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WatchYourMind.entitlements; sourceTree = "<group>"; };
 		96A72774263027F300F639B8 /* PickerImageActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerImageActivity.swift; sourceTree = "<group>"; };
@@ -321,12 +328,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				9689BB912607D1AD00D5655E /* SwiftUICharts in Frameworks */,
+				51FD717C26453750002C3CE6 /* FirebaseStorage in Frameworks */,
+				51FD717826453750002C3CE6 /* FirebaseAuth in Frameworks */,
+				51FD717A26453750002C3CE6 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		51FD717D26453A77002C3CE6 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		51FD717E26453AB4002C3CE6 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				51FD717F26453B4A002C3CE6 /* PsychologistManagement.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
 		960E09E625EC99D7004F9ECA /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
@@ -593,6 +618,7 @@
 		966553E2262D801F000236E7 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				51FD717E26453AB4002C3CE6 /* User */,
 				968F5A64263C2307003CACEA /* AutoActivity */,
 				966553E3262D80D8000236E7 /* ManualActivity */,
 			);
@@ -786,8 +812,8 @@
 		96E38EB125E3D03200F63BAB /* WatchYourMind */ = {
 			isa = PBXGroup;
 			children = (
-				96805382264521F200A03202 /* Login */,
-				968F5A59263BF9C7003CACEA /* GoogleService-Info.plist */,
+				51FD717D26453A77002C3CE6 /* New Group */,
+				51FD717426453412002C3CE6 /* GoogleService-Info.plist */,
 				9691770126394E5D005576E3 /* WatchYourMind.entitlements */,
 				966553E2262D801F000236E7 /* ViewModel */,
 				963470D625F9FD2200C03431 /* Button */,
@@ -824,8 +850,10 @@
 		96E38EC525E3D2CE00F63BAB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				96805382264521F200A03202 /* Login */,
 				960E09FD25ECB1F6004F9ECA /* ActivityView */,
 				960E09E625EC99D7004F9ECA /* HomeView */,
+				51FD718126455478002C3CE6 /* ContentView2.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -848,6 +876,9 @@
 			name = WatchYourMind;
 			packageProductDependencies = (
 				9689BB902607D1AD00D5655E /* SwiftUICharts */,
+				51FD717726453750002C3CE6 /* FirebaseAuth */,
+				51FD717926453750002C3CE6 /* FirebaseFirestore */,
+				51FD717B26453750002C3CE6 /* FirebaseStorage */,
 			);
 			productName = WatchMyMind;
 			productReference = 96E38EAF25E3D03200F63BAB /* WatchYourMind.app */;
@@ -878,6 +909,7 @@
 			mainGroup = 96E38EA625E3D03200F63BAB;
 			packageReferences = (
 				9689BB512607BE7300D5655E /* XCRemoteSwiftPackageReference "ChartView" */,
+				51FD717626453750002C3CE6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 96E38EB025E3D03200F63BAB /* Products */;
 			projectDirPath = "";
@@ -893,7 +925,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				968F5A5A263BF9C7003CACEA /* GoogleService-Info.plist in Resources */,
+				51FD717526453412002C3CE6 /* GoogleService-Info.plist in Resources */,
 				966553D2262D61CC000236E7 /* otherDate.json in Resources */,
 				96E96D3A261B413F005D27D4 /* animals.json in Resources */,
 				9633D43F262EDA6000DB0B09 /* StatusTree.json in Resources */,
@@ -926,6 +958,7 @@
 				968F5A55263BE5BF003CACEA /* DeleteActivity.swift in Sources */,
 				962D96522600E16C00801486 /* MeasurementView.swift in Sources */,
 				962D96542600E1CF00801486 /* NewActivityView.swift in Sources */,
+				51FD718026453B4A002C3CE6 /* PsychologistManagement.swift in Sources */,
 				9659667F25F7D7A100686D47 /* CodableBundleExtension.swift in Sources */,
 				9671992625EE07DB00BD94CC /* TheperiodoftheproblemView.swift in Sources */,
 				96C31B212628B3DF000BDAAE /* BottomSheetView.swift in Sources */,
@@ -1001,6 +1034,7 @@
 				9659663B25F6408B00686D47 /* AutoActivityListFront.swift in Sources */,
 				968280332601DB6D00223597 /* GridPickerMeasure.swift in Sources */,
 				963D0A6225E7B97F003A5DDF /* ButtonCalendar.swift in Sources */,
+				51FD718226455478002C3CE6 /* ContentView2.swift in Sources */,
 				96ADE4BE2608A6B00029F37D /* CardOutcome.swift in Sources */,
 				9635561E260138FC008ECDD9 /* MeasureFront.swift in Sources */,
 				960BA51425E8FD03007265EC /* NicknameView.swift in Sources */,
@@ -1182,7 +1216,7 @@
 				CODE_SIGN_ENTITLEMENTS = WatchYourMind/WatchYourMind.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"WatchYourMind/Preview Content\"";
-				DEVELOPMENT_TEAM = 7RU68K58X9;
+				DEVELOPMENT_TEAM = 9DVU79YMW5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/WatchYourMind/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1207,7 +1241,7 @@
 				CODE_SIGN_ENTITLEMENTS = WatchYourMind/WatchYourMind.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"WatchYourMind/Preview Content\"";
-				DEVELOPMENT_TEAM = 7RU68K58X9;
+				DEVELOPMENT_TEAM = 9DVU79YMW5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/WatchYourMind/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1248,6 +1282,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		51FD717626453750002C3CE6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.11.1;
+			};
+		};
 		9689BB512607BE7300D5655E /* XCRemoteSwiftPackageReference "ChartView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AppPear/ChartView";
@@ -1259,6 +1301,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		51FD717726453750002C3CE6 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 51FD717626453750002C3CE6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		51FD717926453750002C3CE6 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 51FD717626453750002C3CE6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		51FD717B26453750002C3CE6 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 51FD717626453750002C3CE6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
 		9689BB902607D1AD00D5655E /* SwiftUICharts */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9689BB512607BE7300D5655E /* XCRemoteSwiftPackageReference "ChartView" */;
