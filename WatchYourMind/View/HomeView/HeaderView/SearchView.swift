@@ -23,20 +23,20 @@ struct SearchView: View {
     
 //    let colorBackground: Color = Color("bg-1")
     @State var isLinkActive = false
-    @State var animals: [Animal] = Bundle.main.decode("animals.json")
+    @State var animals: [User] = Bundle.main.decode("animals.json")
     @State var isNavigationBarHidden: Bool = true
     
     @State var datePicker : Date = Date()
     @State var isExpanded = false
-    @State var statusSeed: [Animal] = Bundle.main.decode("StatusSeed.json")
+    @State var statusSeed: [User] = Bundle.main.decode("StatusSeed.json")
     @State var isExpanded2 = false
-    @State var statusSeeding: [Animal] = Bundle.main.decode("StatusSeeding.json")
+    @State var statusSeeding: [User] = Bundle.main.decode("StatusSeeding.json")
     @State var isExpanded3 = false
-    @State var statusSapling: [Animal] = Bundle.main.decode("StatusSapling.json")
+    @State var statusSapling: [User] = Bundle.main.decode("StatusSapling.json")
     @State var isExpanded4 = false
-    @State var statusTree: [Animal] = Bundle.main.decode("StatusTree.json")
+    @State var statusTree: [User] = Bundle.main.decode("StatusTree.json")
     @State var isExpanded5 = false
-    @State var statusBlooming: [Animal] = Bundle.main.decode("StatusBlooming.json")
+    @State var statusBlooming: [User] = Bundle.main.decode("StatusBlooming.json")
     
 //    @EnvironmentObject var shop: Shop
 

@@ -24,7 +24,7 @@ struct ContentView2: View {
     }
     var body: some View {
         if isAuthen{
-        HomeContentView()
+        MainView()
         }else{
             LoginView(isAuthen: $isAuthen)
         }

@@ -12,7 +12,7 @@ import Firebase
 @main
 struct WatchYourMindApp: App {
 //    @StateObject private var order = Order()
-    static let animals: [Animal] = Bundle.main.decode("animals.json")
+//    static let animals: [Animal] = Bundle.main.decode("animals.json")
     
     init() {
         FirebaseApp.configure()
@@ -33,9 +33,11 @@ struct WatchYourMindApp: App {
 //                .modifier(SystemServices())
 
                 .environmentObject(Shop())
-                .environmentObject(Measurement())
+//                .environmentObject(Measurement())
                 .environmentObject(ManualList())
                 .environmentObject(PostActivity())
+                .environmentObject(ListClientRequest())
+                .environmentObject(Preact())
         }
     }
 }

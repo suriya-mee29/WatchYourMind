@@ -10,8 +10,8 @@ import SwiftUICharts
 
 struct SomethingAnalysisView: View {
     @State private var gridLayout: [GridItem] = [ GridItem(.flexible()) ]
-    @State var animals: [Animal] = Bundle.main.decode("animals.json")
-    
+//    @State var animals: [Animal] = Bundle.main.decode("animals.json")
+//    
     public var stylecard: ChartStyle2
     public var dropShadowcard: Bool
 

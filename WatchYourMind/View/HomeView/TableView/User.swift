@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Animal: Codable, Identifiable {
+struct User: Codable, Identifiable {
 let id: String
 let name: String
 let headline: String

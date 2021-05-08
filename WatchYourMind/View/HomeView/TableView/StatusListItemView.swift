@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StatusListItemView: View {
-    let animals : [Animal]
+    let animals : [User]
     @State var showSheetView = false
     var body: some View {
 //        HStack(alignment: .center) {
@@ -37,7 +37,7 @@ struct StatusListItemView: View {
 }
 
 struct StatusListItemView_Previews: PreviewProvider {
-    static let animals: [Animal] = Bundle.main.decode("animals.json")
+    static let animals: [User] = Bundle.main.decode("users.json")
     static var previews: some View {
         StatusListItemView(animals: animals)
     }

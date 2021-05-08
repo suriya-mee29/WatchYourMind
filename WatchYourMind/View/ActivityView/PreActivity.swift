@@ -12,6 +12,7 @@ class ManualList: ObservableObject {
   @Published var selectedPage: ManualActivityList? //= nil
 }
 
+
 struct PreActivity: View {
     let colorBackground: Color = Color("bg-1")
     @State private var gridLayout: [GridItem] = [GridItem(.flexible())]
@@ -20,12 +21,15 @@ struct PreActivity: View {
     
     let prefeedback = UIImpactFeedbackGenerator(style: .heavy)
     @EnvironmentObject var activitylist: ManualList
+    
+    @EnvironmentObject var preactivity: Preact
      
     var body: some View {
         ZStack{
-        if activitylist.showingPage == false  {
+            if activitylist.showingPage == false  {
             VStack{
                 ScrollView(.vertical, showsIndicators: false) {
+                    NavigationPreActivity()
               LazyVGrid(columns: gridLayout, alignment: .center, spacing: 10) {
 
                 VStack(alignment:. leading, spacing: 20) {
@@ -96,35 +100,7 @@ struct PreActivity: View {
                     TheperiodoftheproblemView()
 
                         }
-//                    VStack(alignment: .leading, spacing: 8){
-//                        NavigationLink(destination:   ManualActivityList()
-//) {
-//                         Spacer()
-//                         HStack(alignment: .bottom) {
-//                             Text("NEXT")
-//                                 .fontWeight(.heavy)
-//                                 .foregroundColor(Color.black)
-//                             Image(systemName: "chevron.forward" )
-//                                 .font(.title)
-//                                 .foregroundColor(.purple)
-//                                 .font(.system(size: 25))
-////
-//
-//                         }//HSTACK
-//
-//             .padding(.horizontal,20)
-//                         .padding(10)
-//                         .background(Color.white)
-//                         .cornerRadius(10)
-//                         .shadow(color: Color.darkShadow, radius: 3, x: 2, y: 2)
-//                         .shadow(color: Color.lightShadow, radius: 3, x: -2, y: -2)
-//                         .padding(.trailing,20)
-//                         .padding(.vertical,10)
-//
-//
-//                        }//:NavigationLink
-//                    }//:VStack
-//                HStack{
+
                 Button(action: {
                 }, label: {
                     Image(systemName: "chevron.forward")
@@ -147,13 +123,9 @@ struct PreActivity: View {
               }//:LAZYVGRID
               .ignoresSafeArea(.all, edges: .top)
             }//:SCROLL
-//          } //: GROUP
-//          .navigationBarTitle("PreActivity", displayMode: .large)
-          
-//        } //: NAVIGATION
-//        .navigationViewStyle(StackNavigationViewStyle())
-//            }
-    }//:IF
+
+    }//:IF}else if (shop.showingProduct == true){
+       
         else{
             ManualActivityList()
         }

@@ -13,12 +13,9 @@ class PostActivity: ObservableObject {
 }
 
 struct TableListUser: View {
-    let animals : [Animal]
+    let animals : [User]
     @State var showSheetView = false
  
-//    let feedback = UIImpactFeedbackGenerator(style: .heavy)
-//    @EnvironmentObject var discontinue: DiscontinueView
-    
     var body: some View {
         VStack(alignment: .leading,spacing: 0){
 //            NavigationView {
@@ -45,13 +42,9 @@ struct TableListUser: View {
                     CloseFullView()
 
                 }
-//                .sheet(isPresented: $showSheetView) {
-//                AnimalListItemSheetView(showSheetView: self.$showSheetView)
-//                                    .frame(width:UIScreen.Widthscreen)
-//            }
+
           
         }//:VSTACK
-//        .frame(width:UIScreen.Widthscreen-60)
         
     }
 }
@@ -72,7 +65,7 @@ struct AnimalListItemSheetView: View {
 }
 
 struct ListDiscontinue_Previews: PreviewProvider {
-    static let animals: [Animal] = Bundle.main.decode("animals.json")
+    static let animals: [User] = Bundle.main.decode("animals.json")
     static var previews: some View {
         TableListUser(animals: animals)
           .previewLayout(.sizeThatFits)

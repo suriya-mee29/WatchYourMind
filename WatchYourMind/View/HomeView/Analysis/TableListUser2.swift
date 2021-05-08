@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TableListUser2: View {
-    let animals: [Animal] = Bundle.main.decode("animals.json")
+    let animals: [User] = Bundle.main.decode("users.json")
     @State var showSheetView = false
 
     
@@ -64,7 +64,7 @@ var body: some View {
 }
 
 struct TableListUser2_Previews: PreviewProvider {
-    static let animals: [Animal] = Bundle.main.decode("animals.json")
+    static let animals: [User] = Bundle.main.decode("users.json")
     static var previews: some View {
     
         TableListUser2()

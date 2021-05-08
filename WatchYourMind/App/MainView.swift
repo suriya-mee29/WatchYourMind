@@ -16,7 +16,7 @@ struct MainView: View {
                 .tabItem {
                     Image(systemName: "house")
 //Image(systemName: "house.fill")
-                    
+                
                   Text("HOME")
                 }
                     PreActivity()
@@ -41,7 +41,9 @@ struct MainView_Previews: PreviewProvider {
             .environmentObject(Shop())
             .environmentObject(ManualList())
             .environmentObject(Measurement())
-//            .environmentObject(PostActivity())
+            .environmentObject(PostActivity())
+            .environmentObject(ListClientRequest())
+            .environmentObject(Preact())
         
     }
 }

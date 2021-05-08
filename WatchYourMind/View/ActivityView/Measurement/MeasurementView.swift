@@ -15,7 +15,6 @@ extension UIScreen{
    static let Sizescreen = UIScreen.main.bounds.size
 }
 
-
 struct MeasurementView: View {
     
     @EnvironmentObject var measurement: Measurement
@@ -30,6 +29,7 @@ struct MeasurementView: View {
                 LazyVGrid(columns: gridLayout, alignment: .center, spacing: 10) {
                     VStack(alignment: .leading){
                         NavigationBarMeasurement()
+                        
                         HStack(alignment: .center) {
                             
                             VStack(alignment: .leading) {
@@ -58,7 +58,7 @@ struct MeasurementView: View {
                                     Text("นายสุริยา มีขุนทด")
                                 }.padding(.bottom,3)
                                 HStack {
-                                    Text("Name TH:")
+                                    Text("Name EN:")
                                     
                                     Text("MR. Suriya  Meekhunthod")
                                 }.padding(.bottom,3)

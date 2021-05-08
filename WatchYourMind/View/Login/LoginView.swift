@@ -142,7 +142,13 @@ struct LoginView: View {
                         }
                     }, label: {
                         HStack {
-                            Text("UserName")
+                            Image(systemName: "lock")
+                                .font(.system(size: 30))
+                                .foregroundColor(.white)
+//                                .resizable()
+//                                .scaledToFit()
+                                
+                            Text("Log in")
                                 .fontWeight(.bold)
                                 .foregroundColor(.white)
                                 .padding(.vertical)

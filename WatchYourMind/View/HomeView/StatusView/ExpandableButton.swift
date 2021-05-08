@@ -15,7 +15,7 @@ struct ExpandableButton: View {
     @State var isExpanded4 = false
     @State private var gridcolum : Int = 2
     let columnSpacing: CGFloat = 10
-    let animals : [Animal]
+    let animals : [User]
 
     
     var body: some View {
@@ -133,7 +133,7 @@ struct ExpandableButton: View {
 }
 
 struct ExpandableButton_Previews: PreviewProvider {
-    static let animals: [Animal] = Bundle.main.decode("otherDate.json")
+    static let animals: [User] = Bundle.main.decode("otherDate.json")
     static var previews: some View {
         ExpandableButton(animals: animals)
     }

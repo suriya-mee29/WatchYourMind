@@ -24,24 +24,19 @@ struct ManualActivityList: View {
     @State var iSSave : Bool = false
     @State var isIphone: Bool = false
     
-    let feedback = UIImpactFeedbackGenerator(style: .heavy)
-    @EnvironmentObject var measurement: Measurement
+//    let feedback = UIImpactFeedbackGenerator(style: .heavy)
+//    @EnvironmentObject var measurement: Measurement
     
-    
-    
-//    @EnvironmentObject var activitylist: ManualList
-   
 
- 
     var body: some View {
         ZStack{
-            if measurement.showingProduct == false{
+//            if measurement.showingProduct == false{
 
             
             VStack{
             ScrollView(.vertical, showsIndicators: false) {
                 
-                NavigationBarManualActivityList()
+//                NavigationBarManualActivityList()
                 
             
                 
@@ -116,43 +111,33 @@ struct ManualActivityList: View {
                     })
 
                     
-                    HStack{
-                        
-                    
-    
-//                   ZStack {
-                       
-                    Button(action: {
-//                            self.selectedTag = "xx"
-
-                    }, label: {
-                        Image(systemName: "chevron.forward")
-                            .scaledToFit()
-                            
-                            
-
-                             .fixedSize()
-                             .foregroundColor(.black)
-                             
-                            .frame(width: 20, height: 20)
-                            .padding()
-                            .background(Color.white)
-                            .frame(width: 40, height: 40)
-                            .cornerRadius(100)
-                            .onTapGesture {
-                              feedback.impactOccurred()
-
-                                measurement.showingProduct = true
-//                                  }
-                            }
-
-                    }) //: BUTTON-NEXT
-
-//                    }//:ZSTACK
-
-                        
-                        
-                    }//:HSTACK
+//                    HStack{
+//
+//                    Button(action: {
+//
+//                    }, label: {
+//                        Image(systemName: "chevron.forward")
+//                            .scaledToFit()
+//                             .fixedSize()
+//                             .foregroundColor(.black)
+//
+//                            .frame(width: 20, height: 20)
+//                            .padding()
+//                            .background(Color.white)
+//                            .frame(width: 40, height: 40)
+//                            .cornerRadius(100)
+////                            .onTapGesture {
+////                              feedback.impactOccurred()
+////                                measurement.showingProduct = true
+////                            }
+//
+//                    }) //: BUTTON-NEXT
+//
+////                    }//:ZSTACK
+//
+//
+//
+//                    }//:HSTACK
 
                                 }
                             
@@ -230,11 +215,11 @@ struct ManualActivityList: View {
                             .background(Color.white)
                             .frame(width: 40, height: 40)
                             .cornerRadius(100)
-                            .onTapGesture {
-                              feedback.impactOccurred()
-
-                                measurement.showingProduct = true
-                            }
+//                            .onTapGesture {
+//                              feedback.impactOccurred()
+//
+//                                measurement.showingProduct = true
+//                            }
 
                     }) //: BUTTON-NEXT
 
@@ -280,10 +265,10 @@ struct ManualActivityList: View {
             })//:onAppear
             .navigationBarTitle("ActivityListView", displayMode: .inline)
             
-        }
-        else{
-            MeasurementView()
-        }
+//        }
+//        else{
+//            MeasurementView()
+//        }
         }
     }
 }
@@ -291,10 +276,7 @@ struct ManualActivityList: View {
 struct ManualActivityList_Previews: PreviewProvider {
     static var previews: some View {
         ManualActivityList()
-            .environmentObject(Measurement())
-         
-
-//            .environmentObject(ManualList())
-            
+//            .environmentObject(Measurement())
+                    
     }
 }

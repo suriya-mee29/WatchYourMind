@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SheetTableView: View {
     @State var showSheetView = false
-    let animals: [Animal] = Bundle.main.decode("animals.json")
+    let animals: [User] = Bundle.main.decode("users.json")
     var body: some View {
         
 //        VStack {

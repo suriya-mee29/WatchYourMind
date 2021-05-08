@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AnalysisTable: View {
-    let animals : [Animal]
+    let animals : [User]
     @State var showSheetView = false
     var body: some View {
         VStack(alignment: .leading,spacing: 0){
@@ -56,7 +56,7 @@ struct MeasureSheetView: View {
 }
 
 struct AnalysisTable_Previews: PreviewProvider {
-    static let animals: [Animal] = Bundle.main.decode("animals.json")
+    static let animals: [User] = Bundle.main.decode("users.json")
     static var previews: some View {
         AnalysisTable(animals: animals)
             

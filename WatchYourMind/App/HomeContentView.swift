@@ -8,7 +8,12 @@
 import SwiftUI
 class Shop: ObservableObject {
   @Published var showingProduct: Bool = false
-  @Published var selectedProduct: Animal? //= nil
+  @Published var selectedProduct: User? //= nil
+}
+
+class ListClientRequest: ObservableObject {
+  @Published var showingProduct: Bool = false
+  @Published var selectedProduct: FriendsView? //= nil
 }
 struct HomeContentView: View {
     //MARK:- PROPERTIES
@@ -23,26 +28,30 @@ struct HomeContentView: View {
     
 //    let colorBackground: Color = Color("bg-1")
     @State var isLinkActive = false
-    @State var animals: [Animal] = Bundle.main.decode("animals.json")
+    @State var animals: [User] = Bundle.main.decode("users.json")
     @State var isNavigationBarHidden: Bool = true
     
     @State var datePicker : Date = Date()
     @State var isExpanded = false
-    @State var statusSeed: [Animal] = Bundle.main.decode("StatusSeed.json")
+    @State var statusSeed: [User] = Bundle.main.decode("StatusSeed.json")
     @State var isExpanded2 = false
-    @State var statusSeeding: [Animal] = Bundle.main.decode("StatusSeeding.json")
+    @State var statusSeeding: [User] = Bundle.main.decode("StatusSeeding.json")
     @State var isExpanded3 = false
-    @State var statusSapling: [Animal] = Bundle.main.decode("StatusSapling.json")
+    @State var statusSapling: [User] = Bundle.main.decode("StatusSapling.json")
     @State var isExpanded4 = false
-    @State var statusTree: [Animal] = Bundle.main.decode("StatusTree.json")
+    @State var statusTree: [User] = Bundle.main.decode("StatusTree.json")
     @State var isExpanded5 = false
-    @State var statusBlooming: [Animal] = Bundle.main.decode("StatusBlooming.json")
+    @State var statusBlooming: [User] = Bundle.main.decode("StatusBlooming.json")
+    
+    @State var isExpandedButtonBell = false
+    let feedbackbell = UIImpactFeedbackGenerator(style: .heavy)
+    @EnvironmentObject var clientRequest: ListClientRequest
     
     //MARK:-BODY
     var body: some View {
        
         ZStack{
-        if shop.showingProduct == false  {
+            if shop.showingProduct == false && clientRequest.showingProduct == false {
             VStack {
                 VStack(spacing: 0){
                     HStack{
@@ -116,24 +125,49 @@ struct HomeContentView: View {
 
                             
                         ZStack {
-                            Button(action: {}, label: {
-                                Image(systemName: "bell")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 20, height: 20)
-                                    .padding()
-                                    .background(Color.white)
-                                    .frame(width: 40, height: 40)
-                                    .cornerRadius(100)
+                           
+                        Button(action: {
+                        }, label: {
+                            Image(systemName: "bell")
+                                .scaledToFit()
+                                 .fixedSize()
+                                 .foregroundColor(.black)
+                                 
+                                .frame(width: 20, height: 20)
+                                .padding()
+                                .background(Color.white)
+                                .frame(width: 40, height: 40)
+                                .cornerRadius(100)
+                                .onTapGesture {
+                                  feedbackbell.impactOccurred()
+                                clientRequest.showingProduct = true
+                                }
+                        }) //: BUTTON-BELL
 
-                                    .fixedSize()
-                                    .foregroundColor(.black)
-                            }) //: BUTTON-BELL
-    //                    }
-                        .frame(width: 0, height: 0, alignment: .center)
+                        }//:ZSTACK
+                        .padding(.trailing,10)
+    //                    Spacer()
+                        
+                        .frame( height: 80)
+                        
+                        ZStack {
+                           
+                        Button(action: {
+                        }, label: {
+                            Image(systemName: "lock.open")
+                                .scaledToFit()
+                                 .fixedSize()
+                                 .foregroundColor(.black)
+                                 
+                                .frame(width: 20, height: 20)
+                                .padding()
+                                .background(Color.white)
+                                .frame(width: 40, height: 40)
+                                .cornerRadius(100)
 
-                            
-                        }
+                        }) //: BUTTON-Sing Out
+
+                        }//:ZSTACK
                         .padding(.trailing,50)
     //                    Spacer()
                         
@@ -325,7 +359,6 @@ struct HomeContentView: View {
                         .onChange(of: datePicker, perform: { value in
 
                             self.animals = Bundle.main.decode("otherDate.json")
-
                         })
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                         .shadow(radius: 10 )
@@ -335,12 +368,13 @@ struct HomeContentView: View {
                 .background(colorBackground.ignoresSafeArea(.all, edges: .all))
           
             }
-                }else{
+            }else if (shop.showingProduct == true){
                     
-                    SearchView2()
+                    SearchView2()}
+                else{
+                    FriendsView()
                         
                 }//:Else
-            
         
         }//: ZStack
         .ignoresSafeArea(.all, edges: .top)
@@ -360,6 +394,8 @@ struct HomeContentView_Previews: PreviewProvider {
     static var previews: some View {
             HomeContentView()
                 .environmentObject(Shop())
+                .environmentObject(ListClientRequest())
+                .environmentObject(Preact())
         }
     }
 
