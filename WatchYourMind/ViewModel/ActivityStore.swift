@@ -30,6 +30,7 @@ class ActivityStore : ObservableObject {
                 
             }else{
                 print(err)
+                
             }
         }
     }
@@ -89,7 +90,6 @@ class ActivityStore : ObservableObject {
                             }
                             activityModel.setCount(count: num)
                             
-                            print(activityModel)
                             if isAuto{
                                 self.activityList.append(activityModel)
                             }else{
