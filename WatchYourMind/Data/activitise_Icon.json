@@ -1,0 +1,207 @@
+[
+    {
+        "id": "1",
+        "iconName" : "arcade-machine"
+    },
+    {
+        "id": "2",
+        "iconName" : "badminton"
+    },
+
+    {
+        "id": "3",
+        "iconName" : "basketball"
+    },
+
+    {
+        "id": "4",
+        "iconName" : "bricks"
+    },
+
+    {
+        "id": "5",
+        "iconName" : "bumper-car"
+    },
+
+    {
+        "id": "6",
+        "iconName" : "calculating"
+    },
+
+    {
+        "id": "7",
+        "iconName" : "carousel"
+    },
+
+    {
+        "id": "8",
+        "iconName" : "catch"
+    },
+    {
+        "id": "10",
+        "iconName" : "circus-tent"
+    },
+    {
+        "id": "11",
+        "iconName" : "claw-machine"
+    },
+    {
+        "id": "12",
+        "iconName" : "dart-board"
+    },
+    {
+        "id": "13",
+        "iconName" : "doll"
+    },
+    {
+        "id": "14",
+        "iconName" : "dolls-house"
+    },
+    {
+        "id": "15",
+        "iconName" : "drawing"
+    },
+    {
+        "id": "16",
+        "iconName" : "fairytale"
+    },
+    {
+        "id": "17",
+        "iconName" : "gaming"
+    },
+    {
+        "id": "18",
+        "iconName" : "horse"
+    },
+    {
+        "id": "19",
+        "iconName" : "insect"
+    },
+    {
+        "id": "20",
+        "iconName" : "kindergarten"
+    },
+    {
+        "id": "21",
+        "iconName" : "kite"
+    },
+    {
+        "id": "22",
+        "iconName" : "learning"
+    },
+    {
+        "id": "23",
+        "iconName" : "mole-game"
+    },
+    {
+        "id": "24",
+        "iconName" : "monkey-bars"
+    },
+    {
+        "id": "25",
+        "iconName" : "music-player"
+    },
+    {
+        "id": "26",
+        "iconName" : "painting"
+    },
+    {
+        "id": "27",
+        "iconName" : "ping-pong"
+    },
+    {
+        "id": "28",
+        "iconName" : "playground"
+    },
+    {
+        "id": "29",
+        "iconName" : "puzzle"
+    },
+    {
+        "id": "30",
+        "iconName" : "rc-car"
+    },
+    {
+        "id": "31",
+        "iconName" : "robot"
+    },
+    {
+        "id": "32",
+        "iconName" : "roller-skate"
+    },
+    {
+        "id": "33",
+        "iconName" : "sand-bucket"
+    },
+    {
+        "id": "34",
+        "iconName" : "sand-castle"
+    },
+    {
+        "id": "35",
+        "iconName" : "sandbox"
+    },
+    {
+        "id": "36",
+        "iconName" : "school"
+    },
+    {
+        "id": "37",
+        "iconName" : "scout-2"
+    },
+    {
+        "id": "38",
+        "iconName" : "scout"
+    },
+    {
+        "id": "39",
+        "iconName" : "skateboarding"
+    },
+    {
+        "id": "40",
+        "iconName" : "soccer"
+    },
+    {
+        "id": "41",
+        "iconName" : "soldier"
+    },
+    {
+        "id": "43",
+        "iconName" : "swimming-pool"
+    },
+    {
+        "id": "44",
+        "iconName" : "swing"
+    },
+    {
+        "id": "45",
+        "iconName" : "sword"
+    },
+    {
+        "id": "46",
+        "iconName" : "tea-set"
+    },
+    {
+        "id": "47",
+        "iconName" : "toy-train"
+    },{
+        "id": "48",
+        "iconName" : "toys"
+    },
+    {
+        "id": "49",
+        "iconName" : "tree-house"
+    },
+    {
+        "id": "50",
+        "iconName" : "vr-glasses"
+    },
+    {
+        "id": "51",
+        "iconName" : "water-gun"
+    },
+    {
+        "id": "52",
+        "iconName" : "xylophone"
+    }
+]

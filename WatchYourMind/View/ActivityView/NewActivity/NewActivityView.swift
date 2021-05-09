@@ -17,7 +17,19 @@ struct NewActivityView: View {
     @Binding var showSheetView : Bool
     @State var showImagePicker:Bool = false
     @State var selectedImage: Image? = Image("")
-
+    let activitiseIcon :[ActivitiesIcon] = Bundle.main.decode("activitise_Icon.json")
+    
+    @State var selectedIcon : String = "gallery"
+    
+    @State var image_file : Image?
+    @State var link_file : String = ""
+    
+    let haptics = UIImpactFeedbackGenerator(style: .medium)
+    
+    @State var isLoading : Bool = false
+    @State var showAlert : Bool = false
+    @State var alertMessage : String = ""
+    @State var headerMsg : String = ""
     
 
     var body: some View {
@@ -61,7 +73,12 @@ struct NewActivityView: View {
                     self.showImagePicker.toggle()
                 }, label: {
                     //                    Text("Select Image")
-                    Image(systemName: "photo")
+                    Image(self.selectedIcon)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 50, height: 50, alignment: .center)
+                        
+                    
                 })//:Button
                 self.selectedImage?
                     .resizable()
@@ -73,9 +90,10 @@ struct NewActivityView: View {
             }//:HSTACK
             .sheet(isPresented: $showImagePicker,
                    content:{
-                    ImagePicker(image: self.$selectedImage)
+                    ActivityIconGalleryView(selectedIcon: $selectedIcon, showImagePicker: $showImagePicker)
                     
                    })
+            
             .padding(.horizontal,8)
             .padding(.bottom,30)
 
@@ -83,6 +101,7 @@ struct NewActivityView: View {
             Text("Explannation of Activity ")
                 .font(.system(size:30))
                 .foregroundColor(.black)
+                
            
             TextEditor(text: $fullText)
                 .font(.title)
@@ -104,7 +123,7 @@ struct NewActivityView: View {
                 Text("Attach an activity file/link")
                     .font(.system(size:30))
                     .foregroundColor(.black)
-                ContentTabsView()
+            ContentTabsView(photo_file: self.$image_file, link_file: self.$link_file)
                     .padding(.horizontal,8)
                     .padding(.bottom,30)
 
@@ -113,6 +132,7 @@ struct NewActivityView: View {
                 .font(.system(size:30))
                 .foregroundColor(.black)
             GridPicker( selectedItems: $selectedItems)
+                .padding(.bottom,50)
        
         
         }
@@ -120,24 +140,83 @@ struct NewActivityView: View {
                 
                 
                 Button(action: {
-                    var strArr : [String] = []
-                    if selectedItems.count > 0 {
-                    for i in 0...(selectedItems.count - 1) {
-                        strArr.append(self.selectedItems[1].name)
-                    }
+                    if !text.isEmpty{
+                        if selectedIcon != "gallery"{
+                            if !fullText.isEmpty{
+                                
+                                var newActivity : [String : Any] =
+                                    [
+                                        "title" : self.text ,
+                                        "imageIcon" : self.selectedIcon,
+                                        "description": self.fullText
+                                    ]
+                                
+                                
+                                //optional
+                                
+                                //attach file
+                                if self.image_file != nil{
+                                    
+                                    //store image to file storage
+                                    //save url to db
+                                   
+                                }
+                                
+                                //outcome req
+                                if self.selectedItems.count > 0{
+                                    var outcomeReq = [String]()
+                                    for i in 0...(self.selectedItems.count-1){
+                                        outcomeReq.append(self.selectedItems[i].name)
+                                    }
+                                    newActivity["outcomeReq"] = outcomeReq
+                                }
+                                
+                                
+                            }else{
+                                self.headerMsg = "From invalide"
+                                self.alertMessage = "Please explain your activity"
+                                self.showAlert = true
+                            }
+                            
+                        }else{
+                            self.headerMsg = "From invalide"
+                            self.alertMessage = "Please select an icon to represent your activity"
+                            self.showAlert = true
+                        }
+                        
+                        
+                    }else{
+                        self.headerMsg = "From invalide"
+                        self.alertMessage = "Plese define the activity name"
+                        self.showAlert = true
                     }
                     
-                    let data = ManualActivityModel(id: UUID().uuidString, createby: "admin", title: text, description: fullText, createDate: Date(), type: "MANUAL", imageicon: "", link: "", pic: "", outcome: strArr)
-                    self.activityData = data
+                    
+                    
                     self.iSSave = true
                     self.showSheetView = false
                 }, label: {
-                    Text("save")
+                    HStack {
+                        Text("save")
+                            .font(.title3)
+                            .fontWeight(.bold)
+                            .padding()
+                            .foregroundColor(.white)
+                    }
+                    .frame(width: 100)
                 })
                 .disabled(text.isEmpty || fullText.isEmpty)
+                .padding(.horizontal,10)
+                .background(Color("IconTabBar"))
+                .clipShape(Capsule())
 
         }
           }
+          .alert(isPresented: $showAlert , content: {
+            Alert(title: Text(self.headerMsg.uppercased()), message: Text("\(self.alertMessage)"), dismissButton: .default(Text("OK!")))
+                      }
+          )
+
           .navigationBarTitle("New Activity", displayMode: .large)
           .navigationBarItems(trailing: Button(action: {
               print("Dismissing sheet view...")
@@ -145,6 +224,9 @@ struct NewActivityView: View {
           }) {
               Text("Done").bold()
           })
+          .padding()
+        
+        
   
         
     }

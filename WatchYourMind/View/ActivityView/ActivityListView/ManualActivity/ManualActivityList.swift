@@ -24,6 +24,8 @@ struct ManualActivityList: View {
     @State var iSSave : Bool = false
     @State var isIphone: Bool = false
     
+    @ObservedObject var activityStore = ActivityStore()
+    
 //    let feedback = UIImpactFeedbackGenerator(style: .heavy)
 //    @EnvironmentObject var measurement: Measurement
     
@@ -37,10 +39,8 @@ struct ManualActivityList: View {
             ScrollView(.vertical, showsIndicators: false) {
                 
 //                NavigationBarManualActivityList()
-                
-            
-                
-            if !isIphone{
+
+            if !isIphone{ // iPad mac
                 HStack(alignment:.top){
                     AutoActivityList(isSelectedAuto: .constant([]))
                         .padding(.trailing,100)
@@ -66,7 +66,7 @@ struct ManualActivityList: View {
 //                        .padding(.trailing,100)
 
                     }
-                    Text("\(arr.arrManualActivity?.count ?? 0) Activities")
+                    Text("\(self.activityStore.maualActivityList.count) Activities")
                 }//:VStack
                 Button(action: {
            self.showSheetView.toggle()
@@ -100,14 +100,19 @@ struct ManualActivityList: View {
     //                if !isSelected {
                     ScrollView(.vertical, showsIndicators: false, content:{
                         
-                    ForEach(arr.arrManualActivity ?? []) { item in
+                        ForEach(self.activityStore.maualActivityList) { item in
+                            if item.type == "MANUAL"{
+                                ManualActivityFlipView(activityName: item.title , assined:"\(item.count)", create: item.createdDate,  description: item.description)
+                                    .padding()
+                            }
                         
-                        ManualActivityFlipView(activityName: item.title , assined:"\(arr.PersonCount())", create: item.createDate,  description: item.description)
+                       
 
                                 
-                        .padding()
+                      
            
                     }
+                        
                     })
 
                     
@@ -155,6 +160,8 @@ struct ManualActivityList: View {
                 }//:HSTACK
             }//:IF
             else{
+                
+                   
                 VStack{
                     AutoActivityList(isSelectedAuto: .constant([]))
             VStack(alignment: .leading, spacing: 0){
@@ -174,7 +181,7 @@ struct ManualActivityList: View {
                         .font(.title)
                         .fontWeight(.bold)
                     
-                    Text("\(arr.arrManualActivity?.count ?? 0) Activities")
+                    Text("\(self.activityStore.maualActivityList.count) Activities")
                 }
                 
             }
@@ -182,9 +189,9 @@ struct ManualActivityList: View {
                 VStack(alignment: .leading) {
     //                if !isSelected {
                     ScrollView(.vertical, showsIndicators: false, content:{
-                    ForEach(arr.arrManualActivity ?? []) { item in
+                        ForEach(self.activityStore.maualActivityList) { item in
                         
-                        ManualActivityFlipView(activityName: item.title , assined:"\(arr.PersonCount())", create: item.createDate,  description: item.description)
+                            ManualActivityFlipView(activityName: item.title, assined: "\(item.count)", create: item.createdDate, description: item.description)
                             
                         .padding()
                             
@@ -262,6 +269,7 @@ struct ManualActivityList: View {
                 }else{
                     isIphone = false
                 }
+                print(isIphone)
             })//:onAppear
             .navigationBarTitle("ActivityListView", displayMode: .inline)
             

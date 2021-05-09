@@ -7,12 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		516CF45B264692AF00CD9537 /* activitise_Icon.json in Resources */ = {isa = PBXBuildFile; fileRef = 516CF45A264692AF00CD9537 /* activitise_Icon.json */; };
+		516CF45D264695F000CD9537 /* ActivitiesIconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516CF45C264695F000CD9537 /* ActivitiesIconModel.swift */; };
+		516CF45F26469A4F00CD9537 /* ActivityIconGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516CF45E26469A4F00CD9537 /* ActivityIconGalleryView.swift */; };
+		516CF4612646AD3300CD9537 /* Utillity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516CF4602646AD3300CD9537 /* Utillity.swift */; };
+		516CF4632647DD2200CD9537 /* ActivityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516CF4622647DD2200CD9537 /* ActivityModel.swift */; };
+		516CF4652647DF9300CD9537 /* ActivityStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516CF4642647DF9300CD9537 /* ActivityStore.swift */; };
 		51FD717526453412002C3CE6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 51FD717426453412002C3CE6 /* GoogleService-Info.plist */; };
 		51FD717826453750002C3CE6 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 51FD717726453750002C3CE6 /* FirebaseAuth */; };
 		51FD717A26453750002C3CE6 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 51FD717926453750002C3CE6 /* FirebaseFirestore */; };
 		51FD717C26453750002C3CE6 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 51FD717B26453750002C3CE6 /* FirebaseStorage */; };
 		51FD718026453B4A002C3CE6 /* PsychologistManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FD717F26453B4A002C3CE6 /* PsychologistManagement.swift */; };
 		51FD718226455478002C3CE6 /* ContentView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FD718126455478002C3CE6 /* ContentView2.swift */; };
+		51FD718426468AAA002C3CE6 /* constance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FD718326468AAA002C3CE6 /* constance.swift */; };
 		96029D5125FB40A600BB6433 /* AutoActivityData.json in Resources */ = {isa = PBXBuildFile; fileRef = 96029D5025FB40A600BB6433 /* AutoActivityData.json */; };
 		9603749A260C99E000677C04 /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96037499260C99E000677C04 /* ToDoItem.swift */; };
 		9603749C260C9A7C00677C04 /* SearchView2Continue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9603749B260C9A7C00677C04 /* SearchView2Continue.swift */; };
@@ -165,9 +172,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		516CF45A264692AF00CD9537 /* activitise_Icon.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = activitise_Icon.json; sourceTree = "<group>"; };
+		516CF45C264695F000CD9537 /* ActivitiesIconModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesIconModel.swift; sourceTree = "<group>"; };
+		516CF45E26469A4F00CD9537 /* ActivityIconGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIconGalleryView.swift; sourceTree = "<group>"; };
+		516CF4602646AD3300CD9537 /* Utillity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utillity.swift; sourceTree = "<group>"; };
+		516CF4622647DD2200CD9537 /* ActivityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityModel.swift; sourceTree = "<group>"; };
+		516CF4642647DF9300CD9537 /* ActivityStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStore.swift; sourceTree = "<group>"; };
 		51FD717426453412002C3CE6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		51FD717F26453B4A002C3CE6 /* PsychologistManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PsychologistManagement.swift; sourceTree = "<group>"; };
 		51FD718126455478002C3CE6 /* ContentView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView2.swift; sourceTree = "<group>"; };
+		51FD718326468AAA002C3CE6 /* constance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constance.swift; sourceTree = "<group>"; };
 		96029D5025FB40A600BB6433 /* AutoActivityData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AutoActivityData.json; sourceTree = "<group>"; };
 		96037499260C99E000677C04 /* ToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
 		9603749B260C9A7C00677C04 /* SearchView2Continue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView2Continue.swift; sourceTree = "<group>"; };
@@ -584,6 +598,7 @@
 				9633D43E262EDA6000DB0B09 /* StatusTree.json */,
 				9633D441262EDAE800DB0B09 /* StatusBlooming.json */,
 				96FB34D62645A3990038A3CB /* userRequestData.swift */,
+				516CF45A264692AF00CD9537 /* activitise_Icon.json */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -595,6 +610,7 @@
 				962D96602601124C00801486 /* LinearGradient.swift */,
 				962D96622601127700801486 /* ColorExtension.swift */,
 				962D9664260112A300801486 /* UIColorExtension.swift */,
+				516CF4602646AD3300CD9537 /* Utillity.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -605,6 +621,8 @@
 				9659668225F7D7D800686D47 /* AutoActivityModel.swift */,
 				966553D4262D7089000236E7 /* ManualActivityModel.swift */,
 				96FB34D426459CFD0038A3CB /* userRequestModel.swift */,
+				516CF45C264695F000CD9537 /* ActivitiesIconModel.swift */,
+				516CF4622647DD2200CD9537 /* ActivityModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -615,6 +633,7 @@
 				51FD717E26453AB4002C3CE6 /* User */,
 				968F5A64263C2307003CACEA /* AutoActivity */,
 				966553E3262D80D8000236E7 /* ManualActivity */,
+				516CF4642647DF9300CD9537 /* ActivityStore.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -817,6 +836,7 @@
 				96E38EB625E3D03600F63BAB /* Assets.xcassets */,
 				96E38EBB25E3D03600F63BAB /* Info.plist */,
 				96E38EB825E3D03600F63BAB /* Preview Content */,
+				51FD718326468AAA002C3CE6 /* constance.swift */,
 			);
 			path = WatchYourMind;
 			sourceTree = "<group>";
@@ -846,6 +866,7 @@
 				960E09FD25ECB1F6004F9ECA /* ActivityView */,
 				960E09E625EC99D7004F9ECA /* HomeView */,
 				51FD718126455478002C3CE6 /* ContentView2.swift */,
+				516CF45E26469A4F00CD9537 /* ActivityIconGalleryView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -918,6 +939,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				51FD717526453412002C3CE6 /* GoogleService-Info.plist in Resources */,
+				516CF45B264692AF00CD9537 /* activitise_Icon.json in Resources */,
 				966553D2262D61CC000236E7 /* otherDate.json in Resources */,
 				96E96D3A261B413F005D27D4 /* users.json in Resources */,
 				9633D43F262EDA6000DB0B09 /* StatusTree.json in Resources */,
@@ -948,6 +970,7 @@
 				967869F025F0AF1600AB4C71 /* EmotionView.swift in Sources */,
 				968F5A55263BE5BF003CACEA /* DeleteActivity.swift in Sources */,
 				962D96522600E16C00801486 /* MeasurementView.swift in Sources */,
+				516CF45F26469A4F00CD9537 /* ActivityIconGalleryView.swift in Sources */,
 				962D96542600E1CF00801486 /* NewActivityView.swift in Sources */,
 				51FD718026453B4A002C3CE6 /* PsychologistManagement.swift in Sources */,
 				9659667F25F7D7A100686D47 /* CodableBundleExtension.swift in Sources */,
@@ -963,6 +986,7 @@
 				96B5D0322605DED3006E4020 /* Helpers.swift in Sources */,
 				9610B05C2603517A001E9A7B /* BottonSend.swift in Sources */,
 				96B946FC260724C2002CB85D /* AnalysisView.swift in Sources */,
+				516CF45D264695F000CD9537 /* ActivitiesIconModel.swift in Sources */,
 				962D96632601127700801486 /* ColorExtension.swift in Sources */,
 				96F677C525F8C87E007DA88F /* ActiveOption.swift in Sources */,
 				960BA50925E8B71E007265EC /* CalendarPicker.swift in Sources */,
@@ -1029,12 +1053,15 @@
 				96ADE4BE2608A6B00029F37D /* CardOutcome.swift in Sources */,
 				9635561E260138FC008ECDD9 /* MeasureFront.swift in Sources */,
 				960BA51425E8FD03007265EC /* NicknameView.swift in Sources */,
+				516CF4632647DD2200CD9537 /* ActivityModel.swift in Sources */,
+				516CF4612646AD3300CD9537 /* Utillity.swift in Sources */,
 				96E96D3C261B4185005D27D4 /* AnimalListItemView.swift in Sources */,
 				96FB34D526459CFD0038A3CB /* userRequestModel.swift in Sources */,
 				960BA52025E90AF0007265EC /* MainView.swift in Sources */,
 				962E9EAA263DDA8900FF1ABF /* NavigationBarMeasurement.swift in Sources */,
 				9603749A260C99E000677C04 /* ToDoItem.swift in Sources */,
 				96ADE4BC2608A5EC0029F37D /* CardAssign.swift in Sources */,
+				51FD718426468AAA002C3CE6 /* constance.swift in Sources */,
 				96829DEB261487B600066395 /* GridPickerMeasure2.swift in Sources */,
 				96C4DF26263ECF40005A9B64 /* NavigationBarManualActivityList.swift in Sources */,
 				964A5A3D25ECDBDA0042DD46 /* PreActivity.swift in Sources */,
@@ -1065,6 +1092,7 @@
 				96CA0E562611ED31007A09F5 /* SearchView2.swift in Sources */,
 				9665C47E25E677680081B5CE /* StatusGridView.swift in Sources */,
 				961FA705263FFEEA006D781A /* FriendRow.swift in Sources */,
+				516CF4652647DF9300CD9537 /* ActivityStore.swift in Sources */,
 				9633D445262EE6B200DB0B09 /* TestCheckEmpty.swift in Sources */,
 				96CA0E52260DBD43007A09F5 /* SearchView3.swift in Sources */,
 				96829DE9261475F600066395 /* ActivityListView2.swift in Sources */,
@@ -1208,7 +1236,7 @@
 				CODE_SIGN_ENTITLEMENTS = WatchYourMind/WatchYourMind.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"WatchYourMind/Preview Content\"";
-				DEVELOPMENT_TEAM = 7RU68K58X9;
+				DEVELOPMENT_TEAM = 9DVU79YMW5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/WatchYourMind/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1217,7 +1245,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.swiftuimuimasterclass3.WatchYourMind;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swiftuimuimasterclassWatchYourMind;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
@@ -1233,7 +1261,7 @@
 				CODE_SIGN_ENTITLEMENTS = WatchYourMind/WatchYourMind.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"WatchYourMind/Preview Content\"";
-				DEVELOPMENT_TEAM = 7RU68K58X9;
+				DEVELOPMENT_TEAM = 9DVU79YMW5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/WatchYourMind/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1242,7 +1270,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.swiftuimuimasterclass3.WatchYourMind;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swiftuimuimasterclassWatchYourMind;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;

@@ -47,6 +47,13 @@ struct HomeContentView: View {
     let feedbackbell = UIImpactFeedbackGenerator(style: .heavy)
     @EnvironmentObject var clientRequest: ListClientRequest
     
+    var psychologistManagement = PsychologistManagement()
+    @Binding var isAuthen : Bool
+    
+    @State var showAlert : Bool = false
+    @State var alertMessage : String = ""
+    @State var headerMag : String = ""
+    
     //MARK:-BODY
     var body: some View {
        
@@ -153,6 +160,16 @@ struct HomeContentView: View {
                         ZStack {
                            
                         Button(action: {
+                            psychologistManagement.singOut { sucess, msg in
+                                if sucess {
+                                    self.isAuthen = false
+                                }else{
+                                    self.headerMag = "Fail to sing out"
+                                    self.alertMessage = msg
+                                    self.showAlert = true
+                                }
+                            }
+                            
                         }, label: {
                             Image(systemName: "lock.open")
                                 .scaledToFit()
@@ -378,6 +395,10 @@ struct HomeContentView: View {
         
         }//: ZStack
         .ignoresSafeArea(.all, edges: .top)
+        .alert(isPresented: $showAlert , content: {
+            Alert(title: Text(self.headerMag.uppercased()), message: Text("\(self.alertMessage)"), dismissButton: .default(Text("OK!")))
+                    }
+        )
 
 
 
@@ -392,7 +413,7 @@ struct HomeContentView: View {
 //MARK:-PREVIEW
 struct HomeContentView_Previews: PreviewProvider {
     static var previews: some View {
-            HomeContentView()
+        HomeContentView( isAuthen: .constant(true))
                 .environmentObject(Shop())
                 .environmentObject(ListClientRequest())
                 .environmentObject(Preact())

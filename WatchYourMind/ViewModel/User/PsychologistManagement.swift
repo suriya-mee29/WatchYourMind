@@ -36,6 +36,9 @@ class PsychologistManagement : ObservableObject {
         let authentication = Auth.auth()
         do{
             try authentication.signOut()
+            let userdefults = UserDefaults.standard
+                userdefults.set(false, forKey: "USER_AUTHEN")
+                userdefults.set("", forKey: "CURRENT_USER")
             completion(true,"sing out seccsee")
         }catch{
             completion(false,error.localizedDescription)

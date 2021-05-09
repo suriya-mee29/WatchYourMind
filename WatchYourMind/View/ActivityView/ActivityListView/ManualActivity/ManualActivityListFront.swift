@@ -10,7 +10,7 @@ import SwiftUI
 struct ManualActivityListFront: View {
     let activityName: String
     let assined:String
-    let create: Date
+    let create: Date?
     let colorActivity: String
     @State var isBack : Bool = false
     var body: some View {
@@ -46,6 +46,7 @@ struct ManualActivityListFront: View {
             .padding(.trailing)
 
 //            Spacer()
+                if create != nil {
             HStack{
                 
                 VStack {
@@ -53,10 +54,11 @@ struct ManualActivityListFront: View {
                         .font(.system(size: 20))
                         .fontWeight(.bold)
                 
-                Text("\(create , formatter: taskDateFormat)")
+                Text("\(create! , formatter: taskDateFormat)")
                     .font(.system(size: 20))
                 }
             }//:HSTACK
+                }
 
             
             }//:HSTACK ALL

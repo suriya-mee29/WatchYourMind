@@ -17,7 +17,7 @@ struct ManualActivityFlipView: View {
     //Font
     let activityName: String
     let assined:String
-    let create: Date
+    let create : Date?
     
     //Back
     let description:String
@@ -36,7 +36,7 @@ struct ManualActivityFlipView: View {
                    
 //                    .padding()
                     
-                ManualActivityListFront(activityName: activityName, assined: assined, create: Date(), colorActivity: "incompleteColor").opacity(flipped ? 0.0 : 1.0)
+                ManualActivityListFront(activityName: activityName, assined: assined, create: create, colorActivity: "incompleteColor").opacity(flipped ? 0.0 : 1.0)
                 
                 
                 ManualActivityListBack(titlename: activityName, description: description).opacity(flipped ? 1.0 : 0.0)

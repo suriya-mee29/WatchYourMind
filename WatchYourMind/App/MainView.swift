@@ -7,22 +7,23 @@
 import SwiftUI
 
 struct MainView: View {
+    @Binding var isAuthen : Bool
     
     var body: some View {
 //        ScrollView{
          
         TabView{
-              HomeContentView()
+            HomeContentView( isAuthen: $isAuthen)
                 .tabItem {
                     Image(systemName: "house")
 //Image(systemName: "house.fill")
                 
                   Text("HOME")
                 }
-                    PreActivity()
+                    ManualActivityList()
                         .tabItem {
-                            Image(systemName: "person.badge.plus")
-                            Text("NEW CLIENT")
+                            Image(systemName: "plus")
+                            Text("acc activity".uppercased())
                         }
             
     }//:TAB
@@ -37,7 +38,7 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        MainView(isAuthen: .constant(true))
             .environmentObject(Shop())
             .environmentObject(ManualList())
             .environmentObject(Measurement())

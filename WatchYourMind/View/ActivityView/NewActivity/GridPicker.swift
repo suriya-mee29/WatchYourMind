@@ -9,16 +9,13 @@ import SwiftUI
 
 enum Items: String, CaseIterable, Equatable {
     case item1 = "PICTURE"
-    case item2 = "VIDEO"
-    case item3 = "URL LINK"
-    case item4 = "VOICE RECORD"
+    case item2 = "URL LINK"
+  
     
     var name: String {
         switch self {
-              case .item1: return "photo"
-              case .item2: return "video"
-              case .item3: return "mic"
-              case .item4: return "link"
+              case .item1: return "reqPhoto"
+              case .item2: return "reqLink"
         }
     }
   
@@ -47,7 +44,6 @@ struct GridPicker: View {
                 }//:LazyVstack
             }
         }//:HSTACK
-        .padding(.leading,350)
 //        }
 //        .navigationViewStyle(StackNavigationViewStyle())
         

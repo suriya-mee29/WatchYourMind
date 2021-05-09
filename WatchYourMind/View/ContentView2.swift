@@ -14,7 +14,6 @@ struct ContentView2: View {
         if userdefults.bool(forKey: "USER_AUTHEN") != true || userdefults.bool(forKey: "USER_AUTHEN") != false  {
             let authen = userdefults.bool(forKey: "USER_AUTHEN" )
             isAuthen = authen
-            print("nil in contentView2")
         }else{
             isAuthen = false
         }
@@ -24,7 +23,7 @@ struct ContentView2: View {
     }
     var body: some View {
         if isAuthen{
-        MainView()
+            MainView(isAuthen: self.$isAuthen)
         }else{
             LoginView(isAuthen: $isAuthen)
         }

@@ -11,7 +11,7 @@ struct Demo1View: View {
     
     var body: some View {
         ZStack {
-            UploadFileContent()
+            //UploadFileContent()
 
 //         Text("Hello World")
 //            .foregroundColor(.black)

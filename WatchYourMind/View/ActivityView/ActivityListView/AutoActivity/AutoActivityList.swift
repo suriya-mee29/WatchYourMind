@@ -13,6 +13,8 @@ struct AutoActivityList: View {
     @ObservedObject var arr : AutoActivityViewModel = AutoActivityViewModel()
     @Binding var isSelectedAuto: [ManualActivityModel]
     
+    @ObservedObject var activityStore = ActivityStore()
+    
 //    let itemActivity: ManualActivityModel
     
     
@@ -37,35 +39,30 @@ struct AutoActivityList: View {
                         .font(.title)
                         .fontWeight(.bold)
                     
-//                    Text("\(arr.arrManualAcc
+                    Text("\(self.activityStore.activityList.count) Activities")
                 }
             
             }
                 VStack(alignment: .leading) {
-                  
-//                    ForEach(arr.arrManualActivity ?? []) { item in
-//
-//                        ManualActivityFlipView(activityName: item.title , assined:"\(arr.PersonCount())", create: item.createDate,  description: item.description)
-//
-//
-//                        .padding()
-//
-//                    }
-                
-//                ForEach(1 ..< 2) { item in
-////                for value in 1...2 {
-//
-//                    AutoActivityFlipView(activityName: "Fitness", assined: "32" , create: Date(), titlename: "Fitness", description: "Mindfulness is the basic human ability to be fully present,aware of where we are and what we’re doing, and not overly reactive or overwhelmed by what’s going on around us.")
-//
-//
-//                    AutoActivityFlipView(activityName: "Mindfulness", assined: "32" , create: Date(), titlename: "Fitness", description: "Mindfulness is the basic human ability to be fully present,aware of where we are and what we’re doing, and not overly reactive or overwhelmed by what’s going on around us.")
-//                }
-//                .padding()
+                    ScrollView(.vertical, showsIndicators: false, content:{
+                        
+                        ForEach(self.activityStore.activityList) { item in
+                            if item.type == "AUTO"{
+                                ManualActivityFlipView(activityName: item.title , assined:"\(item.count)", create: item.createdDate,  description: item.description)
+                                    .padding()
+                            }
+                        
+                       
 
-                
+                                
+                      
+           
+                    }
+                        
+                    })
            
                 }
-//        })
+
             }
            
             

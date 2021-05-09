@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct ContentTabsView: View {
+       @Binding var photo_file : Image?
+       @Binding var link_file : String
         @State private var selectedTab: Int = 0
-    @State private var totalHeight = CGFloat(100) // no matter - just for static Preview !!
+        @State private var totalHeight = CGFloat(100) // no matter - just for static Preview !!
 
 
            let tabs: [Tab] = [
@@ -17,11 +19,13 @@ struct ContentTabsView: View {
                .init(icon: Image(systemName: "link"), title: "Link")
            ]
 
-           init() {
-//               UINavigationBar.appearance().barTintColor = UIColor(#colorLiteral(red: 0.737254902, green: 0.1294117647, blue: 0.2941176471, alpha: 1))
-//               UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.black]
+    init(photo_file : Binding<Image?> , link_file : Binding<String>) {
+        self._photo_file = photo_file
+        self._link_file = link_file
+        
+
                UINavigationBar.appearance().isTranslucent = false
-           }//:TabsSwiftUIExample
+           }
 
            var body: some View {
 //               NavigationView {
@@ -35,9 +39,9 @@ struct ContentTabsView: View {
                                // Views
                                TabView(selection: $selectedTab,
                                        content: {
-                                           Demo1View()
+                                        UploadFileContent( selectedImage: self.$photo_file)
                                                .tag(0)
-                                           Demo2View()
+                                        Demo2View(text: self.$link_file)
                                                .tag(1)
                                            
                                        })
@@ -67,6 +71,6 @@ struct ContentTabsView: View {
 
 struct ContentTabsView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentTabsView()
+        ContentTabsView(photo_file: .constant(Image("")), link_file: .constant(""))
     }
 }
