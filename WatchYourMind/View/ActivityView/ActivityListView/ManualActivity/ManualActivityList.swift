@@ -1,11 +1,12 @@
+////
+////  ManualActivityList.swift
+////  WatchYourMind
+////
+////  Created by Gatang on 14/3/2564 BE.
+////
 //
-//  ManualActivityList.swift
-//  WatchYourMind
-//
-//  Created by Gatang on 14/3/2564 BE.
-//
-
 import SwiftUI
+
 
 class Measurement: ObservableObject {
   @Published var showingProduct: Bool = false
@@ -26,69 +27,62 @@ struct ManualActivityList: View {
     
     @ObservedObject var activityStore = ActivityStore()
     
-//    let feedback = UIImpactFeedbackGenerator(style: .heavy)
-//    @EnvironmentObject var measurement: Measurement
+    let feedback = UIImpactFeedbackGenerator(style: .heavy)
+    @EnvironmentObject var measurement: Measurement
     
 
     var body: some View {
         ZStack{
-//            if measurement.showingProduct == false{
-
-            
+            if measurement.showingProduct == false{
             VStack{
             ScrollView(.vertical, showsIndicators: false) {
                 
-//                NavigationBarManualActivityList()
-
+                NavigationBarManualActivityList()
+                
             if !isIphone{ // iPad mac
                 HStack(alignment:.top){
                     AutoActivityList(isSelectedAuto: .constant([]))
                         .padding(.trailing,100)
+                    
             VStack(alignment: .leading, spacing: 0){
 
+                HStack {
+                    
+                    Image(systemName: "circle")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 50, height: 50)
+                        .foregroundColor(.red)
 
-            HStack {
+                    VStack(alignment:.leading, spacing: 0) {
+                        HStack{
+                        Text("Manual Activity")
+                            .font(.system(size: 30))
+                            
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .fixedSize(horizontal:true, vertical:false)
+                        }//:HSTACK
+                    
+                        Text("\(self.activityStore.maualActivityList.count) Activities")
+                    }//:VSTACK
+                    
+ 
+                    Button(action: {
+               self.showSheetView.toggle()
+           }){
+               Image(systemName: "plus")
+                   .font(.system(size: 40, weight: .regular))
+
+                   .foregroundColor(.purple)
+
+                      .clipShape(Circle())
+                .frame(width: 60, height: 60, alignment: .center)
+                .background(Color.white)
                 
-                Image(systemName: "circle")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 50, height: 50)
-                    .foregroundColor(.red)
-
-                VStack(alignment:.leading, spacing: 0) {
-                    HStack{
-                    Text("Manual Activity")
-                        .font(.system(size: 30))
-                        
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .fixedSize(horizontal:true, vertical:false)
-//                        .padding(.trailing,100)
-
-                    }
-                    Text("\(self.activityStore.maualActivityList.count) Activities")
-                }//:VStack
-                Button(action: {
-           self.showSheetView.toggle()
-       }){
-                   
-           Image(systemName: "plus")
-               .font(.system(size: 40, weight: .regular))
-
-               .foregroundColor(.purple)
-               
-//            .background(Color.gray)
-//               .padding(.leading,0)
-          
-
-               
-                  .clipShape(Circle())
-            .frame(width: 60, height: 60, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-            .background(Color.white)
-            
-            .cornerRadius(100)
-            .shadow(radius: 8 )
-       }
+                .cornerRadius(100)
+                .shadow(radius: 8 )
+           }
                 .padding()
             }//:HStack
            
@@ -104,19 +98,44 @@ struct ManualActivityList: View {
                             if item.type == "MANUAL"{
                                 ManualActivityFlipView(activityName: item.title , assined:"\(item.count)", create: item.createdDate,  description: item.description)
                                     .padding()
+                            }//:IF
+                    }//:LOOP
+                        
+                    })//:ScrollView
+
+                    HStack{
+                   
+                    Button(action: {
+
+                    }, label: {
+                        Image(systemName: "chevron.forward")
+                            .scaledToFit()
+                            
+                            
+
+                             .fixedSize()
+                             .foregroundColor(.black)
+                             
+                            .frame(width: 20, height: 20)
+                            .padding()
+                            .background(Color.white)
+                            .frame(width: 40, height: 40)
+                            .cornerRadius(100)
+                            .onTapGesture {
+                              feedback.impactOccurred()
+
+                                measurement.showingProduct = true
+//                                  }
                             }
-                        
-                       
 
-                                
-                      
-           
+                    }) //: BUTTON-NEXT
+
+//                    }//:ZSTACK
+
+                        
+                        
                     }
-                        
-                    })
-
-
-                                }
+                                }//:VSTACK
                             
                             .sheet(isPresented: $showSheetView) {
                                 NewActivityView(iSSave: $iSSave, activityData: $activityData, showSheetView: $showSheetView )
@@ -159,7 +178,6 @@ struct ManualActivityList: View {
             }
 
                 VStack(alignment: .leading) {
-    //                if !isSelected {
                     ScrollView(.vertical, showsIndicators: false, content:{
                         ForEach(self.activityStore.maualActivityList) { item in
                         
@@ -181,29 +199,25 @@ struct ManualActivityList: View {
     
 //                   ZStack {
                        
-                    Button(action: {
-//                            self.selectedTag = "xx"
+                        Button(action: {
+                        }, label: {
+                            Image(systemName: "chevron.forward")
+                                .scaledToFit()
+                                 .fixedSize()
+                                 .foregroundColor(.black)
+                                .frame(width: 20, height: 20)
+                                .padding()
+                                .background(Color.white)
+                                .frame(width: 40, height: 40)
+                                .cornerRadius(100)
+                                .onTapGesture {
+                                  feedback.impactOccurred()
 
-                    }, label: {
-                        Image(systemName: "chevron.forward")
-                            .scaledToFit()
-                             .fixedSize()
-                             .foregroundColor(.black)
-                            .frame(width: 20, height: 20)
-                            .padding()
-                            .background(Color.white)
-                            .frame(width: 40, height: 40)
-                            .cornerRadius(100)
-//                            .onTapGesture {
-//                              feedback.impactOccurred()
-//
-//                                measurement.showingProduct = true
-//                            }
+                                    measurement.showingProduct = true
+                                }
 
-                    }) //: BUTTON-NEXT
+                        }) //: BUTTON-NEXT
 
-
-                        
                         
                     }//:HSATCK
                     
@@ -264,18 +278,23 @@ struct ManualActivityList: View {
             })//:onAppear
             .navigationBarTitle("ActivityListView", displayMode: .inline)
             
-//        }
-//        else{
-//            MeasurementView()
-//        }
+        }//:If
+        else{
+            MeasurementView(user: userRequestData[1])
         }
+            
+            
+            
+        }//:ZSTACK
+        .edgesIgnoringSafeArea(.all)
     }
 }
 
 struct ManualActivityList_Previews: PreviewProvider {
     static var previews: some View {
         ManualActivityList()
-//            .environmentObject(Measurement())
+            .environmentObject(Measurement())
                     
     }
 }
+

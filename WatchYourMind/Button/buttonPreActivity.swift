@@ -13,7 +13,7 @@ struct buttonPreActivity: View {
     var body: some View {
         NavigationView{
         VStack(alignment: .leading, spacing: 8){
-            NavigationLink(destination: MeasurementView()) {
+            NavigationLink(destination:  MeasurementView(user: userRequestData[1])) {
              Spacer()
              HStack(alignment: .bottom) {
                  Text("NEXT")

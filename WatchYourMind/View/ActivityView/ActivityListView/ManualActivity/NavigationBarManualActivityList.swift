@@ -7,9 +7,10 @@
 
 import SwiftUI
 
+
 struct NavigationBarManualActivityList: View {
     let prefeedback = UIImpactFeedbackGenerator(style: .medium)
-    
+
     @EnvironmentObject var activitylist: ManualList
     
     var body: some View {
@@ -40,3 +41,8 @@ struct NavigationBarManualActivityList_Previews: PreviewProvider {
         NavigationBarManualActivityList()
     }
 }
+//struct NavigationBarManualActivityList_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NavigationBarManualActivityList()
+//    }
+//}

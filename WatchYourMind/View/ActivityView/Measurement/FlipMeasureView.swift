@@ -17,7 +17,7 @@ struct FlipMeasureView: View {
     @State var flippedCard: Int?
        @State var frontCard: Int?
        let cards = [1,2,3,4,5,6,7,8,9,10]
-    let gridLayoutIphone: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
+    let gridLayoutIphone: [GridItem] = Array(repeating: .init(.flexible()), count: 5)
     let gridLayoutNonIphone: [GridItem] = Array(repeating: .init(.flexible()), count: 5)
     @State var isIphone: Bool = true
        var body: some View {

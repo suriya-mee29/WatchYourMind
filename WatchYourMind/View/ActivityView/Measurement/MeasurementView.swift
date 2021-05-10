@@ -18,22 +18,22 @@ extension UIScreen{
 struct MeasurementView: View {
     
     @EnvironmentObject var measurement: Measurement
-    @State private var gridLayout: [GridItem] = [ GridItem(.flexible()) ]
+    @State private var gridLayout: [GridItem] = [ GridItem(.flexible())]
+
+    var user: userRequest
 
     var body: some View {
         
-//        NavigationView {
-          Group {
-            
+        ZStack {
             ScrollView(.vertical, showsIndicators: false) {
-                LazyVGrid(columns: gridLayout, alignment: .center, spacing: 10) {
+//                LazyVGrid(columns: gridLayout, alignment: .center, spacing: 10) {
+              
                     VStack(alignment: .leading){
                         NavigationBarMeasurement()
-                        
                         HStack(alignment: .center) {
                             
                             VStack(alignment: .leading) {
-                                Image("Avatar_white")
+                                Image("\(user.imageUser)")
                                     .resizable()
                                     .scaledToFill()
                                     .frame(width: 80, height: 80)
@@ -42,11 +42,10 @@ struct MeasurementView: View {
                                     .shadow(color: Color.darkShadow, radius: 3, x: 2, y: 2)
                                     .shadow(color: Color.lightShadow, radius: 3, x: -2, y: -2)
                             }//:VSTACK
-                        }
-                        .padding(.bottom,10)
+                                                .padding(.bottom,10)
                         
                         
-                        HStack {
+//                        HStack {
                             VStack(alignment: .leading, spacing: 0){
                                 HStack {
                                     Text("Appointment:")
@@ -55,34 +54,41 @@ struct MeasurementView: View {
                                 HStack {
                                     Text("Name TH:")
                                     
-                                    Text("นายสุริยา มีขุนทด")
+                                    Text("\(user.nameTH)")
                                 }.padding(.bottom,3)
                                 HStack {
                                     Text("Name EN:")
                                     
-                                    Text("MR. Suriya  Meekhunthod")
+                                    Text("\(user.nameEN)")
                                 }.padding(.bottom,3)
                                 HStack {
                                     Text("E-mail:")
                                     
-                                    Text("Suriya.mee@dome.tu.ac.th")
+                                    Text("\(user.email)")
                                 }.padding(.bottom,3)
                                 HStack {
                                     Text("Faculty:")
                                     
-                                    Text("Scient and Technology")
+                                    Text("\(user.faculty)")
                                 }.padding(.bottom,3)
                                 HStack {
                                     Text("Branch:")
                                     
-                                    Text("Computer")
+                                    Text("\(user.branch)")
                                 }
-                                BottonSend()
+                                
+                              
                                 
                                 //                                .frame(width: 200, height: 100)
                             }//:VSTACK
                             
+//                        }
+                            Spacer()
+                            BottonSend()
+                                .padding(.top,100)
+                                .padding(.trailing,150)
                         }
+
                         
                         
                         
@@ -94,15 +100,7 @@ struct MeasurementView: View {
                                     .font(.largeTitle)
                                     .fontWeight(.heavy)
                                     .foregroundColor(.gray)
-                                //                        Divider()
-                                //                    HStack {
-                                //                            DatepickerView()
-                                //                        .frame(width: 120, height: 10)
-                                //                        Text("-")
-                                //                            DatepickerView()
-                                //                        .frame(width: 120, height: 10)
-                                //                    }
-                                //                  Spacer()
+                            
                             }//:VSTACK
                             Text("(10)")
                                 .foregroundColor(.gray)
@@ -110,29 +108,26 @@ struct MeasurementView: View {
                         .frame(width: UIScreen.Widthscreen,height: 100 )
                         
                         //        .background(Color("bg-2"))
+                        VStack(alignment:.leading){
                         ScrollView(.vertical, showsIndicators: false) {
-                            ZStack {
+                           
                                 
                                 FlipMeasureView()
                                     .frame(width: UIScreen.Widthscreen, height: UIScreen.Height, alignment: .center)
                             }//:ZStack
+                            .padding()
                         }//:ScrollView
-                        
+                        }//VSTACK
                     }
                     
-                    
-                }
-            }
+        }
+//                }//:GRID
             
-          }          .navigationBarTitle("Measurement", displayMode: .large)
+            
+//          }
+          .edgesIgnoringSafeArea(.all)
 
-//        }
-//        .navigationViewStyle(StackNavigationViewStyle())
 
-        
-       
-
-        
     }
             
           
@@ -140,7 +135,7 @@ struct MeasurementView: View {
 
 struct MeasurementView_Previews: PreviewProvider {
     static var previews: some View {
-        MeasurementView()
+        MeasurementView(user: userRequestData[1])
     }
 }
 //

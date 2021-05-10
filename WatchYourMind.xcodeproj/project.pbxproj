@@ -49,6 +49,7 @@
 		961B81FF25FD5715008A2ACA /* ManualActivityFlipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961B81FE25FD5715008A2ACA /* ManualActivityFlipView.swift */; };
 		961B820225FD61C3008A2ACA /* ManualActivityList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961B820125FD61C3008A2ACA /* ManualActivityList.swift */; };
 		961B820525FD6986008A2ACA /* ActivityListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961B820425FD6986008A2ACA /* ActivityListView.swift */; };
+		961CF7532649CFAC00AA0D92 /* TextAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961CF7522649CFAC00AA0D92 /* TextAnimationView.swift */; };
 		961FA703263FE849006D781A /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961FA702263FE849006D781A /* FriendsView.swift */; };
 		961FA705263FFEEA006D781A /* FriendRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961FA704263FFEEA006D781A /* FriendRow.swift */; };
 		961FA70B2641E102006D781A /* StatusListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961FA70A2641E102006D781A /* StatusListItemView.swift */; };
@@ -215,6 +216,7 @@
 		961B81FE25FD5715008A2ACA /* ManualActivityFlipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualActivityFlipView.swift; sourceTree = "<group>"; };
 		961B820125FD61C3008A2ACA /* ManualActivityList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualActivityList.swift; sourceTree = "<group>"; };
 		961B820425FD6986008A2ACA /* ActivityListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListView.swift; sourceTree = "<group>"; };
+		961CF7522649CFAC00AA0D92 /* TextAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnimationView.swift; sourceTree = "<group>"; };
 		961FA702263FE849006D781A /* FriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
 		961FA704263FFEEA006D781A /* FriendRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRow.swift; sourceTree = "<group>"; };
 		961FA70A2641E102006D781A /* StatusListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusListItemView.swift; sourceTree = "<group>"; };
@@ -493,6 +495,14 @@
 			path = ManualActivity;
 			sourceTree = "<group>";
 		};
+		961CF7512649CF8500AA0D92 /* Default TextField */ = {
+			isa = PBXGroup;
+			children = (
+				961CF7522649CFAC00AA0D92 /* TextAnimationView.swift */,
+			);
+			path = "Default TextField";
+			sourceTree = "<group>";
+		};
 		961FA6FE263FE5E6006D781A /* Notification */ = {
 			isa = PBXGroup;
 			children = (
@@ -536,6 +546,7 @@
 		962D96502600D7A400801486 /* Measurement */ = {
 			isa = PBXGroup;
 			children = (
+				961CF7512649CF8500AA0D92 /* Default TextField */,
 				9610B05A26035065001E9A7B /* BottonSend */,
 				9610B03826030130001E9A7B /* DatePicker */,
 				962D96512600E16C00801486 /* MeasurementView.swift */,
@@ -1125,6 +1136,7 @@
 				9610B04426031559001E9A7B /* MultiDatePicker.swift in Sources */,
 				962D96582600F64A00801486 /* Tabs.swift in Sources */,
 				961FA70B2641E102006D781A /* StatusListItemView.swift in Sources */,
+				961CF7532649CFAC00AA0D92 /* TextAnimationView.swift in Sources */,
 				962D964F2600CDF300801486 /* addButton.swift in Sources */,
 				9671994225EE5F6600BD94CC /* RadioButtonGroup.swift in Sources */,
 				96ADE4C42608DE700029F37D /* SomeDayEveryDayView.swift in Sources */,

@@ -26,7 +26,7 @@ struct addButton: View {
 //            NavigationLink(destination: NewActivityView(iSSave: .constant(false), activityData: .constant(ManualActivityModel(id: "", createby: "", title: "", description: "", createDate: Date(), type: "", imageicon: "", link: "", pic: "", outcome:[])), showSheetView: .constant(true))) {
                 //                    Spacer()
         
-            NavigationLink(destination:MeasurementView()){
+            NavigationLink(destination: MeasurementView(user: userRequestData[1])){
                 HStack{
                     
                     Image(systemName: "chevron.forward" )
@@ -47,17 +47,9 @@ struct addButton: View {
                 .shadow(color: Color.lightShadow, radius: 3, x: -2, y: -2)
                 
             }//:NavigationLink
-            
-
-//            .navigate(to: NewActivityView(iSSave: .constant(false), activityData: .constant(ManualActivityModel(id: "", createby: "", title: "", description: "", createDate: Date(), type: "", imageicon: "", link: "", pic: "", outcome:[])), showSheetView: .constant(true)), when: $willMoveToNextScreen)
-            .navigate(to: MeasurementView(), when: $willMoveToNextScreen)
-            
-//        }//:VSatck
-//        .navigationTitle("ActivityList")
         
-
-
-        
+            .navigate(to:  MeasurementView(user: userRequestData[1]), when: $willMoveToNextScreen)
+            
     }
 }
 

@@ -33,7 +33,7 @@ struct WatchYourMindApp: App {
 //                .modifier(SystemServices())
 
                 .environmentObject(Shop())
-//                .environmentObject(Measurement())
+                .environmentObject(Measurement())
                 .environmentObject(ManualList())
                 .environmentObject(PostActivity())
                 .environmentObject(ListClientRequest())

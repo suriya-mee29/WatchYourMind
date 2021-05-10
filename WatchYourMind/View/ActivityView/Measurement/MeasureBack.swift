@@ -31,7 +31,6 @@ struct MeasureBack: View {
                 .foregroundColor(Color.black)
                 .padding(.horizontal,10)
             
-
             SomeDayEveryDayView()
                     .padding(.horizontal,10)
         }//:VSTACK

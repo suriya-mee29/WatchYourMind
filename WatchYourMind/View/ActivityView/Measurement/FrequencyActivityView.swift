@@ -76,12 +76,6 @@ struct FrequencyActivityView: View {
 
                 }//:onTapGesture
                     
-//                    Text("EveryDay")
-//                         .font(.system(size:21))
-                      
-                  
-                        
-                    
                 }//HSTACK
                 .padding(.vertical)
                 .onTapGesture {
@@ -96,9 +90,7 @@ struct FrequencyActivityView: View {
                 }
                 VStack{
                 if expandEvery{
-//                    let matchingIndex =
-//                      self.StartEveryDays.firstIndex(where: { $0.id == StartEveryDay.id })
-//                    EveryTextFiew()
+
                     VStack(alignment: .leading){
 //                        Effects()
 

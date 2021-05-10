@@ -1,9 +1,8 @@
-//
 //  ContentView.swift
 //  WatchMyMind
 //
 //  Created by Gatang on 22/2/2564 BE.
-//
+
 
 import SwiftUI
 class Shop: ObservableObject {
@@ -15,6 +14,7 @@ class ListClientRequest: ObservableObject {
   @Published var showingProduct: Bool = false
   @Published var selectedProduct: FriendsView? //= nil
 }
+
 struct HomeContentView: View {
     //MARK:- PROPERTIES
     
@@ -414,9 +414,13 @@ struct HomeContentView: View {
 struct HomeContentView_Previews: PreviewProvider {
     static var previews: some View {
         HomeContentView( isAuthen: .constant(true))
-                .environmentObject(Shop())
-                .environmentObject(ListClientRequest())
-                .environmentObject(Preact())
+            .environmentObject(Shop())
+           
+            .environmentObject(PostActivity())
+            .environmentObject(ListClientRequest())
+            .environmentObject(Preact())
+            .environmentObject(Measurement())
+
         }
     }
 

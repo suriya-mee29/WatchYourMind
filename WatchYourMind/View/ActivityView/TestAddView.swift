@@ -46,14 +46,23 @@ struct ButtonTwo: View {
 
 struct TestAddView: View {
     @ObservedObject var settings = UserSettings()
+    @State var count: Int = 1
+
 
         var body: some View {
-            VStack(spacing: 10) {
-                Text("In master view your score is \(settings.score)")
-                ButtonOne()
-                ButtonTwo()
-                Text("All scores refer to the same variable, so should be the same.")
-            }
+//            VStack(spacing: 10) {
+//                Text("In master view your score is \(settings.score)")
+//                ButtonOne()
+//                ButtonTwo()
+//                Text("All scores refer to the same variable, so should be the same.")
+//            }
+            
+               
+//               var body: some View {
+                   Stepper(value: $count,
+                           in: 1...10,
+                           label: {Text("Stepper: \(count)") })
+                       .padding()
         }
     }
 struct TestAddView_Previews: PreviewProvider {

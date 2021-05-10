@@ -17,7 +17,6 @@ struct PreActivity: View {
     let colorBackground: Color = Color("bg-1")
     @State private var gridLayout: [GridItem] = [GridItem(.flexible())]
     
-//    @State var next = "NEXT"
     
     let prefeedback = UIImpactFeedbackGenerator(style: .heavy)
     @EnvironmentObject var activitylist: ManualList
@@ -26,7 +25,8 @@ struct PreActivity: View {
      
     var body: some View {
         ZStack{
-            if activitylist.showingPage == false  {
+            if activitylist.showingPage == false
+            {
             VStack{
                 ScrollView(.vertical, showsIndicators: false) {
                     NavigationPreActivity()
@@ -118,18 +118,19 @@ struct PreActivity: View {
                             activitylist.showingPage = true
                         }
                 }) //: BUTTON-NEXT
-              }//:HSTACK
-
               }//:LAZYVGRID
-              .ignoresSafeArea(.all, edges: .top)
-            }//:SCROLL
 
-    }//:IF}else if (shop.showingProduct == true){
-       
+              }//SCROLL
+              .ignoresSafeArea(.all, edges: .top)
+            }//:VSTACK
+    }//:IF
+            
         else{
             ManualActivityList()
         }
             
+            
+        
         }//:ZStack
         
         

@@ -14,7 +14,7 @@ struct TryView: View {
     var body: some View {
            
            NavigationView {
-               NavigationLink(destination: MeasurementView()) {
+               NavigationLink(destination:  MeasurementView(user: userRequestData[1])) {
                 Spacer()
                 HStack(alignment: .bottom, spacing: 8) {
                     Text("NEXT")
