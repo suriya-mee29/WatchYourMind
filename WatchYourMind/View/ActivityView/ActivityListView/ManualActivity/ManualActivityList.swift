@@ -115,34 +115,6 @@ struct ManualActivityList: View {
                         
                     })
 
-                    
-//                    HStack{
-//
-//                    Button(action: {
-//
-//                    }, label: {
-//                        Image(systemName: "chevron.forward")
-//                            .scaledToFit()
-//                             .fixedSize()
-//                             .foregroundColor(.black)
-//
-//                            .frame(width: 20, height: 20)
-//                            .padding()
-//                            .background(Color.white)
-//                            .frame(width: 40, height: 40)
-//                            .cornerRadius(100)
-////                            .onTapGesture {
-////                              feedback.impactOccurred()
-////                                measurement.showingProduct = true
-////                            }
-//
-//                    }) //: BUTTON-NEXT
-//
-////                    }//:ZSTACK
-//
-//
-//
-//                    }//:HSTACK
 
                                 }
                             
@@ -263,6 +235,23 @@ struct ManualActivityList: View {
         
             
 //        }
+            .onChange(of: self.showSheetView, perform: { value in
+                self.activityStore.fetchActivity(isAuto: false) { success, msg in
+                    if success {
+                        print("appear manual activity")
+                    }else{
+                        
+                    }
+                }
+                
+                self.activityStore.fetchActivity(isAuto: true) { success, msg in
+                    if success {
+                        print("appear auto activity")
+                    }else{
+                        
+                    }
+                }
+            })
             .onAppear(perform: {
                 if UIDevice.current.userInterfaceIdiom == .phone{
                    isIphone = true
@@ -270,6 +259,8 @@ struct ManualActivityList: View {
                     isIphone = false
                 }
                 print(isIphone)
+                
+                
             })//:onAppear
             .navigationBarTitle("ActivityListView", displayMode: .inline)
             

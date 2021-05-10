@@ -31,6 +31,12 @@ struct NewActivityView: View {
     @State var alertMessage : String = ""
     @State var headerMsg : String = ""
     
+    
+    @State var issave : Bool = false
+    @State var newActivity : [String:Any]?
+    
+    var activityStore = ActivityStore()
+    
 
     var body: some View {
 
@@ -140,15 +146,22 @@ struct NewActivityView: View {
                 
                 
                 Button(action: {
+                    print("btn")
                     if !text.isEmpty{
                         if selectedIcon != "gallery"{
                             if !fullText.isEmpty{
+                                let userdefults = UserDefaults.standard
+                                let username = userdefults.string(forKey: "CURRENT_USER")
                                 
-                                var newActivity : [String : Any] =
+                                self.newActivity =
                                     [
                                         "title" : self.text ,
                                         "imageIcon" : self.selectedIcon,
-                                        "description": self.fullText
+                                        "description": self.fullText,
+                                        "createdDate" : Date(),
+                                        "createdby" : username!,
+                                        "type" : "MANUAL"
+                                        
                                     ]
                                 
                                 
@@ -156,10 +169,23 @@ struct NewActivityView: View {
                                 
                                 //attach file
                                 if self.image_file != nil{
-                                    
                                     //store image to file storage
                                     //save url to db
+                                    self.activityStore.storePicture(data: (self.image_file?.ASUIImage().pngData())!) { success, path in
+                                        
+                                        if success {
+                                            print("success")
+                                            newActivity!["photoURL"] = path
+                                            issave.toggle()
+                                        }else{
+                                            print("can not svaed")
+                                            issave.toggle()
+                                        }
+                                    }
                                    
+                                }else{
+                                    issave.toggle()
+                                    
                                 }
                                 
                                 //outcome req
@@ -168,7 +194,7 @@ struct NewActivityView: View {
                                     for i in 0...(self.selectedItems.count-1){
                                         outcomeReq.append(self.selectedItems[i].name)
                                     }
-                                    newActivity["outcomeReq"] = outcomeReq
+                                    newActivity!["outcomeReq"] = outcomeReq
                                 }
                                 
                                 
@@ -191,10 +217,7 @@ struct NewActivityView: View {
                         self.showAlert = true
                     }
                     
-                    
-                    
-                    self.iSSave = true
-                    self.showSheetView = false
+                  
                 }, label: {
                     HStack {
                         Text("save")
@@ -205,7 +228,6 @@ struct NewActivityView: View {
                     }
                     .frame(width: 100)
                 })
-                .disabled(text.isEmpty || fullText.isEmpty)
                 .padding(.horizontal,10)
                 .background(Color("IconTabBar"))
                 .clipShape(Capsule())
@@ -216,7 +238,23 @@ struct NewActivityView: View {
             Alert(title: Text(self.headerMsg.uppercased()), message: Text("\(self.alertMessage)"), dismissButton: .default(Text("OK!")))
                       }
           )
-
+          .onChange(of: self.issave , perform: { value in
+            if newActivity != nil {
+                print(self.newActivity!)
+                print("to setResults")
+                self.activityStore.setResults(result: self.newActivity!) { success, msg in
+                    if success {
+                        print("saved.......")
+                        self.iSSave = true
+                        self.showSheetView = false
+                        
+                    }else{
+                        
+                    }
+                }
+            }
+            
+          })
           .navigationBarTitle("New Activity", displayMode: .large)
           .navigationBarItems(trailing: Button(action: {
               print("Dismissing sheet view...")

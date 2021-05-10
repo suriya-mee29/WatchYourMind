@@ -35,6 +35,57 @@ class ActivityStore : ObservableObject {
         }
     }
     
+    func setResults(result : [String: Any] ,completion : @escaping(Bool,String)->Void){
+        
+   
+                let docKey = result["title"] as? String
+                print("docKey-----\(docKey!)")
+        
+                let df = docRef.collection("activities").document(docKey!).setData(result){ err in
+                    if let err = err {
+                        print("Error writing document: \(err)")
+                        completion(false,"Error writing document: \(err)")
+                    } else {
+                        print("Document successfusample.startDatelly written!")
+                        completion(true,"Document successfully written!")
+                    }
+                }
+                
+                
+            
+            
+       
+    }
+
+    public func storePicture(data : Data  ,completion : @escaping (Bool,String)->Void ){
+        let storageRef = storage.reference()
+        let riversRef = storageRef.child("attachedfileactivities/\(UUID()).jpg")
+        
+        // Create the file metadata
+        let metadatas = StorageMetadata()
+        metadatas.contentType = "image/jpeg"
+        
+        let uploadTask = riversRef.putData(data, metadata: metadatas) { (metadata, error) in
+          guard let metadata = metadata else {
+            // Uh-oh, an error occurred!
+            completion(false,"error: \(error?.localizedDescription)")
+            return
+          }
+            // Metadata contains file metadata such as size, content-type.
+            let size = metadata.size
+            // You can also access to download URL after upload.
+            riversRef.downloadURL { (url, error) in
+              guard let downloadURL = url else {
+                // Uh-oh, an error occurred!
+                completion(false,"error: \(error?.localizedDescription)")
+                return
+              }
+                completion(true,downloadURL.absoluteString)
+            }
+        }
+        
+    }
+    
     public func fetchActivity(isAuto:Bool,completion : @escaping (Bool,String)->Void){
         let userdefults = UserDefaults.standard
         let username = userdefults.string(forKey: "CURRENT_USER")
@@ -50,7 +101,7 @@ class ActivityStore : ObservableObject {
                 if isAuto{
                     self.maualActivityList.removeAll()
                 }else{
-                self.activityList.removeAll()
+                    self.activityList.removeAll()
                 }
                 
                 if let documents = querySnapshot?.documents{
