@@ -30,5 +30,15 @@ extension Bundle {
     // 5. Return the ready-to-use data
     return loaded
   }
+    func decodev2 <T : Codable> (_ data : Data) -> T{
+        //create a decoder
+        let decoder = JSONDecoder()
+        //create a property for the decoder data
+        guard let loaded = try? decoder.decode( T.self , from: data) else {
+            fatalError("failed to decode \(data) from bundle")
+        }
+        //return the ready-to-use data
+         return loaded
+    }
 }
 

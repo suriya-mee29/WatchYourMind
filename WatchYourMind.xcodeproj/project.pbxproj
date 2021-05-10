@@ -13,6 +13,10 @@
 		516CF4612646AD3300CD9537 /* Utillity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516CF4602646AD3300CD9537 /* Utillity.swift */; };
 		516CF4632647DD2200CD9537 /* ActivityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516CF4622647DD2200CD9537 /* ActivityModel.swift */; };
 		516CF4652647DF9300CD9537 /* ActivityStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516CF4642647DF9300CD9537 /* ActivityStore.swift */; };
+		516CF46726493F3700CD9537 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516CF46626493F3700CD9537 /* Client.swift */; };
+		516CF46926493FB200CD9537 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516CF46826493FB200CD9537 /* UserModel.swift */; };
+		516CF46B26493FE800CD9537 /* DataUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516CF46A26493FE800CD9537 /* DataUserModel.swift */; };
+		516CF46E264940F200CD9537 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516CF46D264940F200CD9537 /* API.swift */; };
 		51FD717526453412002C3CE6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 51FD717426453412002C3CE6 /* GoogleService-Info.plist */; };
 		51FD717826453750002C3CE6 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 51FD717726453750002C3CE6 /* FirebaseAuth */; };
 		51FD717A26453750002C3CE6 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 51FD717926453750002C3CE6 /* FirebaseFirestore */; };
@@ -178,6 +182,10 @@
 		516CF4602646AD3300CD9537 /* Utillity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utillity.swift; sourceTree = "<group>"; };
 		516CF4622647DD2200CD9537 /* ActivityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityModel.swift; sourceTree = "<group>"; };
 		516CF4642647DF9300CD9537 /* ActivityStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStore.swift; sourceTree = "<group>"; };
+		516CF46626493F3700CD9537 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		516CF46826493FB200CD9537 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		516CF46A26493FE800CD9537 /* DataUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUserModel.swift; sourceTree = "<group>"; };
+		516CF46D264940F200CD9537 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		51FD717426453412002C3CE6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		51FD717F26453B4A002C3CE6 /* PsychologistManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PsychologistManagement.swift; sourceTree = "<group>"; };
 		51FD718126455478002C3CE6 /* ContentView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView2.swift; sourceTree = "<group>"; };
@@ -351,10 +359,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		516CF46C264940CF00CD9537 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				516CF46D264940F200CD9537 /* API.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		51FD717E26453AB4002C3CE6 /* User */ = {
 			isa = PBXGroup;
 			children = (
 				51FD717F26453B4A002C3CE6 /* PsychologistManagement.swift */,
+				516CF46626493F3700CD9537 /* Client.swift */,
+				516CF46826493FB200CD9537 /* UserModel.swift */,
+				516CF46A26493FE800CD9537 /* DataUserModel.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -824,6 +843,7 @@
 		96E38EB125E3D03200F63BAB /* WatchYourMind */ = {
 			isa = PBXGroup;
 			children = (
+				516CF46C264940CF00CD9537 /* Utility */,
 				51FD717426453412002C3CE6 /* GoogleService-Info.plist */,
 				9691770126394E5D005576E3 /* WatchYourMind.entitlements */,
 				966553E2262D801F000236E7 /* ViewModel */,
@@ -962,6 +982,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96B5D0302605DE54006E4020 /* PieChartView.swift in Sources */,
+				516CF46926493FB200CD9537 /* UserModel.swift in Sources */,
 				961B81F325FD51C0008A2ACA /* ManualActivityListFront.swift in Sources */,
 				968053842645222D00A03202 /* LoginView.swift in Sources */,
 				96B5D01C2604B5D3006E4020 /* BeforeAfterListView.swift in Sources */,
@@ -979,6 +1000,7 @@
 				961B820525FD6986008A2ACA /* ActivityListView.swift in Sources */,
 				9671993925EE474800BD94CC /* Effects.swift in Sources */,
 				96B946F8260718B4002CB85D /* AnalysisPreactivity.swift in Sources */,
+				516CF46726493F3700CD9537 /* Client.swift in Sources */,
 				9659664A25F753F700686D47 /* AutoActivityList.swift in Sources */,
 				9671994525EE5F9600BD94CC /* RadioButtonView.swift in Sources */,
 				968F5A66263C2329003CACEA /* AutoActivityViewModel.swift in Sources */,
@@ -1044,6 +1066,7 @@
 				9665C47825E6568C0081B5CE /* SearchView.swift in Sources */,
 				9635561C260136A3008ECDD9 /* FlipMeasureView.swift in Sources */,
 				966553E5262D8102000236E7 /* ManualActivtyViewModel.swift in Sources */,
+				516CF46E264940F200CD9537 /* API.swift in Sources */,
 				9633D45D262F037400DB0B09 /* PickerImage.swift in Sources */,
 				9610B05E2603520D001E9A7B /* BannerModifier.swift in Sources */,
 				9659663B25F6408B00686D47 /* AutoActivityListFront.swift in Sources */,
@@ -1075,6 +1098,7 @@
 				960E09FF25ECB23D004F9ECA /* TextFieldView.swift in Sources */,
 				9671991725EDE91200BD94CC /* IntensityLevelView.swift in Sources */,
 				967869F325F1ED4900AB4C71 /* TextEdit.swift in Sources */,
+				516CF46B26493FE800CD9537 /* DataUserModel.swift in Sources */,
 				964E996C2643BBC700FC2A6C /* SelectActivity.swift in Sources */,
 				96B946FA26071CA1002CB85D /* taskdate.swift in Sources */,
 				9685410E2624311000DBB320 /* UploadFileContent.swift in Sources */,
