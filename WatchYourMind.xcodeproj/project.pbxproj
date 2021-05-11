@@ -17,6 +17,8 @@
 		516CF46926493FB200CD9537 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516CF46826493FB200CD9537 /* UserModel.swift */; };
 		516CF46B26493FE800CD9537 /* DataUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516CF46A26493FE800CD9537 /* DataUserModel.swift */; };
 		516CF46E264940F200CD9537 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516CF46D264940F200CD9537 /* API.swift */; };
+		516CF472264A845800CD9537 /* BBRefreshableScrollView in Frameworks */ = {isa = PBXBuildFile; productRef = 516CF471264A845800CD9537 /* BBRefreshableScrollView */; };
+		516CF474264AA39300CD9537 /* ClientMedel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516CF473264AA39300CD9537 /* ClientMedel.swift */; };
 		51FD717526453412002C3CE6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 51FD717426453412002C3CE6 /* GoogleService-Info.plist */; };
 		51FD717826453750002C3CE6 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 51FD717726453750002C3CE6 /* FirebaseAuth */; };
 		51FD717A26453750002C3CE6 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 51FD717926453750002C3CE6 /* FirebaseFirestore */; };
@@ -187,6 +189,7 @@
 		516CF46826493FB200CD9537 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		516CF46A26493FE800CD9537 /* DataUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUserModel.swift; sourceTree = "<group>"; };
 		516CF46D264940F200CD9537 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		516CF473264AA39300CD9537 /* ClientMedel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientMedel.swift; sourceTree = "<group>"; };
 		51FD717426453412002C3CE6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		51FD717F26453B4A002C3CE6 /* PsychologistManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PsychologistManagement.swift; sourceTree = "<group>"; };
 		51FD718126455478002C3CE6 /* ContentView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView2.swift; sourceTree = "<group>"; };
@@ -352,6 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9689BB912607D1AD00D5655E /* SwiftUICharts in Frameworks */,
+				516CF472264A845800CD9537 /* BBRefreshableScrollView in Frameworks */,
 				51FD717C26453750002C3CE6 /* FirebaseStorage in Frameworks */,
 				51FD717826453750002C3CE6 /* FirebaseAuth in Frameworks */,
 				51FD717A26453750002C3CE6 /* FirebaseFirestore in Frameworks */,
@@ -369,13 +373,21 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
+		516CF46F264A7B4200CD9537 /* ClientModel */ = {
+			isa = PBXGroup;
+			children = (
+				516CF46826493FB200CD9537 /* UserModel.swift */,
+				516CF46A26493FE800CD9537 /* DataUserModel.swift */,
+				516CF473264AA39300CD9537 /* ClientMedel.swift */,
+			);
+			path = ClientModel;
+			sourceTree = "<group>";
+		};
 		51FD717E26453AB4002C3CE6 /* User */ = {
 			isa = PBXGroup;
 			children = (
 				51FD717F26453B4A002C3CE6 /* PsychologistManagement.swift */,
 				516CF46626493F3700CD9537 /* Client.swift */,
-				516CF46826493FB200CD9537 /* UserModel.swift */,
-				516CF46A26493FE800CD9537 /* DataUserModel.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -648,6 +660,7 @@
 		9659668125F7D7C400686D47 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				516CF46F264A7B4200CD9537 /* ClientModel */,
 				9659668225F7D7D800686D47 /* AutoActivityModel.swift */,
 				966553D4262D7089000236E7 /* ManualActivityModel.swift */,
 				96FB34D426459CFD0038A3CB /* userRequestModel.swift */,
@@ -923,6 +936,7 @@
 				51FD717726453750002C3CE6 /* FirebaseAuth */,
 				51FD717926453750002C3CE6 /* FirebaseFirestore */,
 				51FD717B26453750002C3CE6 /* FirebaseStorage */,
+				516CF471264A845800CD9537 /* BBRefreshableScrollView */,
 			);
 			productName = WatchMyMind;
 			productReference = 96E38EAF25E3D03200F63BAB /* WatchYourMind.app */;
@@ -954,6 +968,7 @@
 			packageReferences = (
 				9689BB512607BE7300D5655E /* XCRemoteSwiftPackageReference "ChartView" */,
 				51FD717626453750002C3CE6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				516CF470264A845800CD9537 /* XCRemoteSwiftPackageReference "BBRefreshableScrollView" */,
 			);
 			productRefGroup = 96E38EB025E3D03200F63BAB /* Products */;
 			projectDirPath = "";
@@ -993,6 +1008,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96B5D0302605DE54006E4020 /* PieChartView.swift in Sources */,
+				516CF474264AA39300CD9537 /* ClientMedel.swift in Sources */,
 				516CF46926493FB200CD9537 /* UserModel.swift in Sources */,
 				961B81F325FD51C0008A2ACA /* ManualActivityListFront.swift in Sources */,
 				968053842645222D00A03202 /* LoginView.swift in Sources */,
@@ -1338,6 +1354,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		516CF470264A845800CD9537 /* XCRemoteSwiftPackageReference "BBRefreshableScrollView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bibinjacobpulickal/BBRefreshableScrollView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.3;
+			};
+		};
 		51FD717626453750002C3CE6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -1357,6 +1381,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		516CF471264A845800CD9537 /* BBRefreshableScrollView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 516CF470264A845800CD9537 /* XCRemoteSwiftPackageReference "BBRefreshableScrollView" */;
+			productName = BBRefreshableScrollView;
+		};
 		51FD717726453750002C3CE6 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 51FD717626453750002C3CE6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

@@ -7,14 +7,14 @@
 import SwiftUI
 
 struct FriendRow: View {
-    var user: userRequest
+    var user: ClientModel
     
     var body: some View {
         VStack{
 
         VStack {
             HStack {
-                Image("\(user.imageUser)")
+                Image("Avatar_white")
                     .resizable()
                     .renderingMode(.original)
                     .aspectRatio(contentMode: .fill)
@@ -28,22 +28,22 @@ struct FriendRow: View {
                 
                 VStack(alignment: .leading,spacing:10){
                     VStack(alignment: .leading,spacing:2){
-                        Text(user.nameEN)
+                        Text(user.student.data.displayname_en)
                             .foregroundColor(.primary)
-                        Text(user.nameTH)
+                        Text(user.student.data.displayname_th)
                             .foregroundColor(.primary)
                         HStack{
-                            Text ("\(user.email)")
+                            Text ("\(user.student.data.email)")
                             .foregroundColor(.secondary)
                             Text("•")
                                 .font(.system(size: 30))
                             .foregroundColor(.secondary)
-                            Text ("\(user.faculty)")
+                            Text ("\(user.student.data.faculty)")
                                 .foregroundColor(.secondary)
                             Text("•")
                                 .font(.system(size: 30))
                             .foregroundColor(.secondary)
-                            Text ("\(user.branch)")
+                            Text ("\(user.student.data.department)")
                                 .foregroundColor(.secondary)
                         
                         }//:HSTACK
@@ -68,7 +68,7 @@ struct FriendRow: View {
 
 struct FriendRow_Previews: PreviewProvider {
     static var previews: some View {
-        FriendRow(user: userRequestData[1])
+        FriendRow(user: ClientModel(id: UUID(), student: UserModel(timestamp: 1, status: true, message: "ok", data: DataUserModel(type: "std", statusid: "11", statusname: "dddd", userName: "dddd", prefixname: "ddd", displayname_th: "dddd", displayname_en: "ddd", email: "dddd", department: "ddd", faculty: "dddd"))))
 
     }
 }

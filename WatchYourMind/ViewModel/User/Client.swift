@@ -6,10 +6,48 @@
 //
 
 import Foundation
+import Firebase
 class Client : ObservableObject {
+    
+    @Published var activateClient : [ClientModel] = [ClientModel]()
     private let APIKey : String = "TU65e1f570077f0be33201447720639c54202fd702e3562b2f028583481706a462eb85b37bc82989b425fd926959ba9809"
+    private let docRef = Firestore.firestore()
+    private let storage = Storage.storage()
     
+    init(){
+        self.fetchActivateClient(){ success , msg in
+            
+        }
+    }
     
+    public func fetchActivateClient (completion : @escaping (Bool,String)->Void) {
+        docRef.collection("users")
+            .whereField("type", isEqualTo: "client")
+            .whereField("status", isEqualTo: ClientStatus.INACTIVE.rawValue)
+            .getDocuments { querySnapshot, error in
+                
+                if let err = error {
+                    print("Error getting documents: \(err)")
+                    completion(false,err.localizedDescription)
+                }
+                
+                if let documents = querySnapshot?.documents{
+                    self.activateClient.removeAll()
+                    for userDoc in documents{
+                        let userID = userDoc.documentID
+                        self.fetchStdInfoFromTU_API(username: userID) { studentModel, success, msg in
+                            if let student = studentModel{
+                                let newStudent = ClientModel(id: UUID(), student: student)
+                                self.activateClient.append(newStudent)
+                            }
+                        }
+                    }
+                    completion(true,"ok")
+                }
+                
+            }
+        
+    }
     
     private func fetchStdInfoFromTU_API(username: String , completion : @escaping (UserModel? ,Bool,String) -> Void ){
         // Create URL

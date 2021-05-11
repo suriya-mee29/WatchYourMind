@@ -37,3 +37,8 @@ extension UIView {
         }
     }
 }
+
+enum ClientStatus : String {
+    case INACTIVE = "inactive"
+    case ACTIVE = "active"
+}

@@ -11,6 +11,15 @@
         }
       },
       {
+        "package": "BBRefreshableScrollView",
+        "repositoryURL": "https://github.com/bibinjacobpulickal/BBRefreshableScrollView",
+        "state": {
+          "branch": null,
+          "revision": "71f09fc041a7e6977db152821214d3adb172cd6b",
+          "version": "0.0.3"
+        }
+      },
+      {
         "package": "BoringSSL-GRPC",
         "repositoryURL": "https://github.com/firebase/boringssl-SwiftPM.git",
         "state": {
