@@ -76,10 +76,7 @@ struct MeasurementView: View {
                                     
                                     Text("\(user.branch)")
                                 }
-                                
-                              
-                                
-                                //                                .frame(width: 200, height: 100)
+
                             }//:VSTACK
                             
 //                        }

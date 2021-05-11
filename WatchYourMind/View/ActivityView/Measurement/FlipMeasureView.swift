@@ -149,10 +149,7 @@ struct FlipMeasureView: View {
        
        var body: some View {
           ZStack {
-//             RoundedRectangle(cornerRadius: 10)
-//                .fill(Color.red)
-//                .padding(5)
-//             Text("Back \(card)")
+
             MeasureFront(activityName: "Music Relaxation", Description: "35",  colorActivity: "incompleteColor")
           }
        }
@@ -163,11 +160,7 @@ struct FlipMeasureView: View {
        
        var body: some View {
           ZStack {
-//             RoundedRectangle(cornerRadius: 10)
-//                .fill(Color.blue)
-//                .padding(10)
-//                .aspectRatio(1.0, contentMode: .fit)
-//             Text("Front \(card)")
+
             MeasureBack()
            
             

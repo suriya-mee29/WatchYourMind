@@ -47,6 +47,7 @@ struct ButtonTwo: View {
 struct TestAddView: View {
     @ObservedObject var settings = UserSettings()
     @State var count: Int = 1
+//    NumbersOnly()
 
 
         var body: some View {
@@ -57,12 +58,18 @@ struct TestAddView: View {
 //                Text("All scores refer to the same variable, so should be the same.")
 //            }
             
-               
 //               var body: some View {
+            VStack{
                    Stepper(value: $count,
-                           in: 1...10,
-                           label: {Text("Stepper: \(count)") })
+                           in: 1...1000,
+                           label: {
+                            
+                            Text("Stepper: \(count)") })
                        .padding()
+                
+                
+                
+            }//:VSTACK
         }
     }
 struct TestAddView_Previews: PreviewProvider {

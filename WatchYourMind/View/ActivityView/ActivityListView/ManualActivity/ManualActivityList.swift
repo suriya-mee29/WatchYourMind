@@ -84,6 +84,27 @@ struct ManualActivityList: View {
                 .shadow(radius: 8 )
            }
                 .padding()
+                    
+                    Button(action: {
+
+                    }, label: {
+                        Image(systemName: "chevron.forward")
+                            .font(.system(size: 40, weight: .regular))
+                            .foregroundColor(.purple)
+                               .clipShape(Circle())
+                         .frame(width: 60, height: 60, alignment: .center)
+                         .background(Color.white)
+                         
+                         .cornerRadius(100)
+                         .shadow(radius: 8 )
+                            .onTapGesture {
+                              feedback.impactOccurred()
+
+                                measurement.showingProduct = true
+//                                  }
+                            }
+
+                    }) //: BUTTON-NEXT
             }//:HStack
            
           
@@ -105,30 +126,30 @@ struct ManualActivityList: View {
 
                     HStack{
                    
-                    Button(action: {
-
-                    }, label: {
-                        Image(systemName: "chevron.forward")
-                            .scaledToFit()
-                            
-                            
-
-                             .fixedSize()
-                             .foregroundColor(.black)
-                             
-                            .frame(width: 20, height: 20)
-                            .padding()
-                            .background(Color.white)
-                            .frame(width: 40, height: 40)
-                            .cornerRadius(100)
-                            .onTapGesture {
-                              feedback.impactOccurred()
-
-                                measurement.showingProduct = true
-//                                  }
-                            }
-
-                    }) //: BUTTON-NEXT
+//                    Button(action: {
+//
+//                    }, label: {
+//                        Image(systemName: "chevron.forward")
+//                            .scaledToFit()
+//
+//
+//
+//                             .fixedSize()
+//                             .foregroundColor(.black)
+//
+//                            .frame(width: 20, height: 20)
+//                            .padding()
+//                            .background(Color.white)
+//                            .frame(width: 40, height: 40)
+//                            .cornerRadius(100)
+//                            .onTapGesture {
+//                              feedback.impactOccurred()
+//
+//                                measurement.showingProduct = true
+////                                  }
+//                            }
+//
+//                    }) //: BUTTON-NEXT
 
 //                    }//:ZSTACK
 
@@ -175,7 +196,7 @@ struct ManualActivityList: View {
                     Text("\(self.activityStore.maualActivityList.count) Activities")
                 }
                 
-            }
+            
 
                 VStack(alignment: .leading) {
                     ScrollView(.vertical, showsIndicators: false, content:{
@@ -187,8 +208,8 @@ struct ManualActivityList: View {
                             
                     }
                     })
-
-                    HStack{
+                }//:VSATCK
+//                    HStack{
                         
                     Button(action: {
                                     self.showSheetView.toggle()
@@ -217,12 +238,10 @@ struct ManualActivityList: View {
                                 }
 
                         }) //: BUTTON-NEXT
-
                         
-                    }//:HSATCK
-                    
-                    
-                                }
+                  
+            
+                                }//:HSTACK
                             
                             .sheet(isPresented: $showSheetView) {
                                 NewActivityView(iSSave: $iSSave, activityData: $activityData, showSheetView: $showSheetView )
@@ -244,7 +263,7 @@ struct ManualActivityList: View {
                 
                 
 
-            }
+            }//:VSTACKบนสุด
                 
         
             

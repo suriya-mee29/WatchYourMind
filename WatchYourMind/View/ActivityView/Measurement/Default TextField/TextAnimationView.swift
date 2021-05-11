@@ -8,13 +8,62 @@
 import SwiftUI
 
 struct TextAnimationView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+//    @ObservedObject var input = TextLimiter(limit: 5)
+//    var body: some View {
+//        TextField("Text Input",
+//                    text: $input.value)
+//                    .border(Color.red,
+//                            width: $input.hasReachedLimit.wrappedValue ? 1 : 0 )
+//
+//    }
+    
+    //--------------------
+    
+    @ObservedObject var input = NumbersOnly()
+        
+        var body: some View {
+            TextField("Input", text: $input.value)
+                .padding()
+                .keyboardType(.decimalPad)
+        }
 }
 
 struct TextAnimationView_Previews: PreviewProvider {
     static var previews: some View {
         TextAnimationView()
+    }
+}
+
+
+//class TextLimiter: ObservableObject {
+//    private let limit: Int
+//
+//    init(limit: Int) {
+//        self.limit = limit
+//    }
+//
+//    @Published var value = "" {
+//        didSet {
+//            if value.count > self.limit {
+//                value = String(value.prefix(self.limit))
+//                self.hasReachedLimit = true
+//            } else {
+//                self.hasReachedLimit = false
+//            }
+//        }
+//    }
+//
+//    @Published var hasReachedLimit = false
+//}
+
+class NumbersOnly: ObservableObject {
+    @Published var value = "" {
+        didSet {
+            let filtered = value.filter { $0.isNumber }
+            
+            if value != filtered {
+                value = filtered
+            }
+        }
     }
 }
