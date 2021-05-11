@@ -10,7 +10,7 @@ import SwiftUI
 enum Range: String, CaseIterable, Equatable {
     case name1 = "SCALE"
     case name2 = "NOTE"
-    case name3 = "HEART RATE"
+    case name3 = "HEART RATE/TIMER"
     
     var name: Image {
         switch self {
@@ -43,6 +43,7 @@ struct GridPickerMeasure2: View {
 //                .padding(.horizontal)
                 .padding(.vertical)
             }//:LazyVGrid
+            .frame(width: 500)
 //        }
         
     }
@@ -58,7 +59,7 @@ struct GridMeasureColumn2:View {
     
     var body: some View {
         
-//        VStack(alignment: .center) {
+        VStack(alignment: .center) {
 //            HStack(alignment: .center) {
                 Button(action: {
                     if names.contains(name) {
@@ -74,12 +75,9 @@ struct GridMeasureColumn2:View {
                        
                 })
                 .frame(width: 130, height: 40)
-//            }
-                
-//                .frame(minWidth: 0, maxWidth: 200, minHeight: 50)
-                
                 .background(names.contains(name) ? Color("activeColor") : Color("completeColor"))
                 .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+        }
         //        .padding(.vertical,5)
 //                .padding(.horizontal,120)
             

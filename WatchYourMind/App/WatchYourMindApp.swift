@@ -26,18 +26,14 @@ struct WatchYourMindApp: App {
         
         
         WindowGroup {
-            ContentView2()
-//            LoginView(isAuthen: .constant(false))
-      //MainView()
-//            TableListUser(animals: WatchYourMindApp.animals)
-//                .modifier(SystemServices())
-
-                .environmentObject(Shop())
-                .environmentObject(Measurement())
-                .environmentObject(ManualList())
-                .environmentObject(PostActivity())
-                .environmentObject(ListClientRequest())
-                .environmentObject(Preact())
+//            ContentView2()
+//                .environmentObject(Shop())
+//                .environmentObject(Measurement())
+//                .environmentObject(ManualList())
+//                .environmentObject(PostActivity())
+//                .environmentObject(ListClientRequest())
+//                .environmentObject(Preact())
+            NotificationSend()
         }
     }
 }

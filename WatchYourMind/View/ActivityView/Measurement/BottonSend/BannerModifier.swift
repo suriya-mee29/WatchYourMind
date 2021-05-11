@@ -51,7 +51,7 @@ struct BannerModifier: ViewModifier {
                             Text(data.detail)
                                 .font(Font.system(size: 15, weight: Font.Weight.light, design: Font.Design.default))
                         }
-                        Spacer()
+//                        Spacer()
                     }
                     .foregroundColor(Color.white)
                     .padding(12)
@@ -61,7 +61,7 @@ struct BannerModifier: ViewModifier {
                 }
                 .padding()
                 .animation(.easeInOut)
-                .transition(AnyTransition.move(edge: .top).combined(with: .opacity))
+//                .transition(AnyTransition.move(edge: .top).combined(with: .opacity))
                 .onTapGesture {
                     withAnimation {
                         self.show = false

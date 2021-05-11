@@ -13,7 +13,7 @@ struct BottonSend: View {
         @State var showBanner:Bool = false
         @State var bannerData: BannerModifier.BannerData = BannerModifier.BannerData(title: "Notification Title", detail: "Notification text for the action you were trying to perform.", type: .Warning)
         var body: some View {
-            VStack(alignment: .center, spacing: 4) {
+//            VStack(alignment: .center, spacing: 4) {
                 Button(action: {
                     self.bannerData.type = .Success
                     self.showBanner = true
@@ -23,8 +23,9 @@ struct BottonSend: View {
                         Image(systemName: "paperplane")
                     }
                 }
-            }
+//            }
             .banner(data: $bannerData, show: $showBanner)
+                .fixedSize(horizontal: false, vertical: true)
             .buttonStyle(neumorphic(color: Color.background))
          .shadow(color: Color.darkShadow, radius: 3, x: 2, y: 2)
 

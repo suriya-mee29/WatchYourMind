@@ -46,7 +46,7 @@ struct FrequencyActivityView2: View {
     @State var selectedLabel = "Frequency"
     
     var body: some View {
-        VStack(alignment: .leading){
+        VStack(alignment: .center){
             ForEach(StartSomeDays) { StartSomeDay in
                 HStack {
                     Image(systemName: expandSome ? "checkmark.circle.fill" : "circle.fill")
@@ -78,56 +78,17 @@ struct FrequencyActivityView2: View {
                 
                 VStack{
                 if expandSome{
-                    let matchingIndex =
-                      self.StartSomeDays.firstIndex(where: { $0.id == StartSomeDay.id })
+//                    let matchingIndex =
+//                      self.StartSomeDays.firstIndex(where: { $0.id == StartSomeDay.id })
 
-                    VStack(alignment: .leading){
+                    VStack(alignment: .center){
+                        SomedayStepperTextFieldDay()
+
                         
-                        HStack {
-                                        HStack {
-                                           
-                                            TextFieldView()
-                                            .shadow(radius: 3 )
-                                            .textContentType(.oneTimeCode)
-                                               .keyboardType(.numberPad)
-                                                                .textContentType(.oneTimeCode)
-                                                                   .keyboardType(.numberPad)
-                    //
-                                                        }.frame(width: 80, alignment: .center)
-                                            
-                                            Text("Day(s)/Week")
-                        }
-                        
-                        
-                    HStack {
-                                    HStack {
-                                       
-                                        TextFieldView()
-                                        .shadow(radius: 3 )
-                                        .textContentType(.oneTimeCode)
-                                           .keyboardType(.numberPad)
-                                                            .textContentType(.oneTimeCode)
-                                                               .keyboardType(.numberPad)
-                //
-                                                    }.frame(width: 80, alignment: .center)
-                                        
-                                        Text("Minutes / Day")
-                    }
+                        EverydayStepperTextFieldMinutes(quantity: 0)
                     
-                    HStack {
-                                    HStack {
-                                       
-                                        TextFieldView()
-                                        .shadow(radius: 3 )
-                                        .textContentType(.oneTimeCode)
-                                           .keyboardType(.numberPad)
-                                                            .textContentType(.oneTimeCode)
-                                                               .keyboardType(.numberPad)
-                //
-                                                    }.frame(width: 80, alignment: .center)
-                                        
-                                        Text("Time(s)/Day")
-                    }
+                        EverydayStepperTextFieldTime()
+                           
                     }
                                     
 

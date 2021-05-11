@@ -10,10 +10,11 @@ import SwiftUI
 struct SomeDayEveryDayView: View {
     var body: some View {
         
-        VStack(alignment: .leading) {
+        VStack(alignment: .center) {
             FrequencyActivityView()
                 
             FrequencyActivityView2()
+                .padding(.leading,10)
         }
         .fixedSize()
     }

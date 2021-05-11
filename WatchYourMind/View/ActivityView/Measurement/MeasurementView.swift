@@ -24,14 +24,22 @@ struct MeasurementView: View {
 
     var body: some View {
         
-        ZStack {
-            ScrollView(.vertical, showsIndicators: false) {
+        VStack {
+//            ScrollView(.vertical, showsIndicators: false) {
 //                LazyVGrid(columns: gridLayout, alignment: .center, spacing: 10) {
-              
-                    VStack(alignment: .leading){
+//                Spacer()
+    //                .padding(.top,100)
+//                    .padding(.trailing,150)
+                    
+                
+                    VStack{
                         NavigationBarMeasurement()
+
+                            
                         HStack(alignment: .center) {
                             
+
+
                             VStack(alignment: .leading) {
                                 Image("\(user.imageUser)")
                                     .resizable()
@@ -76,14 +84,15 @@ struct MeasurementView: View {
                                     
                                     Text("\(user.branch)")
                                 }
+                                BottonSend()
+
 
                             }//:VSTACK
-                            
+
 //                        }
-                            Spacer()
-                            BottonSend()
-                                .padding(.top,100)
-                                .padding(.trailing,150)
+                           
+
+                            
                         }
 
                         
@@ -101,6 +110,8 @@ struct MeasurementView: View {
                             }//:VSTACK
                             Text("(10)")
                                 .foregroundColor(.gray)
+
+
                         } //: HSTACK
                         .frame(width: UIScreen.Widthscreen,height: 100 )
                         
@@ -108,20 +119,17 @@ struct MeasurementView: View {
                         VStack(alignment:.leading){
                         ScrollView(.vertical, showsIndicators: false) {
                            
-                                
+                        
                                 FlipMeasureView()
                                     .frame(width: UIScreen.Widthscreen, height: UIScreen.Height, alignment: .center)
                             }//:ZStack
                             .padding()
-                        }//:ScrollView
+//                        }//:ScrollView
+                        
                         }//VSTACK
                     }
-                    
         }
-//                }//:GRID
-            
-            
-//          }
+
           .edgesIgnoringSafeArea(.all)
 
 

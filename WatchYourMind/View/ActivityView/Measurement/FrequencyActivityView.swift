@@ -54,7 +54,7 @@ struct FrequencyActivityView: View {
     
     
     var body: some View {
-        VStack(alignment: .leading){
+        VStack(alignment: .center){
             ForEach(StartEveryDays) { StartEveryDay in
                 HStack {
 
@@ -94,40 +94,10 @@ struct FrequencyActivityView: View {
                     VStack(alignment: .leading){
 //                        Effects()
 
-                    HStack {
-                         HStack {
 //
-                        TextFieldView()
-                        .shadow(radius: 3 )
-                        .textContentType(.oneTimeCode)
-                           .keyboardType(.numberPad)
-                                            .textContentType(.oneTimeCode)
-                                               .keyboardType(.numberPad)
-//
-                                    }.frame(width: 80, alignment: .center)
-//                                    .underlineTextField()
-//
-                                        Text("Minutes / Day")
-                    }
-//
-                    HStack {
-                                    HStack {
-//
-                                       TextFieldView()
-                                        .shadow(radius: 3 )
-                                        .textContentType(.oneTimeCode)
-                                           .keyboardType(.numberPad)
-                                                            .textContentType(.oneTimeCode)
-                                                               .keyboardType(.numberPad)
-                
-                                                    }.frame(width: 80, alignment: .center)
-//
-                                        Text("Time(s)/Day")
-                    }
-                    
-                                    
-
-              
+//                        StepperTextField(TimeString:"Minutes / Day")
+                        EverydayStepperTextFieldMinutes(quantity: 0)
+                        EverydayStepperTextFieldTime()
                     }//:VSTACK
                     
                 

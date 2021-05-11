@@ -29,6 +29,10 @@
 		96029D5125FB40A600BB6433 /* AutoActivityData.json in Resources */ = {isa = PBXBuildFile; fileRef = 96029D5025FB40A600BB6433 /* AutoActivityData.json */; };
 		9603749A260C99E000677C04 /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96037499260C99E000677C04 /* ToDoItem.swift */; };
 		9603749C260C9A7C00677C04 /* SearchView2Continue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9603749B260C9A7C00677C04 /* SearchView2Continue.swift */; };
+		9609244E264AC38600E76FA3 /* StepperTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9609244D264AC38600E76FA3 /* StepperTextField.swift */; };
+		96092453264AEAC000E76FA3 /* textFieldautoSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96092452264AEAC000E76FA3 /* textFieldautoSize.swift */; };
+		96092456264AFC1F00E76FA3 /* SomedayStepperTextFieldDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96092455264AFC1F00E76FA3 /* SomedayStepperTextFieldDay.swift */; };
+		96092458264B1D9900E76FA3 /* NotificationSend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96092457264B1D9900E76FA3 /* NotificationSend.swift */; };
 		960BA50925E8B71E007265EC /* CalendarPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960BA50825E8B71E007265EC /* CalendarPicker.swift */; };
 		960BA51425E8FD03007265EC /* NicknameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960BA51325E8FD03007265EC /* NicknameView.swift */; };
 		960BA52025E90AF0007265EC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960BA51F25E90AF0007265EC /* MainView.swift */; };
@@ -51,7 +55,6 @@
 		961B81FF25FD5715008A2ACA /* ManualActivityFlipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961B81FE25FD5715008A2ACA /* ManualActivityFlipView.swift */; };
 		961B820225FD61C3008A2ACA /* ManualActivityList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961B820125FD61C3008A2ACA /* ManualActivityList.swift */; };
 		961B820525FD6986008A2ACA /* ActivityListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961B820425FD6986008A2ACA /* ActivityListView.swift */; };
-		961CF7532649CFAC00AA0D92 /* TextAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961CF7522649CFAC00AA0D92 /* TextAnimationView.swift */; };
 		961FA703263FE849006D781A /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961FA702263FE849006D781A /* FriendsView.swift */; };
 		961FA705263FFEEA006D781A /* FriendRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961FA704263FFEEA006D781A /* FriendRow.swift */; };
 		961FA70B2641E102006D781A /* StatusListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961FA70A2641E102006D781A /* StatusListItemView.swift */; };
@@ -197,6 +200,10 @@
 		96029D5025FB40A600BB6433 /* AutoActivityData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AutoActivityData.json; sourceTree = "<group>"; };
 		96037499260C99E000677C04 /* ToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
 		9603749B260C9A7C00677C04 /* SearchView2Continue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView2Continue.swift; sourceTree = "<group>"; };
+		9609244D264AC38600E76FA3 /* StepperTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepperTextField.swift; sourceTree = "<group>"; };
+		96092452264AEAC000E76FA3 /* textFieldautoSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textFieldautoSize.swift; sourceTree = "<group>"; };
+		96092455264AFC1F00E76FA3 /* SomedayStepperTextFieldDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomedayStepperTextFieldDay.swift; sourceTree = "<group>"; };
+		96092457264B1D9900E76FA3 /* NotificationSend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSend.swift; sourceTree = "<group>"; };
 		960BA50825E8B71E007265EC /* CalendarPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPicker.swift; sourceTree = "<group>"; };
 		960BA51325E8FD03007265EC /* NicknameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameView.swift; sourceTree = "<group>"; };
 		960BA51F25E90AF0007265EC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -219,7 +226,6 @@
 		961B81FE25FD5715008A2ACA /* ManualActivityFlipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualActivityFlipView.swift; sourceTree = "<group>"; };
 		961B820125FD61C3008A2ACA /* ManualActivityList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualActivityList.swift; sourceTree = "<group>"; };
 		961B820425FD6986008A2ACA /* ActivityListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListView.swift; sourceTree = "<group>"; };
-		961CF7522649CFAC00AA0D92 /* TextAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnimationView.swift; sourceTree = "<group>"; };
 		961FA702263FE849006D781A /* FriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
 		961FA704263FFEEA006D781A /* FriendRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRow.swift; sourceTree = "<group>"; };
 		961FA70A2641E102006D781A /* StatusListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusListItemView.swift; sourceTree = "<group>"; };
@@ -392,6 +398,31 @@
 			path = User;
 			sourceTree = "<group>";
 		};
+		9609244C264AC38600E76FA3 /* EverydayStepTextfield */ = {
+			isa = PBXGroup;
+			children = (
+				9609244D264AC38600E76FA3 /* StepperTextField.swift */,
+			);
+			name = EverydayStepTextfield;
+			path = "../../../../../../ProjectWatchYorMine สำเนา/WatchYourMind/WatchYourMind/View/ActivityView/Measurement/EverydayStepTextfield";
+			sourceTree = "<group>";
+		};
+		96092451264AEA9900E76FA3 /* TextFieldAutosize */ = {
+			isa = PBXGroup;
+			children = (
+				96092452264AEAC000E76FA3 /* textFieldautoSize.swift */,
+			);
+			path = TextFieldAutosize;
+			sourceTree = "<group>";
+		};
+		96092454264AFB1500E76FA3 /* SomedayStepTextfield */ = {
+			isa = PBXGroup;
+			children = (
+				96092455264AFC1F00E76FA3 /* SomedayStepperTextFieldDay.swift */,
+			);
+			path = SomedayStepTextfield;
+			sourceTree = "<group>";
+		};
 		960E09E625EC99D7004F9ECA /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
@@ -479,6 +510,7 @@
 			children = (
 				9610B05B2603517A001E9A7B /* BottonSend.swift */,
 				9610B05D2603520D001E9A7B /* BannerModifier.swift */,
+				96092457264B1D9900E76FA3 /* NotificationSend.swift */,
 			);
 			path = BottonSend;
 			sourceTree = "<group>";
@@ -505,14 +537,6 @@
 				964E996B2643BBC700FC2A6C /* SelectActivity.swift */,
 			);
 			path = ManualActivity;
-			sourceTree = "<group>";
-		};
-		961CF7512649CF8500AA0D92 /* Default TextField */ = {
-			isa = PBXGroup;
-			children = (
-				961CF7522649CFAC00AA0D92 /* TextAnimationView.swift */,
-			);
-			path = "Default TextField";
 			sourceTree = "<group>";
 		};
 		961FA6FE263FE5E6006D781A /* Notification */ = {
@@ -558,7 +582,9 @@
 		962D96502600D7A400801486 /* Measurement */ = {
 			isa = PBXGroup;
 			children = (
-				961CF7512649CF8500AA0D92 /* Default TextField */,
+				96092454264AFB1500E76FA3 /* SomedayStepTextfield */,
+				96092451264AEA9900E76FA3 /* TextFieldAutosize */,
+				9609244C264AC38600E76FA3 /* EverydayStepTextfield */,
 				9610B05A26035065001E9A7B /* BottonSend */,
 				9610B03826030130001E9A7B /* DatePicker */,
 				962D96512600E16C00801486 /* MeasurementView.swift */,
@@ -1081,6 +1107,7 @@
 				96C1474C2643378D00FDAF42 /* TestFullScreen.swift in Sources */,
 				96FB34D72645A3990038A3CB /* userRequestData.swift in Sources */,
 				9610B03A2603014A001E9A7B /* DatepickerView.swift in Sources */,
+				96092458264B1D9900E76FA3 /* NotificationSend.swift in Sources */,
 				9659666725F7842700686D47 /* AutoActivityListBack.swift in Sources */,
 				9659667725F7D28200686D47 /* TryView.swift in Sources */,
 				961FA70D2641F3DF006D781A /* AnalysisTable.swift in Sources */,
@@ -1104,6 +1131,7 @@
 				9635561E260138FC008ECDD9 /* MeasureFront.swift in Sources */,
 				960BA51425E8FD03007265EC /* NicknameView.swift in Sources */,
 				516CF4632647DD2200CD9537 /* ActivityModel.swift in Sources */,
+				9609244E264AC38600E76FA3 /* StepperTextField.swift in Sources */,
 				516CF4612646AD3300CD9537 /* Utillity.swift in Sources */,
 				96E96D3C261B4185005D27D4 /* AnimalListItemView.swift in Sources */,
 				96FB34D526459CFD0038A3CB /* userRequestModel.swift in Sources */,
@@ -1141,6 +1169,7 @@
 				962D965A2600F72F00801486 /* GridPicker.swift in Sources */,
 				96B5D01A2604A597006E4020 /* ListAfter.swift in Sources */,
 				96CA0E562611ED31007A09F5 /* SearchView2.swift in Sources */,
+				96092453264AEAC000E76FA3 /* textFieldautoSize.swift in Sources */,
 				9665C47E25E677680081B5CE /* StatusGridView.swift in Sources */,
 				961FA705263FFEEA006D781A /* FriendRow.swift in Sources */,
 				516CF4652647DF9300CD9537 /* ActivityStore.swift in Sources */,
@@ -1152,8 +1181,8 @@
 				9610B04426031559001E9A7B /* MultiDatePicker.swift in Sources */,
 				962D96582600F64A00801486 /* Tabs.swift in Sources */,
 				961FA70B2641E102006D781A /* StatusListItemView.swift in Sources */,
-				961CF7532649CFAC00AA0D92 /* TextAnimationView.swift in Sources */,
 				962D964F2600CDF300801486 /* addButton.swift in Sources */,
+				96092456264AFC1F00E76FA3 /* SomedayStepperTextFieldDay.swift in Sources */,
 				9671994225EE5F6600BD94CC /* RadioButtonGroup.swift in Sources */,
 				96ADE4C42608DE700029F37D /* SomeDayEveryDayView.swift in Sources */,
 				963470D825F9FD4B00C03431 /* buttonPreActivity.swift in Sources */,

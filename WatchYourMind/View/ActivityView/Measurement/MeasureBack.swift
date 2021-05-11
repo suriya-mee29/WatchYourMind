@@ -14,8 +14,10 @@ extension UIScreen{
 
 struct MeasureBack: View {
     var body: some View {
-        VStack(alignment:.leading, spacing: 10){
-
+       
+        VStack(alignment:.center, spacing: 10){
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack(alignment:.center){
                 Text("Range indicators")
                     .font(.system(size: 30))
                     .font(.headline)
@@ -24,6 +26,7 @@ struct MeasureBack: View {
             
       
             GridPickerMeasure2()
+                
             
             Text("Frequency")
                 .font(.system(size: 30))
@@ -33,11 +36,15 @@ struct MeasureBack: View {
             
             SomeDayEveryDayView()
                     .padding(.horizontal,10)
+                }//:VSTACK
+            }//:ScrollView
         }//:VSTACK
+        .padding(.top,70)
         .frame(width: 400, height: 500,alignment: .center)
         .background(Color.white)
         .cornerRadius(25)
         .shadow(radius: 10 )
+    
         
     }
 }
