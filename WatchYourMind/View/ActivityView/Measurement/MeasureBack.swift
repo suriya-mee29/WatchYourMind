@@ -34,7 +34,7 @@ struct MeasureBack: View {
             SomeDayEveryDayView()
                     .padding(.horizontal,10)
         }//:VSTACK
-        .frame(width: UIScreen.screenWidth-600, height: UIScreen.screenHeight-800,alignment: .center)
+        .frame(width: 400, height: 500,alignment: .center)
         .background(Color.white)
         .cornerRadius(25)
         .shadow(radius: 10 )
