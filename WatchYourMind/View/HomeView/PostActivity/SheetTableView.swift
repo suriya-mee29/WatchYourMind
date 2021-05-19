@@ -45,7 +45,7 @@ struct AnimalListItemSheetView2: View {
 
     var body: some View {
 
-                PreActivity()
+        PreActivity(client: UserModel(timestamp: 1, status: true, message: "ok", data: DataUserModel(type: "std", statusid: "11", statusname: "dddd", userName: "dddd", prefixname: "ddd", displayname_th: "dddd", displayname_en: "ddd", email: "dddd", department: "ddd", faculty: "dddd")))
             .navigationBarTitle(Text("PreActivity"), displayMode: .inline)
                 .navigationBarItems(trailing: Button(action: {
                     print("Dismissing sheet view...")

@@ -15,6 +15,17 @@ enum InternalFactor: String {
 }
 
 struct CheckboxView2: View {
+    @Binding var precipitance : [String : [String:Bool]]
+    
+    @State var external : [String : Bool] = [
+        "stress from perception" : false ,
+        "enviromental stress" : false]
+    
+    @State var Internal : [String : Bool] = [
+            "developmental stress" : false ,
+            "biology Stress" : false]
+ 
+    
     var body: some View {
         HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 0){
 //            Text("Internal Factor")
@@ -58,8 +69,8 @@ struct CheckboxView2: View {
                         callback: checkboxSelected
                     )
                     CheckboxView(
-                        id: InternalFactor.StressFromPerception.rawValue,
-                        label: InternalFactor.StressFromPerception.rawValue,
+                        id: InternalFactor.EnvironmentalStress.rawValue,
+                        label: InternalFactor.DevelopmentalStress.rawValue,
                         size: 20,
                         textSize: 20,
                         callback: checkboxSelected
@@ -80,11 +91,43 @@ struct CheckboxView2: View {
     
     func checkboxSelected(id: String, isMarked: Bool) {
         print("\(id) is marked: \(isMarked)")
+        switch id {
+        case InternalFactor.DevelopmentalStress.rawValue :
+            if isMarked {
+                self.Internal["developmental stress"] = true
+            }else{
+                self.Internal["developmental stress"] = false
+            }
+        case InternalFactor.BiologyStress.rawValue :
+            if isMarked {
+                self.Internal["biology Stress"] = true
+            }else{
+                self.Internal["biology Stress"] = false
+            }
+        case InternalFactor.StressFromPerception.rawValue :
+            if isMarked {
+            self.external["stress from perception"] = true
+           }else{
+            self.external["stress from perception"] = false
+           }
+        case InternalFactor.EnvironmentalStress.rawValue :
+              if isMarked {
+                self.external["enviromental stress"] = true
+               }else{
+                self.external["enviromental stress"] = false
+               }
+        default:
+            print("defauts of checkboxView2()")
+            
+        }
+        
+        self.precipitance["external"] = self.external
+        self.precipitance["internal"] = self.Internal
     }
 }
 
 struct CheckboxView2_Previews: PreviewProvider {
     static var previews: some View {
-        CheckboxView2()
+        CheckboxView2(precipitance: .constant(["ddd" : ["String" : false]]))
     }
 }

@@ -11,22 +11,18 @@ struct AnalysisPreactivity: View {
     public var stylepresent: ChartStyle2
     public var dropShadowpresent: Bool
     
-//    var contentdate: LocalizedStringKey
+
 
     
     public init(style: ChartStyle2 = Styles.pieChartStyleOne, dropShadow: Bool? = true){
         self.stylepresent = style
         self.dropShadowpresent = dropShadow!
-//        self.startdate =
+
     }
     var body: some View {
-//        ZStack{
-//            Rectangle()
-//                .fill(self.stylecard.backgroundColor)
-//                .cornerRadius(20)
-//                .shadow(color: self.stylecard.dropShadowColor, radius: self.dropShadowcard ? 12 : 0)
+
             VStack{
-//                 let startdate: Date
+
 
             Text("Presentation:")
                 .font(.system(size:40))
@@ -42,7 +38,7 @@ struct AnalysisPreactivity: View {
                         .cornerRadius(10)
                         .shadow(color: self.stylepresent.dropShadowColor, radius: self.dropShadowpresent ? 12 : 0)
                         .frame(width: 380, height:220)
-                    TextEdit()
+                    TextEdit(fullText: .constant(""))
                         .cornerRadius(10)
                         .frame(width: 380, height:220)
 

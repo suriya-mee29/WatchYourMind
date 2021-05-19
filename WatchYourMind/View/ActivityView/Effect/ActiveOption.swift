@@ -20,6 +20,7 @@ enum OPTION : String{
 }
 
 struct EffectsActive: View {
+    @Binding var selectedActive : String?
     
     @State var EffectsActives = [
         Active(name: "Active"),
@@ -88,6 +89,7 @@ struct EffectsActive: View {
                             self.expand.toggle()
                             self.selectedLabel = "Hyperactive"
                             self.EffectsActives[matchingIndex!].isChecked = true
+                            self.selectedActive = self.selectedLabel
                                 
                             })//:BUTTON
                         {
@@ -100,7 +102,7 @@ struct EffectsActive: View {
                         self.expand.toggle()
                         self.selectedLabel = "Hypoactive"
                         self.EffectsActives[matchingIndex!].isChecked = true
-                            
+                        self.selectedActive = self.selectedLabel
                         })//:BUTTON
                     {
                         Text("\(OPTION.hypoactive.rawValue)")
@@ -136,7 +138,7 @@ func checkSelected(id: String, isMarked: Bool) {
 
 struct EffectsActive_Previews: PreviewProvider {
     static var previews: some View {
-        EffectsActive()
+        EffectsActive(selectedActive: .constant(""))
         
     }
 }

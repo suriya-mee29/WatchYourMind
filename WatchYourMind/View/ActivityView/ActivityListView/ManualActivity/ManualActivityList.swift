@@ -10,11 +10,16 @@ import SwiftUI
 
 class Measurement: ObservableObject {
   @Published var showingProduct: Bool = false
-  @Published var selectedProduct: MeasurementView? //= nil
+  @Published var selectedProduct: MeasurementView?
 }
 
 
+
 struct ManualActivityList: View {
+    
+    let preActivityModel : PreActivityModel
+    @State var selectedActivities = [ActivityModel]()
+    let client : UserModel
     
     @State private var isSelected = true
     @ObservedObject var arr : ManualActivtyViewModel = ManualActivtyViewModel()
@@ -41,8 +46,45 @@ struct ManualActivityList: View {
                 
             if !isIphone{ // iPad mac
                 HStack(alignment:.top){
-                    AutoActivityList(isSelectedAuto: .constant([]))
-                        .padding(.trailing,100)
+                    
+                    VStack(alignment: .leading, spacing: 0){
+                            
+            //                ScrollView(.vertical, showsIndicators: false, content: {
+
+                        HStack {
+                            
+                            Image(systemName: "circle")
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 50, height: 50)
+                                .foregroundColor(.yellow)
+
+                            VStack(alignment:.leading, spacing: 0) {
+                                Text("Auto Activity")
+                                    .font(.system(size: 30))
+                                    .font(.title)
+                                    .fontWeight(.bold)
+                                
+                                Text("\(self.activityStore.activityList.count) Activities")
+                            }
+                        
+                        }
+                            VStack(alignment: .leading) {
+                                ScrollView(.vertical, showsIndicators: false, content:{
+                                    
+                                    ForEach(self.activityStore.activityList) { item in
+                                        if item.type == "AUTO"{
+                                            ManualActivityFlipView(selectedActivities: self.$selectedActivities, currentActivity: item)
+                                                .padding()
+                                        }
+                       
+                                }
+                                    
+                                })
+                       
+                            }
+
+                    } .padding()
                     
             VStack(alignment: .leading, spacing: 0){
 
@@ -99,7 +141,6 @@ struct ManualActivityList: View {
                          .shadow(radius: 8 )
                             .onTapGesture {
                               feedback.impactOccurred()
-
                                 measurement.showingProduct = true
 //                                  }
                             }
@@ -114,10 +155,11 @@ struct ManualActivityList: View {
 
     //                if !isSelected {
                     ScrollView(.vertical, showsIndicators: false, content:{
-                        
+                       
+    
                         ForEach(self.activityStore.maualActivityList) { item in
                             if item.type == "MANUAL"{
-                                ManualActivityFlipView(activityName: item.title , assined:"\(item.count)", create: item.createdDate,  description: item.description)
+                                ManualActivityFlipView(selectedActivities: self.$selectedActivities, currentActivity: item)
                                     .padding()
                             }//:IF
                     }//:LOOP
@@ -125,33 +167,7 @@ struct ManualActivityList: View {
                     })//:ScrollView
 
                     HStack{
-                   
-//                    Button(action: {
-//
-//                    }, label: {
-//                        Image(systemName: "chevron.forward")
-//                            .scaledToFit()
-//
-//
-//
-//                             .fixedSize()
-//                             .foregroundColor(.black)
-//
-//                            .frame(width: 20, height: 20)
-//                            .padding()
-//                            .background(Color.white)
-//                            .frame(width: 40, height: 40)
-//                            .cornerRadius(100)
-//                            .onTapGesture {
-//                              feedback.impactOccurred()
-//
-//                                measurement.showingProduct = true
-////                                  }
-//                            }
-//
-//                    }) //: BUTTON-NEXT
-
-//                    }//:ZSTACK
+          
 
                         
                         
@@ -173,9 +189,44 @@ struct ManualActivityList: View {
             }//:IF
             else{
                 
-                   
                 VStack{
-                    AutoActivityList(isSelectedAuto: .constant([]))
+                    VStack(alignment: .leading, spacing: 0){
+                            
+
+                        HStack {
+                            
+                            Image(systemName: "circle")
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 50, height: 50)
+                                .foregroundColor(.yellow)
+
+                            VStack(alignment:.leading, spacing: 0) {
+                                Text("Auto Activity")
+                                    .font(.system(size: 30))
+                                    .font(.title)
+                                    .fontWeight(.bold)
+                                
+                                Text("\(self.activityStore.activityList.count) Activities")
+                            }
+                        
+                        }
+                            VStack(alignment: .leading) {
+                                ScrollView(.vertical, showsIndicators: false, content:{
+                                    
+                                    ForEach(self.activityStore.activityList) { item in
+                                        if item.type == "AUTO"{
+                                            ManualActivityFlipView(selectedActivities: self.$selectedActivities, currentActivity: item)
+                                                .padding()
+                                        }
+                       
+                                }
+                                    
+                                })
+                       
+                            }
+
+                    } .padding()
             VStack(alignment: .leading, spacing: 0){
 
 
@@ -200,10 +251,10 @@ struct ManualActivityList: View {
 
                 VStack(alignment: .leading) {
                     ScrollView(.vertical, showsIndicators: false, content:{
+                       
                         ForEach(self.activityStore.maualActivityList) { item in
                         
-                            ManualActivityFlipView(activityName: item.title, assined: "\(item.count)", create: item.createdDate, description: item.description)
-                            
+                            ManualActivityFlipView(selectedActivities: self.$selectedActivities, currentActivity: item)
                         .padding()
                             
                     }
@@ -299,7 +350,8 @@ struct ManualActivityList: View {
             
         }//:If
         else{
-            MeasurementView(user: userRequestData[1])
+            
+            MeasurementView( selectedActivities:self.selectedActivities, client: self.client, preActivityModel: self.preActivityModel)
         }
             
             
@@ -311,7 +363,7 @@ struct ManualActivityList: View {
 
 struct ManualActivityList_Previews: PreviewProvider {
     static var previews: some View {
-        ManualActivityList()
+        ManualActivityList(preActivityModel: PreActivityModel(presentation: "", precipitance: [String:[String:Bool]](), pattern: "", faultyThinking: "", intensityLevel: 43.2, emotionLevel: "", event: "", stateProblem: 2), client: UserModel(timestamp: 1, status: true, message: "ok", data: DataUserModel(type: "std", statusid: "11", statusname: "dddd", userName: "dddd", prefixname: "ddd", displayname_th: "dddd", displayname_en: "ddd", email: "dddd", department: "ddd", faculty: "dddd")))
             .environmentObject(Measurement())
                     
     }

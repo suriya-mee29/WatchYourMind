@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct IntensityLevelView: View {
-    @State private var sliderValue: Double = 0
+    @Binding  var sliderValue: Double
     @State var minValue: Float = 0.0
     @State var maxValue: Float = Float(UIScreen.main.bounds.width - 50.0)
 
@@ -47,6 +47,6 @@ struct IntensityLevelView: View {
 
 struct IntensityLevelView_Previews: PreviewProvider {
     static var previews: some View {
-        IntensityLevelView()
+        IntensityLevelView(sliderValue: .constant(50))
     }
 }

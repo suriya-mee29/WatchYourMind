@@ -143,14 +143,14 @@ struct AnalysisView: View {
                             .foregroundColor(.black)
 
 
-                    TextEdit()
+                    TextEdit(fullText: .constant(""))
                             .shadow(radius: 5 )
                             .padding(.vertical,20)
                             .padding(.horizontal,10)
                      Text("Percipitance:")
                         .font(.system(size:40))
                         .foregroundColor(.black)
-                            CheckboxView2()
+                    CheckboxView2(precipitance: .constant(["ddd" : ["String" : false]]))
                     }
 
 
@@ -161,7 +161,7 @@ struct AnalysisView: View {
                         .foregroundColor(.black)
 
 
-                    TextEdit()
+                    TextEdit(fullText: .constant(""))
                         .shadow(radius: 5 )
                         .padding(.vertical,20)
                         .padding(.horizontal,10)
@@ -171,7 +171,7 @@ struct AnalysisView: View {
                     .font(.system(size:30))//                .fontWeight(.semibold)
                     .foregroundColor(.black)
                     .padding(.leading)
-                TextEdit()
+                    TextEdit(fullText: .constant(""))
                     .shadow(radius: 5 )
                     .padding(.horizontal,10)
                 }
@@ -179,18 +179,18 @@ struct AnalysisView: View {
                     Text("Intensity Level: ")
                         .font(.system(size:40))
                         .foregroundColor(.gray)
-                    IntensityLevelView()
+                    IntensityLevelView(sliderValue: .constant(50))
                     }
                         VStack(alignment: .center,spacing: 30) {
-                    EmotionView()
+                            EmotionView(selected: .constant(""))
                         }.padding(.vertical,8)
 
                 VStack(alignment: .leading, spacing: 0){
                             Text("Effect")
                                 .font(.system(size:40))
                                 .foregroundColor(.gray)
-                    Effects()
-                    TheperiodoftheproblemView()
+                    Effects(selectedActivity: .constant(""), checklistItems: .constant([]))
+                    TheperiodoftheproblemView(text: .constant(""))
 
                         }
                 }//:ZSTACK Pre-Activity

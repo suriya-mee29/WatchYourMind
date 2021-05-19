@@ -14,14 +14,12 @@ struct FriendRow: View {
 
         VStack {
             HStack {
-                Image("Avatar_white")
+                Image( user.student.data.prefixname == "Mr" ? "gamer" : "gamer-2"  )
                     .resizable()
                     .renderingMode(.original)
                     .aspectRatio(contentMode: .fill)
                     .clipped()
-
                     .clipShape(Circle())
-                    
                     .frame(width:80, height: 80)
                 
                 
@@ -51,12 +49,12 @@ struct FriendRow: View {
                     }//:VStack(alignment: .leading,spacing:10)
                     
                 }//:VStack
-         Spacer()
-
+                
+                  Spacer()
                     .frame(width: 100, height: 100, alignment: .center)
-
                     .padding(.trailing,20)
-
+                
+                
             }//:HStack
 
         }//:VSTACK

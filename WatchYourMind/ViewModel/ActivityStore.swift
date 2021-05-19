@@ -116,8 +116,9 @@ class ActivityStore : ObservableObject {
                             let imageIcon = activity ["imageIcon"] as? String
                             let title = activity["title"] as? String
                             let type = activity["type"] as? String
+                            let docKey = ativityDocument.documentID
                             
-                            var activityModel = ActivityModel(createdby: createdby!, description: description!, imageIcon: imageIcon!, title: title!, type: type!)
+                            var activityModel = ActivityModel(createdby: createdby!, description: description!, imageIcon: imageIcon!, title: title!, type: type!, dockey: docKey)
                             
                          
                             

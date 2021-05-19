@@ -17,6 +17,7 @@ struct FriendsView: View {
     let feedback = UIImpactFeedbackGenerator(style: .heavy)
     @EnvironmentObject var preactivity: Preact
     @ObservedObject var clients = Client()
+    @State var selectedClient : UserModel?
 
 
     var body: some View {
@@ -51,6 +52,7 @@ struct FriendsView: View {
 
                                              }
                                              .onTapGesture {
+                                                self.selectedClient = user.student
                                                feedback.impactOccurred()
                                              preactivity.showingProduct = true
                                              }
@@ -72,7 +74,9 @@ struct FriendsView: View {
   }//:IF
 
             else{
-                PreActivity()
+                if let client = self.selectedClient {
+                PreActivity(client: client)
+                }
             }
         }//:ZStack
      

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ParentDatePicker: View {
     @State var showGraphical: Bool = false
-        @State var currentDate: Date = Date()
+        @Binding var currentDate: Date
         var dateFormatter: DateFormatter {
             let formatter = DateFormatter()
             formatter.dateFormat = "dd MMM yyyy HH:mm"
@@ -47,6 +47,6 @@ struct ParentDatePicker: View {
 
 struct ParentDatePicker_Previews: PreviewProvider {
     static var previews: some View {
-        ParentDatePicker()
+        ParentDatePicker( currentDate: .constant(Date()))
     }
 }

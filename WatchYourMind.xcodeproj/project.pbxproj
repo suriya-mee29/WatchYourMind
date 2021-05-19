@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		516C8EF3265155790057EA3A /* NumberPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516C8EF2265155790057EA3A /* NumberPickerView.swift */; };
+		516C8EF5265253E90057EA3A /* AssignmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516C8EF4265253E80057EA3A /* AssignmentViewModel.swift */; };
 		516CF45B264692AF00CD9537 /* activitise_Icon.json in Resources */ = {isa = PBXBuildFile; fileRef = 516CF45A264692AF00CD9537 /* activitise_Icon.json */; };
 		516CF45D264695F000CD9537 /* ActivitiesIconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516CF45C264695F000CD9537 /* ActivitiesIconModel.swift */; };
 		516CF45F26469A4F00CD9537 /* ActivityIconGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516CF45E26469A4F00CD9537 /* ActivityIconGalleryView.swift */; };
@@ -19,6 +21,7 @@
 		516CF46E264940F200CD9537 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516CF46D264940F200CD9537 /* API.swift */; };
 		516CF472264A845800CD9537 /* BBRefreshableScrollView in Frameworks */ = {isa = PBXBuildFile; productRef = 516CF471264A845800CD9537 /* BBRefreshableScrollView */; };
 		516CF474264AA39300CD9537 /* ClientMedel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516CF473264AA39300CD9537 /* ClientMedel.swift */; };
+		516CF477264C3CB700CD9537 /* PreActivityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516CF476264C3CB700CD9537 /* PreActivityModel.swift */; };
 		51FD717526453412002C3CE6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 51FD717426453412002C3CE6 /* GoogleService-Info.plist */; };
 		51FD717826453750002C3CE6 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 51FD717726453750002C3CE6 /* FirebaseAuth */; };
 		51FD717A26453750002C3CE6 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 51FD717926453750002C3CE6 /* FirebaseFirestore */; };
@@ -179,6 +182,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		516C8EF2265155790057EA3A /* NumberPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPickerView.swift; sourceTree = "<group>"; };
+		516C8EF4265253E80057EA3A /* AssignmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentViewModel.swift; sourceTree = "<group>"; };
 		516CF45A264692AF00CD9537 /* activitise_Icon.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = activitise_Icon.json; sourceTree = "<group>"; };
 		516CF45C264695F000CD9537 /* ActivitiesIconModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesIconModel.swift; sourceTree = "<group>"; };
 		516CF45E26469A4F00CD9537 /* ActivityIconGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIconGalleryView.swift; sourceTree = "<group>"; };
@@ -190,6 +195,7 @@
 		516CF46A26493FE800CD9537 /* DataUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUserModel.swift; sourceTree = "<group>"; };
 		516CF46D264940F200CD9537 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		516CF473264AA39300CD9537 /* ClientMedel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientMedel.swift; sourceTree = "<group>"; };
+		516CF476264C3CB700CD9537 /* PreActivityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreActivityModel.swift; sourceTree = "<group>"; };
 		51FD717426453412002C3CE6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		51FD717F26453B4A002C3CE6 /* PsychologistManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PsychologistManagement.swift; sourceTree = "<group>"; };
 		51FD718126455478002C3CE6 /* ContentView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView2.swift; sourceTree = "<group>"; };
@@ -383,6 +389,14 @@
 			path = ClientModel;
 			sourceTree = "<group>";
 		};
+		516CF475264C3C9900CD9537 /* Assignment */ = {
+			isa = PBXGroup;
+			children = (
+				516CF476264C3CB700CD9537 /* PreActivityModel.swift */,
+			);
+			path = Assignment;
+			sourceTree = "<group>";
+		};
 		51FD717E26453AB4002C3CE6 /* User */ = {
 			isa = PBXGroup;
 			children = (
@@ -571,6 +585,7 @@
 				96ADE4C32608DE700029F37D /* SomeDayEveryDayView.swift */,
 				96829DEA261487B600066395 /* GridPickerMeasure2.swift */,
 				962E9EA9263DDA8900FF1ABF /* NavigationBarMeasurement.swift */,
+				516C8EF2265155790057EA3A /* NumberPickerView.swift */,
 			);
 			path = Measurement;
 			sourceTree = "<group>";
@@ -660,6 +675,7 @@
 		9659668125F7D7C400686D47 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				516CF475264C3C9900CD9537 /* Assignment */,
 				516CF46F264A7B4200CD9537 /* ClientModel */,
 				9659668225F7D7D800686D47 /* AutoActivityModel.swift */,
 				966553D4262D7089000236E7 /* ManualActivityModel.swift */,
@@ -677,6 +693,7 @@
 				968F5A64263C2307003CACEA /* AutoActivity */,
 				966553E3262D80D8000236E7 /* ManualActivity */,
 				516CF4642647DF9300CD9537 /* ActivityStore.swift */,
+				516C8EF4265253E80057EA3A /* AssignmentViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1056,6 +1073,7 @@
 				9610B059260332B0001E9A7B /* ParentDatePicker.swift in Sources */,
 				96CA0E5C261201C3007A09F5 /* TestView2.swift in Sources */,
 				963470DB25F9FDBA00C03431 /* Color.swift in Sources */,
+				516C8EF5265253E90057EA3A /* AssignmentViewModel.swift in Sources */,
 				96B5D02C2605DE11006E4020 /* PieChartHelpers.swift in Sources */,
 				96B5D02E2605DE31006E4020 /* PieChartRow.swift in Sources */,
 				96B5D0222604C49B006E4020 /* RatingView.swift in Sources */,
@@ -1073,6 +1091,7 @@
 				96B5D0272605AC38006E4020 /* CardUsename.swift in Sources */,
 				962D96612601124D00801486 /* LinearGradient.swift in Sources */,
 				96ADE4C02608A8180029F37D /* CardAssignsine+Outcome.swift in Sources */,
+				516CF477264C3CB700CD9537 /* PreActivityModel.swift in Sources */,
 				9686E84526037DD7000EB806 /* TableListUser.swift in Sources */,
 				9610B04D2603160F001E9A7B /* MDPContentView.swift in Sources */,
 				9610B0472603159C001E9A7B /* MDPModel.swift in Sources */,
@@ -1098,6 +1117,7 @@
 				9610B05E2603520D001E9A7B /* BannerModifier.swift in Sources */,
 				9659663B25F6408B00686D47 /* AutoActivityListFront.swift in Sources */,
 				968280332601DB6D00223597 /* GridPickerMeasure.swift in Sources */,
+				516C8EF3265155790057EA3A /* NumberPickerView.swift in Sources */,
 				963D0A6225E7B97F003A5DDF /* ButtonCalendar.swift in Sources */,
 				51FD718226455478002C3CE6 /* ContentView2.swift in Sources */,
 				96ADE4BE2608A6B00029F37D /* CardOutcome.swift in Sources */,

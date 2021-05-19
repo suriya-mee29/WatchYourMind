@@ -20,6 +20,7 @@ class Client : ObservableObject {
         }
     }
     
+    
     public func fetchActivateClient (completion : @escaping (Bool,String)->Void) {
         docRef.collection("users")
             .whereField("type", isEqualTo: "client")

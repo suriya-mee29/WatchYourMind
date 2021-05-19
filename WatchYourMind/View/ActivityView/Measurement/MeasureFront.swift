@@ -8,15 +8,14 @@
 import SwiftUI
 
 struct MeasureFront: View {
-    let activityName: String
-    let Description:String
+    let activity : ActivityModel
     let colorActivity: String
     @State var isBack : Bool = false
     var body: some View {
         
         VStack(alignment: .center){
 //            VStack(alignment: .center){
-                Text(activityName)
+            Text(activity.title)
                         .font(.system(size: 30))
                         .font(.headline)
                         .fontWeight(.semibold)
@@ -25,7 +24,7 @@ struct MeasureFront: View {
                     .padding(.top,20)
                     .padding(.bottom,10)
 
-            Text("When feeling depressed, stressed, or not relaxed From the current situation")
+            Text(activity.description)
                 .padding(.horizontal,10)
                 
 //            }
@@ -44,6 +43,6 @@ struct MeasureFront: View {
 
 struct MeasureFront_Previews: PreviewProvider {
     static var previews: some View {
-        MeasureFront(activityName: "Music Relaxation", Description: "35",  colorActivity: "incompleteColor")
+        MeasureFront(activity: ActivityModel(createdby: "koi", description: "hello hello", imageIcon: "gamer", title: "Music Relexationlll", type: "MANUAL", createdDate: Date(), dockey: "key") , colorActivity: "incompleteColor")
     }
 }

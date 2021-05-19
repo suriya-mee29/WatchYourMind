@@ -13,7 +13,8 @@ struct buttonPreActivity: View {
     var body: some View {
         NavigationView{
         VStack(alignment: .leading, spacing: 8){
-            NavigationLink(destination:  MeasurementView(user: userRequestData[1])) {
+            NavigationLink(destination:  MeasurementView(selectedActivities: [], client: UserModel(timestamp: 1, status: true, message: "ok", data: DataUserModel(type: "std", statusid: "11", statusname: "dddd", userName: "dddd", prefixname: "ddd", displayname_th: "dddd", displayname_en: "ddd", email: "dddd", department: "ddd", faculty: "dddd")), preActivityModel: PreActivityModel(presentation: "", precipitance: [String:[String:Bool]](), pattern: "", faultyThinking: "", intensityLevel: 43.2, emotionLevel: "", event: "", stateProblem: 2))
+            ) {
              Spacer()
              HStack(alignment: .bottom) {
                  Text("NEXT")

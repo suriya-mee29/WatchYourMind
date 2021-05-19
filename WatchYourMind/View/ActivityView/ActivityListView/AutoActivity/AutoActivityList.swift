@@ -12,6 +12,7 @@ struct AutoActivityList: View {
     @State private var animate3d = false
     @ObservedObject var arr : AutoActivityViewModel = AutoActivityViewModel()
     @Binding var isSelectedAuto: [ManualActivityModel]
+    @Binding var selectedActivities : [ActivityModel]
     
     @ObservedObject var activityStore = ActivityStore()
     
@@ -48,7 +49,7 @@ struct AutoActivityList: View {
                         
                         ForEach(self.activityStore.activityList) { item in
                             if item.type == "AUTO"{
-                                ManualActivityFlipView(activityName: item.title , assined:"\(item.count)", create: item.createdDate,  description: item.description)
+                                ManualActivityFlipView(selectedActivities: self.$selectedActivities, currentActivity: item)
                                     .padding()
                             }
                         
@@ -73,6 +74,6 @@ struct AutoActivityList: View {
 
 struct AutoActivityList_Previews: PreviewProvider {
     static var previews: some View {
-        AutoActivityList(isSelectedAuto: .constant([]))
+        AutoActivityList(isSelectedAuto: .constant([]), selectedActivities: .constant([]))
     }
 }

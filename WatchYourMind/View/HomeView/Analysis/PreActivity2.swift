@@ -11,11 +11,12 @@ struct PreActivity2: View {
     let colorBackground: Color = Color("bg-1")
     @State private var gridLayout: [GridItem] = [GridItem(.flexible())]
     @State var isNavigationBarHidden: Bool = true
-
+    @State var eff : String? = ""
     
 //    @State var next = "NEXT"
 
     var body: some View {
+       
         
         NavigationView {
             ZStack {
@@ -43,14 +44,14 @@ struct PreActivity2: View {
                             .foregroundColor(.black)
                             
                     
-                        TextEdit()
+                    TextEdit(fullText: .constant(""))
                             .shadow(radius: 5 )
                             .padding(.vertical,20)
                             .padding(.horizontal,10)
                      Text("Percipitance:")
                         .font(.system(size:40))
                         .foregroundColor(.black)
-                            CheckboxView2()
+                    CheckboxView2(precipitance: .constant(["ddd" : ["String" : false]]))
                     }
 
     
@@ -61,7 +62,7 @@ struct PreActivity2: View {
                         .foregroundColor(.black)
                         
                 
-                    TextEdit()
+                    TextEdit(fullText: .constant(""))
                         .shadow(radius: 5 )
                         .padding(.vertical,20)
                         .padding(.horizontal,10)
@@ -70,18 +71,18 @@ struct PreActivity2: View {
                     Text("Intensity Level: ")
                         .font(.system(size:40))
                         .foregroundColor(.gray)
-                    IntensityLevelView()
+                    IntensityLevelView(sliderValue: .constant(50))
                     }
                         VStack(alignment: .center,spacing: 30) {
-                    EmotionView()
+                            EmotionView(selected: .constant(""))
                         }.padding(.vertical,8)
                     
                 VStack(alignment: .leading, spacing: 0){
                             Text("Effect")
                                 .font(.system(size:40))
                                 .foregroundColor(.gray)
-                    Effects()
-                    TheperiodoftheproblemView()
+                    Effects(selectedActivity: self.$eff, checklistItems: .constant([]))
+                    TheperiodoftheproblemView(text: .constant(""))
 
                         }
                     VStack(alignment: .leading, spacing: 8){

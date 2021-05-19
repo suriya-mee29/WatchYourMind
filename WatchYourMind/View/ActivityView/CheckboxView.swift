@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CheckboxView: View {
-//    @State var checkState:Bool = false ;
+
     let id: String
         let label: String
         let size: CGFloat
@@ -38,11 +38,10 @@ struct CheckboxView: View {
         var body: some View {
             Button(action:{
                 self.isMarked.toggle()
-                self.callback(self.id, self.isMarked)
+                self.callback(self.id ,  self.isMarked)
             }) {
                 HStack(alignment: .center, spacing: 10) {
                     Image(systemName: self.isMarked ? "checkmark.square" : "square")
-//                        .renderingMode(.original)
                         .resizable()
                         .aspectRatio(CGSize(width: 30, height: 30),contentMode: .fill)
                         .fixedSize(horizontal: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
@@ -55,39 +54,20 @@ struct CheckboxView: View {
                         .font(Font.system(size: size))
                     Spacer()
                 }.foregroundColor(Color.black)
-//                .fixedSize()
-//                .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+
             }
             .foregroundColor(Color.white)
         }
-//
-//             Button(action:
-//                {
-//                    //1. Save state
-//                    self.checkState = !self.checkState
-//                    print("State : \(self.checkState)")
-//
-//
-//            }) {
-//                HStack(alignment: .top, spacing: 10) {
-//
-//                            //2. Will update according to state
-//                       Rectangle()
-//                                .fill(self.checkState ? Color.green : Color.gray)
-//                                .frame(width:20, height:20, alignment: .center)
-//                                .cornerRadius(5)
-//
-//                       Text("Todo  item ")
-//
-//                }
-//            }
-//            .foregroundColor(Color.white)
-//
+
         
 }
 
-//struct CheckboxView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CheckboxView(checked: false, trimVal: 1 )
-//    }
-//}
+struct CheckboxView_Previews: PreviewProvider {
+    static var previews: some View {
+        CheckboxView(id: InternalFactor.DevelopmentalStress.rawValue,
+                     label: InternalFactor.DevelopmentalStress.rawValue,
+                     size: 20,
+                     textSize: 20,
+                     callback: checkboxSelected)
+    }
+}

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct EmotionView: View {
+    @Binding var selected : String
     var body: some View {
         
         VStack(alignment: .leading, spacing: 8) {
@@ -15,11 +16,14 @@ struct EmotionView: View {
                 .font(.system(size:40))
                 .foregroundColor(.gray)
         
+             
         HStack{
+           
             
             EmotionLevelGroup{
                 selected in
                 print("\(selected)")
+                self.selected = selected
             }
         }
         }
@@ -31,6 +35,6 @@ struct EmotionView: View {
 
 struct EmotionView_Previews: PreviewProvider {
     static var previews: some View {
-        EmotionView().previewLayout(.sizeThatFits)
+        EmotionView(selected: .constant("")).previewLayout(.sizeThatFits)
     }
 }

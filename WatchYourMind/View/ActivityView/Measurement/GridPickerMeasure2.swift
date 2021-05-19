@@ -12,7 +12,7 @@ enum Range: String, CaseIterable, Equatable {
     case name2 = "NOTE"
     case name3 = "HEART RATE"
     
-    var name: Image {
+    var name : Image {
         switch self {
               case .name1: return Image(systemName: "photo")
         case .name2: return Image(systemName:"video")
@@ -20,7 +20,14 @@ enum Range: String, CaseIterable, Equatable {
      
         }
     }
+    var nameStr : String{
+        switch self {
+        case .name1: return "scaling"
+        case .name2 : return "noting"
+        case .name3 : return "hr"
+    }
   
+}
 }
 //private var symbols = ["photo","video","mic","link"]
 
@@ -28,10 +35,23 @@ struct GridPickerMeasure2: View {
     
 
     
-    private var flexibleLayout = [GridItem(.flexible()), GridItem(.flexible())]
+   var flexibleLayout = [GridItem(.flexible()), GridItem(.flexible())]
         
-
+    @Binding var activity : [ActivityModel]
+    let seletedAnActivity : ActivityModel
     @State  var selectedItems2: [Range] = []
+    func setArr(range : [Range]) -> [String] {
+        var strarr = [String]()
+        if range.count > 0{
+            for i in 0...range.count-1{
+                strarr.append(range[i].nameStr)
+            }
+            return strarr
+        }else{
+            return []
+        }
+       
+    }
     
     var body: some View {
 //        ScrollView{
@@ -43,6 +63,13 @@ struct GridPickerMeasure2: View {
 //                .padding(.horizontal)
                 .padding(.vertical)
             }//:LazyVGrid
+            .onChange(of: selectedItems2, perform: { value in
+                for i in 0...self.activity.count-1{
+                    if seletedAnActivity.id == activity[i].id {
+                        activity[i].setIndicator(indicators: self.setArr(range: self.selectedItems2))
+                    }
+                }
+            })
 //        }
         
     }
@@ -54,6 +81,7 @@ struct GridMeasureColumn2:View {
     let name: Range
 
     @Binding var names: [Range]
+    
     
     
     var body: some View {
@@ -91,6 +119,6 @@ struct GridMeasureColumn2:View {
 
 struct GridPickerMeasure2_Previews: PreviewProvider {
     static var previews: some View {
-        GridPickerMeasure2().previewLayout(.sizeThatFits)
+        GridPickerMeasure2(activity: .constant([]), seletedAnActivity: ActivityModel(createdby: "koi", description: "hello hello", imageIcon: "gamer", title: "Music Relexation1", type: "MANUAL", createdDate: Date(), dockey: "key")).previewLayout(.sizeThatFits)
     }
 }

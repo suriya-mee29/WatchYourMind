@@ -14,7 +14,7 @@ enum PROBLEM_MODE : String{
     
 }
 struct TheperiodoftheproblemView: View {
-    @State var text: String = ""
+    @Binding var text: String
     @State var expand = false
     @State var selectedLabel = "Selected"
     
@@ -26,7 +26,7 @@ struct TheperiodoftheproblemView: View {
                 HStack{
                                     Text("Have a problem: ")
                                         .font(.system(size: 20))
-                                    TextFieldView()
+                    TextFieldView(text:self.$text)
                                         .shadow(radius: 5)
                                         .textContentType(.oneTimeCode)
                                            .keyboardType(.numberPad)
@@ -100,6 +100,6 @@ struct TheperiodoftheproblemView: View {
 
 struct TheperiodoftheproblemView_Previews: PreviewProvider {
     static var previews: some View {
-        TheperiodoftheproblemView()
+        TheperiodoftheproblemView(text: .constant(""))
     }
 }

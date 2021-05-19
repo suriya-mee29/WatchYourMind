@@ -11,16 +11,14 @@ struct ManualActivityFlipView: View {
     @State private var flipped = false
     @State private var animate3d = false
     @State private var circleColorChanged = true
+    @Binding var selectedActivities : [ActivityModel]
+    
+    
+    let currentActivity : ActivityModel
 
     
     
-    //Font
-    let activityName: String
-    let assined:String
-    let create : Date?
-    
-    //Back
-    let description:String
+
     
     var body: some View {
 //        VStack(alignment: .center, spacing: 20) {
@@ -36,10 +34,10 @@ struct ManualActivityFlipView: View {
                    
 //                    .padding()
                     
-                ManualActivityListFront(activityName: activityName, assined: assined, create: create, colorActivity: "incompleteColor").opacity(flipped ? 0.0 : 1.0)
+                ManualActivityListFront(activityName: currentActivity.title, assined: "\(currentActivity.count)", create: currentActivity.createdDate, colorActivity: "incompleteColor").opacity(flipped ? 0.0 : 1.0)
                 
                 
-                ManualActivityListBack(titlename: activityName, description: description).opacity(flipped ? 1.0 : 0.0)
+                ManualActivityListBack(titlename: currentActivity.title, description: currentActivity.description).opacity(flipped ? 1.0 : 0.0)
                 
 
 
@@ -54,6 +52,26 @@ struct ManualActivityFlipView: View {
                 withAnimation(Animation.linear(duration: 0.5)){
                     self.animate3d.toggle()
                 }
+              
+                
+                if self.circleColorChanged == true{
+                    if self.selectedActivities.count != 0{
+                        print("count \(selectedActivities.count)")
+                        for i in 0...(self.selectedActivities.count-1){
+                            if self.selectedActivities[i].dockey == self.currentActivity.dockey {
+                                self.selectedActivities.remove(at: i)
+                                break
+                            }
+                        }
+                    }
+                    print("remove")
+                    print("count after remove \(selectedActivities.count)")
+                }else{
+                    self.selectedActivities.append(currentActivity)
+                    print("append --> count \(selectedActivities.count)")
+                    
+                }
+                
             }
 //        }.padding(.horizontal,50)
         
@@ -62,7 +80,7 @@ struct ManualActivityFlipView: View {
 
 struct ManualActivityFlipView_Previews: PreviewProvider {
     static var previews: some View {
-        ManualActivityFlipView(activityName: "Music Relaxation", assined:"1", create: Date(), description: "When feeling depressed, stressed, or not relaxed From the current situation")
+        ManualActivityFlipView(selectedActivities: .constant([]), currentActivity: ActivityModel(createdby: "", description: "", imageIcon: "", title: "", type: "", createdDate: Date(), dockey: ""))
     }
 }
 

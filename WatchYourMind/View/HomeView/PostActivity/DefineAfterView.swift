@@ -61,11 +61,11 @@ struct DefineAfterView: View {
                 .padding(.horizontal,10)
                 .padding(.bottom,30)
             
-            IntensityLevelView()
+            IntensityLevelView(sliderValue: .constant(50))
                 .padding(.bottom,30)
                 .padding(.horizontal,10)
             
-            EmotionView()
+            EmotionView(selected: .constant(""))
                 .padding(.bottom,30)
                 .padding(.horizontal,10)
             

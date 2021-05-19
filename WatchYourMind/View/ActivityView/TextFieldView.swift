@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TextFieldView: View {
 
-    @State var text: String = ""
+    @Binding var text: String
 
        var body: some View {
 
@@ -38,6 +38,6 @@ extension View {
 
 struct TextFieldView_Previews: PreviewProvider {
     static var previews: some View {
-        TextFieldView()
+        TextFieldView(text: .constant(""))
     }
 }

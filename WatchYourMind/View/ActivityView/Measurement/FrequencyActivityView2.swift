@@ -86,7 +86,7 @@ struct FrequencyActivityView2: View {
                         HStack {
                                         HStack {
                                            
-                                            TextFieldView()
+                                            TextFieldView(text: .constant(""))
                                             .shadow(radius: 3 )
                                             .textContentType(.oneTimeCode)
                                                .keyboardType(.numberPad)
@@ -102,7 +102,7 @@ struct FrequencyActivityView2: View {
                     HStack {
                                     HStack {
                                        
-                                        TextFieldView()
+                                        TextFieldView(text: .constant(""))
                                         .shadow(radius: 3 )
                                         .textContentType(.oneTimeCode)
                                            .keyboardType(.numberPad)
@@ -117,7 +117,7 @@ struct FrequencyActivityView2: View {
                     HStack {
                                     HStack {
                                        
-                                        TextFieldView()
+                                        TextFieldView(text: .constant(""))
                                         .shadow(radius: 3 )
                                         .textContentType(.oneTimeCode)
                                            .keyboardType(.numberPad)

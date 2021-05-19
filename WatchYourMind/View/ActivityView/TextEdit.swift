@@ -9,8 +9,10 @@ import SwiftUI
 
 struct TextEdit: View {
     
-    @State private var fullText: String = ""
-    init() {
+    @Binding var fullText: String
+    
+    init(fullText : Binding<String> ) {
+        self._fullText = fullText
            UITextView.appearance().backgroundColor = .clear
        }
     
@@ -43,6 +45,6 @@ struct TextEdit: View {
 
 struct TextEdit_Previews: PreviewProvider {
     static var previews: some View {
-        TextEdit().previewLayout(.sizeThatFits)
+        TextEdit(fullText: .constant("")).previewLayout(.sizeThatFits)
     }
 }

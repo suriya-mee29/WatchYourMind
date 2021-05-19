@@ -41,10 +41,6 @@ struct FrequencyActivityView: View {
     
     @State var StartEveryDays = [
         Frequency(name: "EveryDay"),
-//        Frequency(name: "SomeDay")
-        //        Active(name: "Hypoactive" )
-        //        Active(name: "Hyperactive")
-            
     ]
     
     @State var text: String = ""
@@ -97,7 +93,7 @@ struct FrequencyActivityView: View {
                     HStack {
                          HStack {
 //
-                        TextFieldView()
+                            TextFieldView(text: .constant(""))
                         .shadow(radius: 3 )
                         .textContentType(.oneTimeCode)
                            .keyboardType(.numberPad)
@@ -113,7 +109,7 @@ struct FrequencyActivityView: View {
                     HStack {
                                     HStack {
 //
-                                       TextFieldView()
+                                        TextFieldView(text: .constant(""))
                                         .shadow(radius: 3 )
                                         .textContentType(.oneTimeCode)
                                            .keyboardType(.numberPad)
@@ -129,6 +125,9 @@ struct FrequencyActivityView: View {
 
               
                     }//:VSTACK
+                    .onAppear(perform: {
+                        
+                    })
                     
                 
 

@@ -23,7 +23,7 @@ struct ActivityListView: View {
                 
                 
                     HStack (alignment: .top){
-                    AutoActivityList(isSelectedAuto: .constant([]))
+                        AutoActivityList(isSelectedAuto: .constant([]), selectedActivities: .constant([]))
                           //  ManualActivityList()
 
      
@@ -31,7 +31,7 @@ struct ActivityListView: View {
                 }
             else{
                 VStack {
-                    AutoActivityList(isSelectedAuto: .constant([]))
+                    AutoActivityList(isSelectedAuto: .constant([]), selectedActivities: .constant([]))
                    // ManualActivityList()
                     
               

@@ -26,7 +26,7 @@ struct addButton: View {
 //            NavigationLink(destination: NewActivityView(iSSave: .constant(false), activityData: .constant(ManualActivityModel(id: "", createby: "", title: "", description: "", createDate: Date(), type: "", imageicon: "", link: "", pic: "", outcome:[])), showSheetView: .constant(true))) {
                 //                    Spacer()
         
-            NavigationLink(destination: MeasurementView(user: userRequestData[1])){
+        NavigationLink(destination: MeasurementView(selectedActivities: [], client: UserModel(timestamp: 1, status: true, message: "ok", data: DataUserModel(type: "std", statusid: "11", statusname: "dddd", userName: "dddd", prefixname: "ddd", displayname_th: "dddd", displayname_en: "ddd", email: "dddd", department: "ddd", faculty: "dddd")), preActivityModel: PreActivityModel(presentation: "", precipitance: [String:[String:Bool]](), pattern: "", faultyThinking: "", intensityLevel: 43.2, emotionLevel: "", event: "", stateProblem: 2))){
                 HStack{
                     
                     Image(systemName: "chevron.forward" )
@@ -48,7 +48,7 @@ struct addButton: View {
                 
             }//:NavigationLink
         
-            .navigate(to:  MeasurementView(user: userRequestData[1]), when: $willMoveToNextScreen)
+        .navigate(to:  MeasurementView(selectedActivities: [], client: UserModel(timestamp: 1, status: true, message: "ok", data: DataUserModel(type: "std", statusid: "11", statusname: "dddd", userName: "dddd", prefixname: "ddd", displayname_th: "dddd", displayname_en: "ddd", email: "dddd", department: "ddd", faculty: "dddd")), preActivityModel: PreActivityModel(presentation: "", precipitance: [String:[String:Bool]](), pattern: "", faultyThinking: "", intensityLevel: 43.2, emotionLevel: "", event: "", stateProblem: 2)), when: $willMoveToNextScreen)
             
     }
 }

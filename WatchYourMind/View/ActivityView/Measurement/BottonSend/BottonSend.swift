@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BottonSend: View {
   
-        
+        @Binding var checklistindicator :[CheckIndicator]
         @State var showBanner:Bool = false
         @State var bannerData: BannerModifier.BannerData = BannerModifier.BannerData(title: "Notification Title", detail: "Notification text for the action you were trying to perform.", type: .Warning)
         var body: some View {
@@ -36,6 +36,6 @@ struct BottonSend: View {
 
 struct BottonSend_Previews: PreviewProvider {
     static var previews: some View {
-        BottonSend()
+        BottonSend(checklistindicator: .constant([]))
     }
 }

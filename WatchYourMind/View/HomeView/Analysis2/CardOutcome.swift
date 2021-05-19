@@ -51,7 +51,7 @@ struct buildCardOutcome: View{
                 
             }//:HSTACKText
             VStack {
-                TextEdit()
+                TextEdit(fullText: .constant(""))
                     .shadow(radius: 5 )
                     .padding(.vertical,20)
                     .padding(.horizontal,10)

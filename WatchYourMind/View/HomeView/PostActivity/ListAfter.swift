@@ -49,7 +49,7 @@ struct ListAfter: View {
                                        Text(item.effectdescription)
                                 Spacer()
                              
-                                TextFieldView()
+                                TextFieldView(text: .constant(""))
                                     .shadow(radius: 5)
                                     .textContentType(.oneTimeCode)
                                        .keyboardType(.numberPad)
