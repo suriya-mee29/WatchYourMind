@@ -16,7 +16,6 @@ let age: Int
 let progress: Int
 let progressColor: String
 let dateendup: String
-  
-  
+
 }
 

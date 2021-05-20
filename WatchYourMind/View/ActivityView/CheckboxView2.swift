@@ -16,30 +16,32 @@ enum InternalFactor: String {
 
 struct CheckboxView2: View {
     var body: some View {
-        HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 0){
+        
+        HStack(alignment: .center){
 //            Text("Internal Factor")
 //                .font(Font.headline)
             VStack(alignment: .leading , spacing:3){
                 Text("Internal Factor")
-                    .font(.system(size: 25))
+                    .font(.system(size: 30))
                     .font(Font.headline)
-                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    .fontWeight(.semibold)
                 CheckboxView(
                     id: InternalFactor.DevelopmentalStress.rawValue,
                     label: InternalFactor.DevelopmentalStress.rawValue,
-                    size: 20,
-                    textSize: 20,
+                    size: 30,
+                    textSize: 30,
                     callback: checkboxSelected
                 )
+                
                 CheckboxView(
                     id: InternalFactor.BiologyStress.rawValue,
                     label: InternalFactor.BiologyStress.rawValue,
-                    size: 20,
-                    textSize: 20,
+                    size: 30,
+                    textSize: 30,
                     callback: checkboxSelected
                 )
             }//:VSTACK
-        .padding(.horizontal,10)
+        .padding(.horizontal,20)
         .foregroundColor(.black)
 //        .padding()
             
@@ -47,21 +49,21 @@ struct CheckboxView2: View {
 //            Divider()
             VStack(alignment: .leading, spacing: 3){
                     Text("External Factor")
-                        .font(.system(size: 25))
+                        .font(.system(size: 30))
                         .font(Font.headline)
-                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                        .fontWeight(.semibold)
                     CheckboxView(
                         id: InternalFactor.StressFromPerception.rawValue,
                         label: InternalFactor.StressFromPerception.rawValue,
-                        size: 20,
-                        textSize: 20,
+                        size: 30,
+                        textSize: 30,
                         callback: checkboxSelected
                     )
                     CheckboxView(
-                        id: InternalFactor.StressFromPerception.rawValue,
-                        label: InternalFactor.StressFromPerception.rawValue,
-                        size: 20,
-                        textSize: 20,
+                        id: InternalFactor.EnvironmentalStress.rawValue,
+                        label: InternalFactor.EnvironmentalStress.rawValue,
+                        size: 30,
+                        textSize: 30,
                         callback: checkboxSelected
                     )
                 }//:VSTACK

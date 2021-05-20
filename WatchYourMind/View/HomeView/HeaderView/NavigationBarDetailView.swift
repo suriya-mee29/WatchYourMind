@@ -8,18 +8,21 @@
 import SwiftUI
 struct NavigationBarDetailView: View {
   // MARK: - PROPERTY
-    let feedback = UIImpactFeedbackGenerator(style: .medium)
-  @EnvironmentObject var shop: Shop
+//    let feedback = UIImpactFeedbackGenerator(style: .medium)
+//  @EnvironmentObject var shop: Shop
+    let feedback = UIImpactFeedbackGenerator(style: .heavy)
+    @EnvironmentObject var homeview: HomeView
     
   // MARK: - BODY
   
   var body: some View {
+    
     HStack {
       Button(action: {
         withAnimation(.easeIn) {
           feedback.impactOccurred()
-          shop.selectedProduct = nil
-          shop.showingProduct = false
+          homeview.selectedPage = nil
+          homeview.showingPage = false
         }
       }, label: {
         Image(systemName: "chevron.left")
@@ -28,13 +31,8 @@ struct NavigationBarDetailView: View {
       })
       
       Spacer()
-//      .frame(width: UIScreen.Widthscreen)
-      
-//      Button(action: {}, label: {
-//        Image(systemName: "cart")
-//          .font(.title)
-//          .foregroundColor(.white)
-//      })
+
+        
     } //: HSTACK
     .padding()
     .padding(.vertical,10)

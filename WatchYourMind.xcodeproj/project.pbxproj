@@ -55,6 +55,7 @@
 		961B81FF25FD5715008A2ACA /* ManualActivityFlipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961B81FE25FD5715008A2ACA /* ManualActivityFlipView.swift */; };
 		961B820225FD61C3008A2ACA /* ManualActivityList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961B820125FD61C3008A2ACA /* ManualActivityList.swift */; };
 		961B820525FD6986008A2ACA /* ActivityListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961B820425FD6986008A2ACA /* ActivityListView.swift */; };
+		961C297226554A6600D35C97 /* NavigationSomethingAnaly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961C297126554A6600D35C97 /* NavigationSomethingAnaly.swift */; };
 		961FA703263FE849006D781A /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961FA702263FE849006D781A /* FriendsView.swift */; };
 		961FA705263FFEEA006D781A /* FriendRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961FA704263FFEEA006D781A /* FriendRow.swift */; };
 		961FA70B2641E102006D781A /* StatusListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961FA70A2641E102006D781A /* StatusListItemView.swift */; };
@@ -83,6 +84,9 @@
 		9635561C260136A3008ECDD9 /* FlipMeasureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9635561B260136A3008ECDD9 /* FlipMeasureView.swift */; };
 		9635561E260138FC008ECDD9 /* MeasureFront.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9635561D260138FC008ECDD9 /* MeasureFront.swift */; };
 		963D0A6225E7B97F003A5DDF /* ButtonCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963D0A6125E7B97F003A5DDF /* ButtonCalendar.swift */; };
+		963D84F4264C6229004EAB30 /* NavigationbarSonethingAnalysis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963D84F3264C6229004EAB30 /* NavigationbarSonethingAnalysis.swift */; };
+		964378512655DE5500150519 /* NavigationDefineAfter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964378502655DE5500150519 /* NavigationDefineAfter.swift */; };
+		964378532655E35D00150519 /* FullScreenCoverPresentedOnDismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964378522655E35D00150519 /* FullScreenCoverPresentedOnDismiss.swift */; };
 		964A5A3D25ECDBDA0042DD46 /* PreActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964A5A3C25ECDBDA0042DD46 /* PreActivity.swift */; };
 		964A5A4025ECE5E20042DD46 /* CheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964A5A3F25ECE5E20042DD46 /* CheckboxView.swift */; };
 		964A5A4325ECF4B00042DD46 /* CheckboxView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964A5A4225ECF4B00042DD46 /* CheckboxView2.swift */; };
@@ -158,8 +162,8 @@
 		96BD616A2602127C001D4802 /* FrequencyActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BD61692602127C001D4802 /* FrequencyActivityView.swift */; };
 		96C1474A2642BB4100FDAF42 /* PostActivityNavigationbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C147492642BB4100FDAF42 /* PostActivityNavigationbar.swift */; };
 		96C1474C2643378D00FDAF42 /* TestFullScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C1474B2643378D00FDAF42 /* TestFullScreen.swift */; };
+		96C25BAC2652C35900D87643 /* ManualActivityList2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C25BAB2652C35900D87643 /* ManualActivityList2.swift */; };
 		96C31B1B2627014E000BDAAE /* SheetTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C31B1A2627014E000BDAAE /* SheetTableView.swift */; };
-		96C31B212628B3DF000BDAAE /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C31B202628B3DF000BDAAE /* BottomSheetView.swift */; };
 		96C31B242628BB14000BDAAE /* PreActivity2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C31B232628BB14000BDAAE /* PreActivity2.swift */; };
 		96C31B2E2628D111000BDAAE /* TableListUser2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C31B2D2628D111000BDAAE /* TableListUser2.swift */; };
 		96C4DF26263ECF40005A9B64 /* NavigationBarManualActivityList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C4DF25263ECF40005A9B64 /* NavigationBarManualActivityList.swift */; };
@@ -226,6 +230,7 @@
 		961B81FE25FD5715008A2ACA /* ManualActivityFlipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualActivityFlipView.swift; sourceTree = "<group>"; };
 		961B820125FD61C3008A2ACA /* ManualActivityList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualActivityList.swift; sourceTree = "<group>"; };
 		961B820425FD6986008A2ACA /* ActivityListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListView.swift; sourceTree = "<group>"; };
+		961C297126554A6600D35C97 /* NavigationSomethingAnaly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationSomethingAnaly.swift; sourceTree = "<group>"; };
 		961FA702263FE849006D781A /* FriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
 		961FA704263FFEEA006D781A /* FriendRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRow.swift; sourceTree = "<group>"; };
 		961FA70A2641E102006D781A /* StatusListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusListItemView.swift; sourceTree = "<group>"; };
@@ -254,6 +259,9 @@
 		9635561B260136A3008ECDD9 /* FlipMeasureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipMeasureView.swift; sourceTree = "<group>"; };
 		9635561D260138FC008ECDD9 /* MeasureFront.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureFront.swift; sourceTree = "<group>"; };
 		963D0A6125E7B97F003A5DDF /* ButtonCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCalendar.swift; sourceTree = "<group>"; };
+		963D84F3264C6229004EAB30 /* NavigationbarSonethingAnalysis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationbarSonethingAnalysis.swift; sourceTree = "<group>"; };
+		964378502655DE5500150519 /* NavigationDefineAfter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDefineAfter.swift; sourceTree = "<group>"; };
+		964378522655E35D00150519 /* FullScreenCoverPresentedOnDismiss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenCoverPresentedOnDismiss.swift; sourceTree = "<group>"; };
 		964A5A3C25ECDBDA0042DD46 /* PreActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreActivity.swift; sourceTree = "<group>"; };
 		964A5A3F25ECE5E20042DD46 /* CheckboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxView.swift; sourceTree = "<group>"; };
 		964A5A4225ECF4B00042DD46 /* CheckboxView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxView2.swift; sourceTree = "<group>"; };
@@ -330,8 +338,8 @@
 		96BD61692602127C001D4802 /* FrequencyActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyActivityView.swift; sourceTree = "<group>"; };
 		96C147492642BB4100FDAF42 /* PostActivityNavigationbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostActivityNavigationbar.swift; sourceTree = "<group>"; };
 		96C1474B2643378D00FDAF42 /* TestFullScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFullScreen.swift; sourceTree = "<group>"; };
+		96C25BAB2652C35900D87643 /* ManualActivityList2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualActivityList2.swift; sourceTree = "<group>"; };
 		96C31B1A2627014E000BDAAE /* SheetTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetTableView.swift; sourceTree = "<group>"; };
-		96C31B202628B3DF000BDAAE /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		96C31B232628BB14000BDAAE /* PreActivity2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreActivity2.swift; sourceTree = "<group>"; };
 		96C31B2D2628D111000BDAAE /* TableListUser2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableListUser2.swift; sourceTree = "<group>"; };
 		96C4DF25263ECF40005A9B64 /* NavigationBarManualActivityList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarManualActivityList.swift; sourceTree = "<group>"; };
@@ -805,8 +813,11 @@
 				96B5D01D2604BBF7006E4020 /* DefineAfterView.swift */,
 				96B5D0212604C49B006E4020 /* RatingView.swift */,
 				96C31B1A2627014E000BDAAE /* SheetTableView.swift */,
-				96C31B202628B3DF000BDAAE /* BottomSheetView.swift */,
 				96C147492642BB4100FDAF42 /* PostActivityNavigationbar.swift */,
+				96C25BAB2652C35900D87643 /* ManualActivityList2.swift */,
+				961C297126554A6600D35C97 /* NavigationSomethingAnaly.swift */,
+				964378502655DE5500150519 /* NavigationDefineAfter.swift */,
+				964378522655E35D00150519 /* FullScreenCoverPresentedOnDismiss.swift */,
 			);
 			path = PostActivity;
 			sourceTree = "<group>";
@@ -844,6 +855,7 @@
 				96B5D0262605AC38006E4020 /* CardUsename.swift */,
 				96C31B232628BB14000BDAAE /* PreActivity2.swift */,
 				96C31B2D2628D111000BDAAE /* TableListUser2.swift */,
+				963D84F3264C6229004EAB30 /* NavigationbarSonethingAnalysis.swift */,
 			);
 			path = Analysis;
 			sourceTree = "<group>";
@@ -1048,12 +1060,13 @@
 				962D96542600E1CF00801486 /* NewActivityView.swift in Sources */,
 				51FD718026453B4A002C3CE6 /* PsychologistManagement.swift in Sources */,
 				9659667F25F7D7A100686D47 /* CodableBundleExtension.swift in Sources */,
+				963D84F4264C6229004EAB30 /* NavigationbarSonethingAnalysis.swift in Sources */,
 				9671992625EE07DB00BD94CC /* TheperiodoftheproblemView.swift in Sources */,
-				96C31B212628B3DF000BDAAE /* BottomSheetView.swift in Sources */,
 				961B820525FD6986008A2ACA /* ActivityListView.swift in Sources */,
 				9671993925EE474800BD94CC /* Effects.swift in Sources */,
 				96B946F8260718B4002CB85D /* AnalysisPreactivity.swift in Sources */,
 				516CF46726493F3700CD9537 /* Client.swift in Sources */,
+				964378532655E35D00150519 /* FullScreenCoverPresentedOnDismiss.swift in Sources */,
 				9659664A25F753F700686D47 /* AutoActivityList.swift in Sources */,
 				9671994525EE5F9600BD94CC /* RadioButtonView.swift in Sources */,
 				968F5A66263C2329003CACEA /* AutoActivityViewModel.swift in Sources */,
@@ -1136,10 +1149,12 @@
 				96E96D3C261B4185005D27D4 /* AnimalListItemView.swift in Sources */,
 				96FB34D526459CFD0038A3CB /* userRequestModel.swift in Sources */,
 				960BA52025E90AF0007265EC /* MainView.swift in Sources */,
+				964378512655DE5500150519 /* NavigationDefineAfter.swift in Sources */,
 				962E9EAA263DDA8900FF1ABF /* NavigationBarMeasurement.swift in Sources */,
 				9603749A260C99E000677C04 /* ToDoItem.swift in Sources */,
 				96ADE4BC2608A5EC0029F37D /* CardAssign.swift in Sources */,
 				51FD718426468AAA002C3CE6 /* constance.swift in Sources */,
+				96C25BAC2652C35900D87643 /* ManualActivityList2.swift in Sources */,
 				96829DEB261487B600066395 /* GridPickerMeasure2.swift in Sources */,
 				96C4DF26263ECF40005A9B64 /* NavigationBarManualActivityList.swift in Sources */,
 				964A5A3D25ECDBDA0042DD46 /* PreActivity.swift in Sources */,
@@ -1162,6 +1177,7 @@
 				96C4DF28263F32D3005A9B64 /* TestAddView.swift in Sources */,
 				9659665825F764C900686D47 /* SearchModel.swift in Sources */,
 				96B5D0252605ABF7006E4020 /* SomethingAnalysisView.swift in Sources */,
+				961C297226554A6600D35C97 /* NavigationSomethingAnaly.swift in Sources */,
 				964A5A4025ECE5E20042DD46 /* CheckboxView.swift in Sources */,
 				961B81F625FD549F008A2ACA /* ManualActivityListBack.swift in Sources */,
 				96C31B2E2628D111000BDAAE /* TableListUser2.swift in Sources */,
@@ -1315,9 +1331,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = WatchYourMind/WatchYourMind.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"WatchYourMind/Preview Content\"";
-				DEVELOPMENT_TEAM = 9DVU79YMW5;
+				DEVELOPMENT_TEAM = 7RU68K58X9;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/WatchYourMind/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1326,7 +1343,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.swiftuimuimasterclassWatchYourMind;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swiftuimuimasterclass.WatchYourMind;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
@@ -1340,9 +1357,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = WatchYourMind/WatchYourMind.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"WatchYourMind/Preview Content\"";
-				DEVELOPMENT_TEAM = 9DVU79YMW5;
+				DEVELOPMENT_TEAM = 7RU68K58X9;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/WatchYourMind/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;

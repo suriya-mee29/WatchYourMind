@@ -11,14 +11,17 @@ struct RatingView: View {
     @State private var rating = 0.0
 
        var body: some View {
+        HStack(alignment: .center){
         VStack {
             Rating($rating, maxRating: 10)
-                   .font(.system(size: 40))
+                   .font(.system(size: 70))
                 .foregroundColor(.yellow)
             Text("Rating = \(self.rating ,specifier: "%.1f")")
                 .font(.system(size: 30))
             
         }
+       }
+//        .padding(.horizontal,200)
        }
     
 }

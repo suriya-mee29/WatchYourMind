@@ -40,17 +40,17 @@ struct EmotionRadioField: View {
                self.callbackEmotion(self.idEmotion)
             hapicImpact.impactOccurred()
            }) {
-            VStack(alignment: .center,spacing: 5) {
+            VStack(alignment: .center) {
                    Image(systemName: self.isMarkedEmotion ? "largecircle.fill.circle" : "circle")
 //                       .renderingMode(.original)
                        .resizable()
                        .aspectRatio(contentMode: .fit)
-                    .frame(width: 30, height: 30)
+                    .frame(width: 40, height: 40)
 
 //                       .frame(width: self.sizeEmotion, height: self.sizeEmotion)
                     .accentColor(.purple)
                 Text(labelEmotion)
-                       .font(Font.system(size: 50))
+                       .font(Font.system(size: 70))
 //                    .font(.system(size:100))
                   
                }.foregroundColor(.purple)
@@ -60,7 +60,8 @@ struct EmotionRadioField: View {
            .foregroundColor(Color.white)
         }
         
-        Spacer()
+//        Spacer()
+        .padding(.horizontal,40)
 
     }
 }

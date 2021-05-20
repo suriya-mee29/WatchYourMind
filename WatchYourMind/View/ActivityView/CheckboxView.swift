@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct CheckboxView: View {
 //    @State var checkState:Bool = false ;
     let id: String
@@ -45,7 +46,7 @@ struct CheckboxView: View {
 //                        .renderingMode(.original)
                         .resizable()
                         .aspectRatio(CGSize(width: 30, height: 30),contentMode: .fill)
-                        .fixedSize(horizontal: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
+//                        .fixedSize(horizontal: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
                         .frame(width: self.size, height: self.size)
                         .accentColor(.black)
                     
@@ -54,15 +55,13 @@ struct CheckboxView: View {
                     Text(label)
                         .font(Font.system(size: size))
                     Spacer()
-                }.foregroundColor(Color.black)
-//                .fixedSize()
-//                .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                }.fixedSize()
+                .foregroundColor(Color.black)
             }
             .foregroundColor(Color.white)
-        }
-//
-//             Button(action:
-//                {
+//        }
+
+//             Button(action:{
 //                    //1. Save state
 //                    self.checkState = !self.checkState
 //                    print("State : \(self.checkState)")
@@ -82,12 +81,18 @@ struct CheckboxView: View {
 //                }
 //            }
 //            .foregroundColor(Color.white)
-//
+        }
         
 }
 
-//struct CheckboxView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CheckboxView(checked: false, trimVal: 1 )
-//    }
-//}
+struct CheckboxView_Previews: PreviewProvider {
+    static var previews: some View {
+        CheckboxView(
+            id: InternalFactor.StressFromPerception.rawValue,
+            label: InternalFactor.StressFromPerception.rawValue,
+            size: 20,
+            textSize: 20,
+            callback: checkboxSelected
+        )
+    }
+}

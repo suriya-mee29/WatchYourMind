@@ -37,6 +37,9 @@ struct NewActivityView: View {
     
     var activityStore = ActivityStore()
     
+//    init() {
+//            UITextView.appearance().backgroundColor = .clear // First, remove the UITextView's backgroundColor.
+//        }
 
     var body: some View {
 
@@ -50,93 +53,163 @@ struct NewActivityView: View {
                 .font(.system(size: 50))
                 .font(.headline)
                 .fontWeight(.bold)
-                .padding(.bottom,10)
+                .padding(.bottom,40)
             
-            HStack{
-                
-                Text("Activity Name")
-                    .font(.system(size:30))
-                    .foregroundColor(.black)
-               
-                
-                TextField("Activity Name...", text: $text)
-                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                         .frame(minHeight: CGFloat(30))
-                    .shadow(radius: 3 )
+            
 
-                    
-            }//:HSTACK
-            .padding(.horizontal,8)
-            .padding(.bottom,30)
             HStack{
-                
-                Text("Selected Icon Activity")
-                    .font(.system(size:30))
-                    .foregroundColor(.black)
-                
-                
-                Button(action: {
-                    self.showImagePicker.toggle()
-                }, label: {
-                    //                    Text("Select Image")
-                    Image(self.selectedIcon)
+                VStack{
+                    Button(action: {
+                        self.showImagePicker.toggle()
+                    }, label: {
+                        VStack{
+                            HStack{
+                                Image(systemName: "1.circle")
+                                    .font(.system(size:35))
+                                    .foregroundColor(.purple)
+                                HStack{
+                            Text("Selected Icon")
+                                .font(.system(size:30))
+                                .foregroundColor(.black)
+                                    Text("*")
+                                        .font(.system(size: 30))
+                                        .foregroundColor(.red)
+                                }
+                            }
+                        Image(self.selectedIcon)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width:100,height: 100)
+                          
+//                                .padding(.leading,70)
+
+                        }
+                        .padding(.trailing,25)
+                        
+                    })//:Button
+                    self.selectedImage?
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 50, height: 50, alignment: .center)
-                        
                     
-                })//:Button
-                self.selectedImage?
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 50, height: 50, alignment: .center)
-                //                    .shadow(radius: 3 )
+                        .foregroundColor(.red)
+//                        .frame(height: 100, alignment: .center)
+                    
+//                    Spacer()
+
+                }//:VSTACK
+                .frame(width:300,height:100)
+                .sheet(isPresented: $showImagePicker,
+                       content:{
+                        ActivityIconGalleryView(selectedIcon: $selectedIcon, showImagePicker: $showImagePicker)
+                        
+                       })
                 
+//                .padding(.horizontal,150)
+
+                
+            VStack{
+                HStack{
+                    Image(systemName: "2.circle")
+                        .font(.system(size:35))
+                        .foregroundColor(.purple)
+                    HStack{
+                    Text("Activity Name")
+                        .font(.system(size:30))
+                        .foregroundColor(.black)
+                        Text("*")
+                            .font(.system(size: 30))
+                            .foregroundColor(.red)
+                    }
+
+                }
+                    TextEditor(text: $text)
+                        .frame(width:300,height: 100)
+//                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                                            .overlay(
+                                                        RoundedRectangle(cornerRadius: 10)
+                                                            .stroke(Color.secondary, lineWidth: 1)
+                                                    )
+//                        .padding(.horizontal,550)
+        //                .cornerRadius(20)
+
+                        .lineSpacing(10)
+                                        .autocapitalization(.words)
+                                        .disableAutocorrection(true)
+//                                        .padding()
+
+                        .onTapGesture {
+                            hideKeyboard()
+                        }
+
+                }//:VStacK Activityname
+                .padding(.trailing)
                 
             }//:HSTACK
-            .sheet(isPresented: $showImagePicker,
-                   content:{
-                    ActivityIconGalleryView(selectedIcon: $selectedIcon, showImagePicker: $showImagePicker)
-                    
-                   })
-            
-            .padding(.horizontal,8)
-            .padding(.bottom,30)
+//                            frame(width:500, height: 200)
 
-            
-            Text("Explannation of Activity ")
+//            .padding(.horizontal,8)
+            .padding(.bottom,20)
+
+            VStack(alignment:.leading){
+                HStack{
+                    Image(systemName: "3.circle")
+                        .font(.system(size:35))
+                        .foregroundColor(.purple)
+                    HStack{
+            Text("Explannation / How to do of Activity ")
                 .font(.system(size:30))
                 .foregroundColor(.black)
-                
-           
+                        Text("*")
+                            .font(.system(size: 30))
+                            .foregroundColor(.red)
+                    }
+                }
             TextEditor(text: $fullText)
-                .font(.title)
-                    .autocapitalization(.words)
-                    .disableAutocorrection(true)
-                
-                
-                .frame(height: 200)
-                .cornerRadius(3)
-                .background(Color.white)
+//                .border(Color.yellow, width: 5)
+//                .border(Color.yellow, width: 5)
+
+                .frame(height: 250)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                    .overlay(
+                                                RoundedRectangle(cornerRadius: 20)
+                                                    .stroke(Color.secondary, lineWidth: 1)
+                                            )
+//                .cornerRadius(20)
+                               
+                .lineSpacing(10)
+                                .autocapitalization(.words)
+                                .disableAutocorrection(true)
+                                .padding()
 
                 .onTapGesture {
                     hideKeyboard()
                 }
-                .shadow(radius: 5 )
+                               
+//                .shadow(radius: 2.5)
                 .padding(.horizontal,10)
                 .padding(.bottom,30)
-            
+            }//:VSTACK Explain
+//            .padding(.top,70)
+            HStack{
+                Image(systemName: "4.circle")
+                    .font(.system(size:35))
+                    .foregroundColor(.purple)
                 Text("Attach an activity file/link")
                     .font(.system(size:30))
                     .foregroundColor(.black)
+            }
             ContentTabsView(photo_file: self.$image_file, link_file: self.$link_file)
                     .padding(.horizontal,8)
                     .padding(.bottom,30)
 
-
+            HStack{
+                Image(systemName: "5.circle")
+                    .font(.system(size:35))
+                    .foregroundColor(.purple)
             Text("Outcome assign")
                 .font(.system(size:30))
                 .foregroundColor(.black)
+            }
             GridPicker( selectedItems: $selectedItems)
                 .padding(.bottom,50)
        

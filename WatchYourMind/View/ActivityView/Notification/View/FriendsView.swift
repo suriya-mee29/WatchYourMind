@@ -5,6 +5,8 @@
 //  Created by Gatang on 3/5/2564 BE.
 //
 
+
+
 import SwiftUI
 import BBRefreshableScrollView
 
@@ -70,7 +72,6 @@ struct FriendsView: View {
                     
           }//:VSTACK
   }//:IF
-
             else{
                 PreActivity()
             }

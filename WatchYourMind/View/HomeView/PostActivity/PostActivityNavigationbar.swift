@@ -8,24 +8,13 @@
 import SwiftUI
 
 struct PostActivityNavigationbar: View {
-    let feedback = UIImpactFeedbackGenerator(style: .medium)
-    @EnvironmentObject var discontinue: PostActivity
+ 
     
     var body: some View {
        HStack {
-          Button(action: {
-            withAnimation(.easeIn) {
-              feedback.impactOccurred()
-                discontinue.selectedProduct = nil
-                discontinue.showingProduct = false
-            }
-          }, label: {
-            Image(systemName: "chevron.left")
-              .font(.title)
-              .foregroundColor(.white)
-          })
+         
           
-          Spacer()
+          Text("Hello World")
         } //: HSTACK
         .padding()
         .padding(.vertical,10)

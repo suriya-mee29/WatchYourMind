@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct CardModleUser: View {
     var imageuser: String
           var username: String
@@ -21,12 +22,15 @@ struct CardModleUser: View {
           var iconbranch:String
           var statususer:String
           var statuscolor: Color
+
+    
     var body: some View {
+       
         ScrollView(.vertical, showsIndicators: false) {
-//          LazyVGrid(columns: gridLayout, alignment: .center, spacing: 10) {
-            
-            VStack {
-//                HStack(alignment: .center, spacing: 8){
+            ZStack {
+
+            HStack {
+
                     VStack {
                         HStack {
                             Image(imageuser)
@@ -48,7 +52,9 @@ struct CardModleUser: View {
                                     .fontWeight(.semibold)
                                     .foregroundColor(statuscolor)
                             }//:VSTACK
-                          
+                            Spacer()
+                           
+                            
                             
                         }//:HSTACK
                         VStack(alignment:.leading){
@@ -81,16 +87,21 @@ struct CardModleUser: View {
                             .padding(.leading,30)
                             .padding(.bottom,2)
 
-                        }
+                        }//:VSTACK
                         
                     }//:VSTACK
                     .padding()
                     .cornerRadius(20)
-//                }//:HSTACK
-            }//:VStack
-            
-//          }//:LazyVGrid
+                
+               
+            }//:HStack
+//                       }//:IF
+//                                   else{
+//                                       ManualActivityList()
+//                                   }
+                               }//:ZSTACK
         }//:ScrollView
+            
       
     }
 }
@@ -134,5 +145,6 @@ struct CardUser: View {
 struct CardUser_Previews: PreviewProvider {
     static var previews: some View {
         CardUser()
+//            .environmentObject(reactivityList())
     }
 }

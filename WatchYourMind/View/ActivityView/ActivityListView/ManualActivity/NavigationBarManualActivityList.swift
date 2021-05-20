@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct NavigationBarManualActivityList: View {
     let prefeedback = UIImpactFeedbackGenerator(style: .medium)
 

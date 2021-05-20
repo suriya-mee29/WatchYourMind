@@ -15,4 +15,10 @@ struct userRequest: Identifiable {
   var email: String
   var faculty: String
   var branch: String
+  var progress: Int
+  var progressColor: String
+  var dateEndup: String
+  var dateAssign: String
+  var status: String
 }
+

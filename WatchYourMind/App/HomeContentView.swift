@@ -15,15 +15,29 @@ class ListClientRequest: ObservableObject {
   @Published var selectedProduct: FriendsView? //= nil
 }
 
+class HomeView: ObservableObject {
+  @Published var showingPage: Bool = false
+  @Published var selectedPage: HomeContentView? //= nil
+}
+class HomeViewList: ObservableObject {
+  @Published var showingPage: Bool = false
+  @Published var selectedPage: HomeContentView? //= nil
+}
+
+class TableView: ObservableObject {
+  @Published var showingPage: Bool = false
+  @Published var selectedPage: TableListUser? //= nil
+}
+
 struct HomeContentView: View {
     //MARK:- PROPERTIES
     
+//    @EnvironmentObject var homecontent: HomecontentView
     let colorBackground: Color = Color("bg-3")
     @State var selectedTag: String?
-    let feedback = UIImpactFeedbackGenerator(style: .heavy)
-    @EnvironmentObject var shop: Shop
+//    let feedback = UIImpactFeedbackGenerator(style: .heavy)
+//    @EnvironmentObject var shop: Shop
     @State private var isAnimated: Bool = false
-
     @State private var searchText = ""
     
 //    let colorBackground: Color = Color("bg-1")
@@ -54,28 +68,35 @@ struct HomeContentView: View {
     @State var alertMessage : String = ""
     @State var headerMag : String = ""
     
+    @State var labelNumber = 23
+    @Binding var digit : Int
+
+    let feedback = UIImpactFeedbackGenerator(style: .heavy)
+    @EnvironmentObject var homeview: HomeView
+    
+    func numOfDigits() -> Float {
+    let numOfDigits = Float(String(digit).count)
+    return numOfDigits == 1 ? 1.5 : numOfDigits
+    }
+    
+
+    
     //MARK:-BODY
     var body: some View {
        
         ZStack{
-            if shop.showingProduct == false && clientRequest.showingProduct == false {
+            if homeview.showingPage == false && clientRequest.showingProduct == false {
             VStack {
                 VStack(spacing: 0){
                     HStack{
-
-    //                    Spacer()
-
                         ZStack {
                            
                         Button(action: {
-    //                            self.selectedTag = "xx"
-
                         }, label: {
                             Image(systemName: "magnifyingglass")
                                 .scaledToFit()
-                                
-                
                                  .fixedSize()
+                                .font(.system(size: 25))
                                  .foregroundColor(.black)
                                  
                                 .frame(width: 20, height: 20)
@@ -86,18 +107,13 @@ struct HomeContentView: View {
                                 .onTapGesture {
                                   feedback.impactOccurred()
 
-                                    shop.showingProduct = true
+                                    homeview.showingPage = true
 //                                  }
                                 }
-    //                            .frame(width: UIScreen.screenWidth)
-                                
-                               
                         }) //: BUTTON-SEARCH
 
                         }//:ZSTACK
-                        
-    //                    }//: IF
-                       
+
                         .padding(.leading)
                         Spacer()
 
@@ -132,10 +148,13 @@ struct HomeContentView: View {
 
                             
                         ZStack {
+                            
                            
                         Button(action: {
                         }, label: {
+//                            Image(systemName: "person.badge.plus")
                             Image(systemName: "bell")
+                                .font(.system(size: 26))
                                 .scaledToFit()
                                  .fixedSize()
                                  .foregroundColor(.black)
@@ -150,7 +169,19 @@ struct HomeContentView: View {
                                 clientRequest.showingProduct = true
                                 }
                         }) //: BUTTON-BELL
-
+                            ZStack {
+                            
+                                
+                                Circle().fill(Color.red).frame(width: 25 * CGFloat(numOfDigits()), height:25, alignment: .topTrailing).position(CGPoint(x: 25, y: -5))
+                                
+                                Text("\(digit)")
+                                .foregroundColor(Color.white)
+                                .font(Font.system(size: 15).bold()).position(CGPoint(x: 25, y: -5))
+                                    
+                                
+                          
+                            }
+                            .frame(width: 20, height: 20)
                         }//:ZSTACK
                         .padding(.trailing,10)
     //                    Spacer()
@@ -174,6 +205,7 @@ struct HomeContentView: View {
                             Image(systemName: "lock.open")
                                 .scaledToFit()
                                  .fixedSize()
+                                .font(.system(size: 26))
                                  .foregroundColor(.black)
                                  
                                 .frame(width: 20, height: 20)
@@ -209,7 +241,7 @@ struct HomeContentView: View {
                         HStack(alignment:.center){
                         VStack {
                             Button(action: {
-                                print("Expandable button tapped!!!")
+                               
                                 isExpanded.toggle()
                                     
                                 
@@ -348,8 +380,7 @@ struct HomeContentView: View {
                         
                     }//: HStack
                         .padding(.horizontal)
-        //                })//:LazyHGrid
-        //                .frame(height: 650, alignment: .center)
+
                     .padding()
                        
                     })
@@ -371,6 +402,7 @@ struct HomeContentView: View {
                     
                     .padding(.horizontal,2)
                     .padding(.vertical)
+                    
                     TableListUser(animals: self.animals)
                 }
                         .onChange(of: datePicker, perform: { value in
@@ -384,10 +416,13 @@ struct HomeContentView: View {
 
                 .background(colorBackground.ignoresSafeArea(.all, edges: .all))
           
-            }
-            }else if (shop.showingProduct == true){
+            }//:VSTACK
+            }//:IF
+            else if (homeview.showingPage == true){
                     
-                    SearchView2()}
+                    SearchView2()
+                
+            }
                 else{
                     FriendsView()
                         
@@ -413,14 +448,15 @@ struct HomeContentView: View {
 //MARK:-PREVIEW
 struct HomeContentView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeContentView( isAuthen: .constant(true))
+        HomeContentView( isAuthen: .constant(true), digit: .constant(10))
             .environmentObject(Shop())
-           
-            .environmentObject(PostActivity())
             .environmentObject(ListClientRequest())
             .environmentObject(Preact())
             .environmentObject(Measurement())
-
+            .environmentObject(HomeView())
+//            .environmentObject(TableView())
+            .environmentObject(HomeViewList())
+            .environmentObject(somethingAnalysis())
         }
     }
 

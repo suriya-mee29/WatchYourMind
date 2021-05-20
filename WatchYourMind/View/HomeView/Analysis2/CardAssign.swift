@@ -31,7 +31,7 @@ struct BuidCardAssign: View {
                 .padding(.leading)
 
                 
-                ProgressBarView(value: CGFloat(60), color: Color.red)
+                ProgressBarView(value: CGFloat(60), color: Color.red,fontsize:10,circlelinewidth:5)
                     .frame(width: 100, height: 100)
                     .padding(.leading,150)
             
@@ -40,15 +40,7 @@ struct BuidCardAssign: View {
     }
 }
 struct CardAssign: View {
-//    public var stylecard: ChartStyle2
-//    public var dropShadowcard: Bool
-//
-//
-//    public init(style: ChartStyle2 = Styles.pieChartStyleOne, dropShadow: Bool? = true){
-//        self.stylecard = style
-//
-//        self.dropShadowcard = dropShadow!
-//    }
+
     var body: some View {
 //
 //        ZStack{

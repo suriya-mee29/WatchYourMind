@@ -17,32 +17,15 @@ struct ChecklistItem: Identifiable {
 struct Effects: View {
     @State var checklistItems = [
       ChecklistItem(name: "Hour(s) of sleep / day"),
-      ChecklistItem(name: "Exercise is reduced / week "),
-//        ChecklistItem(name: "Active")
+      ChecklistItem(name: "Exercise is reduced / week ")
     
     ]
 
     var body: some View {
-//        HStack {
-//            VStack(alignment: .leading, spacing: 0) {
-//                HStack(alignment: .center, spacing: 0) {
-                    
-//        VStack(alignment: .leading) {
-//            HStack {
-//                    Text("Effects:")
-//                    .font(.system(size:40))
-//                    .foregroundColor(.gray)
-//            }//:HSTACK
-//        }//:VSTACK
-        
-//                }//:HSTACK
-//        VStack {
             VStack(alignment: .leading) {
                 
                             ForEach(checklistItems) { checklistItem in
                               HStack {
-//                                Spacer()
-//                                Text(checklistItem.isChecked ? "✅" : "⬛️")
                                 Text(checklistItem.isChecked ? Image(systemName: "checkmark.square.fill"):  Image(systemName: "square.fill"))
                                     .font(.system(size: 25))
                                 Text(checklistItem.name)
@@ -58,8 +41,6 @@ struct Effects: View {
                                 Spacer()
 
                               }
-                              
-
                                      .onTapGesture {
                                        if let matchingIndex =
                                          self.checklistItems.firstIndex(where: { $0.id == checklistItem.id }) {
@@ -68,11 +49,6 @@ struct Effects: View {
                                      }//: onTapGesture
 
                             }
-
-
-                                 .onAppear() {
-                                 }
-                
                     EffectsActive()
                         .padding(.vertical,20)
         

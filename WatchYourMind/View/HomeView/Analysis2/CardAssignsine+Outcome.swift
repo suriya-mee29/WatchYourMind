@@ -40,7 +40,7 @@ struct CardAssignsine_Outcome: View {
             .padding()
 
         }//:ZSTACK
-        .frame(width: UIScreen.Width-40, height: 300, alignment: .center)
+        .frame(width: UIScreen.Width-300, height: 300, alignment: .center)
         }//:HSTACK
     }//:VSTACK
         }//:IF

@@ -14,7 +14,7 @@ struct StatusView: View {
     let statusLabel : String
     let count_status : String
     let bg_image : String
-   
+    @State var isExpanded = false
     var body: some View {
         
         HStack(alignment: .center, spacing: 16) {
@@ -61,14 +61,29 @@ struct StatusView: View {
                         .padding(.leading,10)
 
                     
+                    
                 }
                 //.shadow(radius: 10 )
                 
             } //: VSTACK
             
-            Image(systemName:"chevron.forward")
-                .foregroundColor(.gray)
-                .padding(.trailing,20)
+            ZStack{
+            Button(action: {
+               
+                isExpanded.toggle()
+                    
+                
+            }){
+                Image(systemName:"chevron.forward")
+                    .foregroundColor(.gray)
+                    .padding(.trailing,20)
+            }
+            if isExpanded {
+                Image(systemName:"chevron.down")
+                    .foregroundColor(.gray)
+                    .padding(.trailing,20)
+            }
+            }
             
            
         } //: HSTACK

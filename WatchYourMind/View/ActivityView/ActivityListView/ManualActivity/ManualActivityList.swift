@@ -8,10 +8,12 @@
 import SwiftUI
 
 
-class Measurement: ObservableObject {
+class
+Measurement: ObservableObject {
   @Published var showingProduct: Bool = false
   @Published var selectedProduct: MeasurementView? //= nil
 }
+
 
 
 struct ManualActivityList: View {
@@ -30,6 +32,8 @@ struct ManualActivityList: View {
     let feedback = UIImpactFeedbackGenerator(style: .heavy)
     @EnvironmentObject var measurement: Measurement
     
+//    @Binding var isNext: Bool
+
 
     var body: some View {
         ZStack{
@@ -86,7 +90,7 @@ struct ManualActivityList: View {
                 .padding()
                     
                     Button(action: {
-
+//                        self.isNext = true
                     }, label: {
                         Image(systemName: "chevron.forward")
                             .font(.system(size: 40, weight: .regular))
@@ -105,6 +109,9 @@ struct ManualActivityList: View {
                             }
 
                     }) //: BUTTON-NEXT
+                    
+                    
+                    
             }//:HStack
            
           
@@ -210,13 +217,13 @@ struct ManualActivityList: View {
                     })
                 }//:VSATCK
 //                    HStack{
-                        
-                    Button(action: {
-                                    self.showSheetView.toggle()
-                                }){
-                                    Image(systemName: "plus")
-                                }
-                                .padding()
+//                        
+//                    Button(action: {
+//                                    self.showSheetView.toggle()
+//                                }){
+//                                    Image(systemName: "plus")
+//                                }
+//                                .padding()
     
 //                   ZStack {
                        
@@ -261,13 +268,7 @@ struct ManualActivityList: View {
 //                addButton()
             }//:SCROLLVIEW
                 
-                
-
             }//:VSTACKบนสุด
-                
-        
-            
-//        }
             .onChange(of: self.showSheetView, perform: { value in
                 self.activityStore.fetchActivity(isAuto: false) { success, msg in
                     if success {

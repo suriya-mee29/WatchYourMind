@@ -11,29 +11,24 @@ import Firebase
 
 @main
 struct WatchYourMindApp: App {
-//    @StateObject private var order = Order()
-//    static let animals: [Animal] = Bundle.main.decode("animals.json")
-    
     init() {
         FirebaseApp.configure()
-        
-        
-       
     }
 
     var body: some Scene {
-        
-        
-        
+    
         WindowGroup {
-//            ContentView2()
-//                .environmentObject(Shop())
-//                .environmentObject(Measurement())
-//                .environmentObject(ManualList())
-//                .environmentObject(PostActivity())
-//                .environmentObject(ListClientRequest())
-//                .environmentObject(Preact())
-            NotificationSend()
+//            DefineAfterView(iSSave: .constant(false))
+//            SearchView2()
+            ContentView2()
+                .environmentObject(Shop())
+                .environmentObject(Measurement())
+                .environmentObject(ManualList())
+                .environmentObject(ListClientRequest())
+                .environmentObject(Preact())
+                .environmentObject(HomeView())
+                .environmentObject(HomeViewList())
+                .environmentObject(somethingAnalysis())
         }
     }
 }

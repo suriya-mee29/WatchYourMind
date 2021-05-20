@@ -20,22 +20,14 @@ struct AnalysisPreactivity: View {
 //        self.startdate =
     }
     var body: some View {
-//        ZStack{
-//            Rectangle()
-//                .fill(self.stylecard.backgroundColor)
-//                .cornerRadius(20)
-//                .shadow(color: self.stylecard.dropShadowColor, radius: self.dropShadowcard ? 12 : 0)
+
             VStack{
 //                 let startdate: Date
 
-            Text("Presentation:")
+            Text("Previous activities:")
                 .font(.system(size:40))
                 .foregroundColor(.black)
-//                Text("\(startdate , format: taskdate)")
                 
-                
-                
-        
                 ZStack {
                     Rectangle()
                         .fill(self.stylepresent.backgroundColor)
@@ -46,12 +38,6 @@ struct AnalysisPreactivity: View {
                         .cornerRadius(10)
                         .frame(width: 380, height:220)
 
-                    
-                
-//                .shadow(radius: 5 )
-//                .padding(.vertical,20)
-//                .padding(.horizontal,10)
-                
                 }
                 
                 

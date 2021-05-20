@@ -15,31 +15,33 @@ extension UIScreen{
    static let Sizescreen = UIScreen.main.bounds.size
 }
 
+
+
 struct MeasurementView: View {
     
-    @EnvironmentObject var measurement: Measurement
     @State private var gridLayout: [GridItem] = [ GridItem(.flexible())]
 
     var user: userRequest
+    
+    let prefeedback = UIImpactFeedbackGenerator(style: .heavy)
+    @EnvironmentObject var homeView: HomeView
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
+
+    
+    @State var showBanner:Bool = false
+    @State var bannerData: BannerModifier.BannerData = BannerModifier.BannerData(title: "Notification Title", detail: "Notification text for the action you were trying to perform.", type: .Warning)
 
     var body: some View {
         
-        VStack {
-//            ScrollView(.vertical, showsIndicators: false) {
-//                LazyVGrid(columns: gridLayout, alignment: .center, spacing: 10) {
-//                Spacer()
-    //                .padding(.top,100)
-//                    .padding(.trailing,150)
-                    
-                
+        ZStack {
+            
+            if homeView.showingPage == false{
+
                     VStack{
                         NavigationBarMeasurement()
 
-                            
                         HStack(alignment: .center) {
-                            
-
-
                             VStack(alignment: .leading) {
                                 Image("\(user.imageUser)")
                                     .resizable()
@@ -51,9 +53,7 @@ struct MeasurementView: View {
                                     .shadow(color: Color.lightShadow, radius: 3, x: -2, y: -2)
                             }//:VSTACK
                                                 .padding(.bottom,10)
-                        
-                        
-//                        HStack {
+
                             VStack(alignment: .leading, spacing: 0){
                                 HStack {
                                     Text("Appointment:")
@@ -83,22 +83,64 @@ struct MeasurementView: View {
                                     Text("Branch:")
                                     
                                     Text("\(user.branch)")
+                                        
                                 }
-                                BottonSend()
+                                .padding(.bottom,20)
+//                                BottonSend()
+//                                Button(action: {
+//                                },label: {
+//
+//                                    ZStack {
+//                                    HStack {
+//                                        Text("SEND")
+//                                        Image(systemName: "paperplane")
+//
+//                                    }
+//                                    .padding(.horizontal,20)
+//                                    .padding(10)
+//                                    .background(Color.white)
+//                                    .cornerRadius(5)
+//                                    .shadow(color: Color.darkShadow, radius: 3, x: 2, y: 2)
+//                                    .shadow(color: Color.lightShadow, radius: 3, x: -2, y: -2)
+//                                    }
+//                            .onTapGesture {
+//                                      prefeedback.impactOccurred()
+//                                        homeView.showingPage = true
+//                                    }
+
+//                                })//:BUTTON-SEND
+                                
+                                HStack {
+                                  Button(action: {
+                                    withAnimation(.easeIn) {
+                                        prefeedback.impactOccurred()
+                                        homeView.selectedPage = nil
+                                        homeView.showingPage = false
+                                    }
+                                  }, label: {
+                                    Image(systemName: "chevron.left")
+                                      .font(.title)
+                                      .foregroundColor(.white)
+                                        .onTapGesture {
+                                                                             prefeedback.impactOccurred()
+                                                                               homeView.showingPage = true
+                                                                           }
+                                  })
+                                  
+                                  
+//                                  Spacer()
+                                } //: HSTACK
+                                .padding()
+                                .padding(.vertical,10)
+                                .background(Color.purple)
 
 
+//                               .banner(data: $bannerData, show: $showBanner)
+                                
                             }//:VSTACK
 
-//                        }
-                           
+                        }//:HSTACK
 
-                            
-                        }
-
-                        
-                        
-                        
-                        
                         HStack{
                             VStack(alignment:.center) {
                                 Text("ACTIVITY")
@@ -110,29 +152,25 @@ struct MeasurementView: View {
                             }//:VSTACK
                             Text("(10)")
                                 .foregroundColor(.gray)
-
-
                         } //: HSTACK
                         .frame(width: UIScreen.Widthscreen,height: 100 )
-                        
-                        //        .background(Color("bg-2"))
                         VStack(alignment:.leading){
                         ScrollView(.vertical, showsIndicators: false) {
-                           
-                        
                                 FlipMeasureView()
                                     .frame(width: UIScreen.Widthscreen, height: UIScreen.Height, alignment: .center)
                             }//:ZStack
                             .padding()
-//                        }//:ScrollView
-                        
                         }//VSTACK
                     }
-        }
+            }//:IF
+            else{
+                HomeContentView( isAuthen: .constant(true), digit: .constant(10))
+            }
+        }//ZSTACK
 
           .edgesIgnoringSafeArea(.all)
 
-
+        
     }
             
           
@@ -141,6 +179,25 @@ struct MeasurementView: View {
 struct MeasurementView_Previews: PreviewProvider {
     static var previews: some View {
         MeasurementView(user: userRequestData[1])
+            .environmentObject(HomeView())
     }
 }
 //
+
+
+
+struct sendButtonView: View {
+
+  @Environment(\.presentationMode) private var presentationMode
+
+  var body: some View {
+    Group {
+      Text("Modal view")
+      Button(action: {
+         self.presentationMode.wrappedValue.dismiss()
+      }) {
+        Text("Send")
+      }
+    }
+  }
+}

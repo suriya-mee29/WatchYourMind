@@ -28,7 +28,7 @@ struct ContentNewActivity: View {
                         VStack {
 //                            AutoActivityList()
                             
-                            ManualActivityList()
+                            ManualActivityList( )
                         }
 //                        buttonPreActivity()
 

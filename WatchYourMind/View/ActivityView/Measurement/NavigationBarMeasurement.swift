@@ -11,6 +11,9 @@ struct NavigationBarMeasurement: View {
     let feedback = UIImpactFeedbackGenerator(style: .medium)
     @EnvironmentObject var measurement: Measurement
     
+    let feedbackhome = UIImpactFeedbackGenerator(style: .medium)
+//    @EnvironmentObject var home: homeContentview
+    
     var body: some View {
         HStack {
           Button(action: {
@@ -26,6 +29,9 @@ struct NavigationBarMeasurement: View {
           })
           
           Spacer()
+
+
+            
         } //: HSTACK
         .padding()
         .padding(.vertical,10)

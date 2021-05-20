@@ -10,7 +10,6 @@ import SwiftUICharts
 
 
 
-
 struct AnalysisView: View {
 //    public var cornerImage: Image = Image(systemName: "bed.double.fill")
     let chartStylesleep = ChartStyle(backgroundColor: Color.white, accentColor: Color(hexString: "#3CFCF0"), secondGradientColor: Color(hexString: "#3CFCF0"), textColor: Color(hexString: "#3CFCF0"), legendTextColor: Color(hexString: "#3CFCF0"), dropShadowColor: Color.gray)
@@ -25,16 +24,11 @@ struct AnalysisView: View {
     public var dropShadowcard: Bool
     @State private var isIphone : Bool = true
 
-
-    
     public init(style: ChartStyle2 = Styles.pieChartStyleOne, dropShadow: Bool? = true){
         self.stylecard = style
         self.dropShadowcard = dropShadow!
     }
-    
-
-        
-
+       
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
         VStack{
@@ -46,6 +40,10 @@ struct AnalysisView: View {
 //                        .padding()
                     AnalysisPreactivity()
                         .padding(.top,10)
+                        
+//                        .padding(.top,170)
+                       
+                        
                     }//:HSATCK
                     
                     Text("Timeline indicartors")
@@ -63,9 +61,6 @@ struct AnalysisView: View {
                     .environment(\.colorScheme, .light)
                     .padding(.trailing,10)
 
-//                    }.padding(.vertical)
-                
-//                HStack {form: CGSize(width: 300, height: 420),
                     BarChartView(data: ChartData(values: [("Sun",63150), ("Mon",50900), ("Tue",50900), ("Wen",50900), ("Thu",50900), ("Fri",50900), ("Sat",50900)]), title: "Standing", style: chartStylestand, form: CGSize(width: 300, height: 420), cornerImage:Image(systemName: "figure.stand"))
                         .environment(\.colorScheme, .light)
                         .padding(.trailing,10)
@@ -114,10 +109,7 @@ struct AnalysisView: View {
             
             CardAssignsine_Outcome()
                 .padding(.top,50)
-            
-            
-//                ScrollView(.vertical, showsIndicators: false) {
-//              LazyVGrid(columns: gridLayout, alignment: .center, spacing: 10) {
+
                 ZStack{
                     Rectangle()
                         .fill(self.stylecard.backgroundColor)
