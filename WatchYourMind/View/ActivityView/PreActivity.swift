@@ -103,6 +103,7 @@ struct PreActivity: View {
                    
                     }
 
+                
                 HStack(alignment:.center){
                     CheckboxView2(precipitance: self.$precipitance)
                 }.padding(.horizontal,100)
@@ -246,10 +247,12 @@ struct PreActivity: View {
                         HStack{
                             Text("The period of the problem")
                                 .font(.system(size: 30))
-                        TextField("Enter number / day,week,month", text: self.$periodof)
+                        TextField("input number", text: self.$periodof)
                             .font(Font.system(size: 25, design: .default))
-                            .frame(width: 400)
+                            .frame(width: 100)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
+                            Text("/ Day(s)")
+                                .font(.system(size: 30))
                             
                         }
                         

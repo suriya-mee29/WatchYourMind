@@ -210,7 +210,7 @@ struct AnalysisView: View {
                     .shadow(color: self.stylecard.dropShadowColor, radius: self.dropShadowcard ? 12 : 0)
                     
                 
-            DefineAfterView(iSSave: .constant(false))
+                DefineAfterView(iSSave: .constant(false))
                 
             }//:ZSTACK
             .padding(.top,70)

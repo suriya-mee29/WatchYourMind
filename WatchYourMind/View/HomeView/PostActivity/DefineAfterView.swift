@@ -17,8 +17,8 @@ struct DefineAfterView: View {
     var body: some View {
         ZStack{
             VStack{
-        ScrollView(.vertical, showsIndicators: false) {
-            NavigationDefineAfter()
+//        ScrollView(.vertical, showsIndicators: false) {
+//            NavigationDefineAfter()
         VStack(alignment: .center) {
             Text("Post Activity")
                 .font(.system(size: 50))
@@ -109,38 +109,38 @@ struct DefineAfterView: View {
             })
             .disabled(fullText.isEmpty || newfullText.isEmpty)
                 
-            Button(action: {
-                self.showSheetView.toggle()
-            }) {
-             HStack{
-                 Text("Scroll up to see PreActivity")
-                     .font(.system(size: 30))
-                     .foregroundColor(.black)
-             VStack(spacing:-8){
-                 
-             Text("\(Image.init(systemName: "chevron.compact.up"))")
-                 .font(.system(size: 30))
-                 .foregroundColor(.purple)
-
-             Text("\(Image.init(systemName: "chevron.compact.up"))")
-                 .font(.system(size: 30))
-                 .foregroundColor(.purple)
-             }
-             
-            }//:HSTACK
-            }//:BUTTON
+//            Button(action: {
+//                self.showSheetView.toggle()
+//            }) {
+//             HStack{
+//                 Text("Scroll up to see PreActivity")
+//                     .font(.system(size: 30))
+//                     .foregroundColor(.black)
+//             VStack(spacing:-8){
+//
+//             Text("\(Image.init(systemName: "chevron.compact.up"))")
+//                 .font(.system(size: 30))
+//                 .foregroundColor(.purple)
+//
+//             Text("\(Image.init(systemName: "chevron.compact.up"))")
+//                 .font(.system(size: 30))
+//                 .foregroundColor(.purple)
+//             }
+//
+//            }//:HSTACK
+//            }//:BUTTON
                 }
-            .sheet(isPresented: $showSheetView) {
-                SheetView(showSheetView: self.$showSheetView)
-                 .background(Color(.secondarySystemBackground))
-                 .cornerRadius(16)
-            }//:SHEET
+//            .sheet(isPresented: $showSheetView) {
+//                SheetView(showSheetView: self.$showSheetView)
+//                 .background(Color(.secondarySystemBackground))
+//                 .cornerRadius(16)
+//            }//:SHEET
                 }
-            .padding(.top,20)
+//            .padding(.top,20)
             }
         }//:VSTACK
 
-        }//:SCROLLVIEW
+//        }//:SCROLLVIEW
         .ignoresSafeArea(.all, edges: .top)
 //        .ignoresSafeArea(.all)
             }//:VSTACK

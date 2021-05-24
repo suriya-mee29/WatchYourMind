@@ -22,7 +22,7 @@ struct CardModleUser: View {
           var statususer:String
           var statuscolor: Color
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
+//        ScrollView(.vertical, showsIndicators: false) {
 //          LazyVGrid(columns: gridLayout, alignment: .center, spacing: 10) {
             
             VStack {
@@ -89,8 +89,9 @@ struct CardModleUser: View {
 //                }//:HSTACK
             }//:VStack
             
+            
 //          }//:LazyVGrid
-        }//:ScrollView
+//        }//:ScrollView
       
     }
 }
@@ -126,7 +127,7 @@ struct CardUser: View {
                           iconbranch: "iconbranch",
                           statususer:"Tree", statuscolor: Color("treeColor"))
         }
-        .frame(width:380,height: 220)
+        .frame(width:500,height: 320)
         
     }
 }

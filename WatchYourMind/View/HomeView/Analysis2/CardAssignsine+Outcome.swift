@@ -21,10 +21,13 @@ struct CardAssignsine_Outcome: View {
     var body: some View {
         
         VStack{
+            
             if !isIphone{
                        VStack {
+                        
                            HStack (alignment: .top){
         ZStack{
+            
             Rectangle()
                 .fill(self.stylecard.backgroundColor)
                 .cornerRadius(10)

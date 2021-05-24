@@ -131,7 +131,7 @@ public struct PieChartView : View {
             HomePiechart()
         }
 
-        .frame(width:380,height: 220)    }
+        .frame(width:500,height: 320)    }
 }
 
 struct PieChartView_Previews : PreviewProvider {
