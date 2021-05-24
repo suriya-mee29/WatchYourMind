@@ -35,6 +35,19 @@ class ActivityStore : ObservableObject {
         }
     }
     
+    func countNewClient (completion: @escaping(Bool,Int , String)->Void){
+        docRef.collection("users").whereField("status",isEqualTo: "inactive")
+            .getDocuments { querySnapshot, err in
+                if let err = err {
+                    completion( false,-1 , "Error from get count new clients \(err)")
+                }else{
+                    if let documents = querySnapshot?.documents{
+                        completion(true,documents.count,"")
+                    }
+                }
+            }
+    }
+    
     func setResults(result : [String: Any] ,completion : @escaping(Bool,String)->Void){
         
    

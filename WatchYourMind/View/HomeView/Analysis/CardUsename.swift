@@ -79,7 +79,7 @@ struct HomeUser: View {
                     .frame(width:210)
                 
                 HStack(alignment: .center) {
-                    ProgressBarView(value: CGFloat(60), color: Color.red)
+                    ProgressBarView(value: CGFloat(60), color: Color.red,fontsize:10,circlelinewidth:5)
                     
                 }
                 .frame(width: 110, height: 110, alignment: .center)

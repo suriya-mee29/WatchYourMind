@@ -14,7 +14,13 @@ let userRequestData: [userRequest] = [
         nameEN: "Ms.Tawiporn Tadkaew",
         email: "Tawiporn.tad@dome.tu.ac.th",
         faculty:"Science and Technology",
-        branch: "Computer"
+        branch: "Computer",
+        progress: 50,
+        progressColor:"saplingColor",
+        dateEndup:"03-04-2021",
+        dateAssign: "10-04-2021",
+        status: "Sapling",
+        gender: "Female"
     ),
     userRequest(
         imageUser: "image2",
@@ -22,7 +28,14 @@ let userRequestData: [userRequest] = [
         nameEN: "Mr.Patcharajak Yongwatthana",
         email: "Patcharajak.yon@dome.tu.ac.th",
         faculty:"Science and Technology",
-        branch: "Computer"
+        branch: "Computer",
+        progress: 19,
+        progressColor:"saplingColor",
+        dateEndup:"07-04-2021",
+        dateAssign: "17-04-2021",
+        status: "Seed",
+        gender: "Male"
+        
     ),
     userRequest(
         imageUser: "image3",
@@ -30,7 +43,13 @@ let userRequestData: [userRequest] = [
         nameEN: "Mr.Suriya Meekhuntod",
         email: "Suriya.mee@dome.tu.ac.th",
         faculty:"Science and Technology",
-        branch: "Computer"
+        branch: "Computer",
+        progress: 100,
+        progressColor:"bloomingColor",
+        dateEndup:"03-04-2021",
+        dateAssign: "15-04-2021",
+        status: "Blooming",
+        gender: "Male"
     )
     
 ]

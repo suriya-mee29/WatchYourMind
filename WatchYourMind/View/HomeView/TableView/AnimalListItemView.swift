@@ -73,7 +73,7 @@ struct AnimalListItemView: View {
         } //: VSTACK
 //        Spacer()
         .padding(.trailing,8)
-        ProgressBarView(value: CGFloat(animal.progress), color: Color("\(animal.progressColor)"))
+        ProgressBarView(value: CGFloat(60), color: Color.red,fontsize:10,circlelinewidth:5)
             .frame(width: 40, height: 40)
 //            .padding(.horizontal)
      

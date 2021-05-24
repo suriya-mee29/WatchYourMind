@@ -31,7 +31,7 @@ struct BuidCardAssign: View {
                 .padding(.leading)
 
                 
-                ProgressBarView(value: CGFloat(60), color: Color.red)
+            ProgressBarView(value: CGFloat(60), color: Color.red,fontsize:10,circlelinewidth:5)
                     .frame(width: 100, height: 100)
                     .padding(.leading,150)
             

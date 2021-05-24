@@ -13,6 +13,8 @@ struct ProgressBarView: View {
    @State var progess : CGFloat = 0
     let value : CGFloat
     let color : Color
+    let fontsize : CGFloat
+    let circlelinewidth: CGFloat
     
     
     // MARK: - BODY
@@ -20,7 +22,7 @@ struct ProgressBarView: View {
     
         ZStack {
             Text("\(Int(value))%")
-                .font(.system(size: 10))
+                .font(.system(size: fontsize))
                 .foregroundColor(color)
                 .fontWeight(.bold)
                 .font(.body)
@@ -31,7 +33,7 @@ struct ProgressBarView: View {
                 })
             Circle()
                 .trim(from: 0, to: 1 )
-                .stroke(style: StrokeStyle(lineWidth: 5, lineCap: .round))
+                .stroke(style: StrokeStyle(lineWidth: circlelinewidth, lineCap: .round))
                 .foregroundColor(Color.gray.opacity(0.1))
                 
                 //.foregroundColor(color.opacity(0.09))
@@ -39,7 +41,7 @@ struct ProgressBarView: View {
             Circle()
                 
                 .trim(from: 0, to: progess / 100 )
-                .stroke(style: StrokeStyle(lineWidth: 5, lineCap: .round))
+                .stroke(style: StrokeStyle(lineWidth: circlelinewidth, lineCap: .round))
                 .foregroundColor(color)
                 .onAppear(perform: {
                     withAnimation(Animation.easeIn(duration: 0.7)){
@@ -59,7 +61,7 @@ struct ProgressBarView: View {
     // MARK: -PREVIEW
 struct ProgressBarView_Previews: PreviewProvider {
     static var previews: some View {
-        ProgressBarView(value: CGFloat(60), color: Color.red)
+        ProgressBarView(value: CGFloat(60), color: Color.red,fontsize:10,circlelinewidth:5)
 //            .previewLayout(.sizeThatFits)
             .padding()
     }

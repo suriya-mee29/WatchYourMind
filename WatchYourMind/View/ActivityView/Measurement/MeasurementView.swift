@@ -35,6 +35,12 @@ extension UIScreen{
 }
 
 struct MeasurementView: View {
+    @EnvironmentObject var shop :Shop
+    @EnvironmentObject var ManualList : ManualList
+    @EnvironmentObject var measurement : Measurement
+    @EnvironmentObject var listClientRequest : ListClientRequest
+    @EnvironmentObject var preact : Preact
+    
      var assignmentVM = AssignmentViewModel()
     
     @State var showBanner:Bool = false
@@ -89,15 +95,16 @@ struct MeasurementView: View {
 
     var body: some View {
         
+        if measurement.showingProduct {
         ZStack {
             ScrollView(.vertical, showsIndicators: false) {
 
-                    VStack(alignment: .leading){
+                    VStack(alignment: .center){
                         NavigationBarMeasurement()
                        
                         HStack(alignment: .center) {
                             
-                            VStack(alignment: .leading) {
+                            VStack(alignment: .center) {
                               
                                 Image("\(client.data.prefixname == "Mr" ? "gamer" : "gamer-2" )")
                                     .resizable()
@@ -148,87 +155,100 @@ struct MeasurementView: View {
                             }//:VSTACK
                             
 //                        }
-                            Spacer()
-                            Button(action: {
-                                DispatchQueue.main.async {
-                                    // save data
-                                    let assignmentData :[String:Any] = [
-                                        "appointmentDate": self.appDate,
-                                        "endDate": self.endDate,
-                                        "observed" : self.getObservedIncator(),
-                                        "startDate": Date()
-                                    ]
-                                   print("save")
-                                    self.assignmentVM.assignment(preActivity: self.preActivityModel.getdate(), clientUsername: self.client.data.userName, assignee: self.assignee!, assignment: assignmentData, selectedActivity: self.selectedActivities) { success, msg in
-                                        if success{
-                                           // go home
-                                        }else{
-                                            
-                                        }
-                                    }
-                                }
-                            }, label: {
-                                Text("send")
-                            })
-                            VStack(alignment: .center, spacing: 4) {
-                                Button(action: {
-                                    if Calendar.current.isDateInToday(self.endDate) || Calendar.current.isDateInToday(self.appDate){
-                                        self.errorMessage(title: "date invalide", detial: "Please select end date and appointment date")
+//                            Spacer()
+                           
+//                                                       .shadow(color: Color.darkShadow, radius: 3, x: 2, y: 2)
+//                            VStack(alignment: .center, spacing: 4) {
+//                                Button(action: {
+//                                    if Calendar.current.isDateInToday(self.endDate) || Calendar.current.isDateInToday(self.appDate){
+//                                        self.errorMessage(title: "date invalide", detial: "Please select end date and appointment date")
+//                                    }else{
+//                                        if isEmptyChecklistIndicator(){
+//                                            self.errorMessage(title: "Timeline Indicator invalide", detial: "lost of timeline indicator, Please select timeline indicator")
+//                                        }else{
+//                                            for i in 0...self.selectedActivities.count-1{
+//                                               if self.selectedActivities[i].everyDay == nil {
+//                                                self.errorMessage(title: "activity invalide", detial: "activity name : \(self.selectedActivities[i].title) lost of everyday or somedays indicator")
+//                                                    break
+//                                               }else{
+//                                                if self.selectedActivities[i].everyDay == false && self.selectedActivities[i].NoOfDate == nil {
+//                                                    self.errorMessage(title: "activity invalide", detial: "activity name : \(self.selectedActivities[i].title) lost of number days")
+//                                                    break
+//                                                }else{
+//                                                    // save data
+//                                                    let assignmentData :[String:Any] = [
+//                                                        "appointmentDate": self.appDate,
+//                                                        "endDate": self.endDate,
+//                                                        "observed" : self.getObservedIncator(),
+//                                                        "startDate": Date()
+//                                                    ]
+//                             print("save")
+////                                                    self.assignmentVM.assignment(preActivity: self.preActivityModel.getdate(), clientUsername: self.client.data.userName, assignee: self.assignee!, assignment: assignmentData) { success, msg in
+////                                                        if success{
+////
+////                                                        }else{
+////
+////                                                        }
+////                                                    }
+//                                                }
+//                                               }
+//
+//                                            }
+//                                        }
+//
+//                                    }
+//
+//
+//
+//                                }) {
+//                                    HStack {
+//                                        Text("SEND")
+//                                        Image(systemName: "paperplane")
+//                                    }
+//                                }
+//                            }
+//                            .buttonStyle(neumorphic(color: Color.background))
+//                           .shadow(color: Color.darkShadow, radius: 3, x: 2, y: 2)
+
+                            
+//                                .padding(.top,100)
+//                                .padding(.trailing,150)
+                        }
+                        
+//BUTTON
+                        Button(action: {
+                            DispatchQueue.main.async {
+                                // save data
+                                let assignmentData :[String:Any] = [
+                                    "appointmentDate": self.appDate,
+                                    "endDate": self.endDate,
+                                    "observed" : self.getObservedIncator(),
+                                    "startDate": Date()
+                                ]
+                               print("save")
+                                self.assignmentVM.assignment(preActivity: self.preActivityModel.getdate(), clientUsername: self.client.data.userName, assignee: self.assignee!, assignment: assignmentData, selectedActivity: self.selectedActivities) { success, msg in
+                                    if success{
+                                       // go home
+                                        self.measurement.showingProduct = false
+                                        self.ManualList.showingPage = false
+                                        self.preact.showingProduct = false
+                                        self.shop.showingProduct = false
+                                        self.listClientRequest.showingProduct = false
                                     }else{
-                                        if isEmptyChecklistIndicator(){
-                                            self.errorMessage(title: "Timeline Indicator invalide", detial: "lost of timeline indicator, Please select timeline indicator")
-                                        }else{
-                                            for i in 0...self.selectedActivities.count-1{
-                                               if self.selectedActivities[i].everyDay == nil {
-                                                self.errorMessage(title: "activity invalide", detial: "activity name : \(self.selectedActivities[i].title) lost of everyday or somedays indicator")
-                                                    break
-                                               }else{
-                                                if self.selectedActivities[i].everyDay == false && self.selectedActivities[i].NoOfDate == nil {
-                                                    self.errorMessage(title: "activity invalide", detial: "activity name : \(self.selectedActivities[i].title) lost of number days")
-                                                    break
-                                                }else{
-                                                    // save data
-                                                    let assignmentData :[String:Any] = [
-                                                        "appointmentDate": self.appDate,
-                                                        "endDate": self.endDate,
-                                                        "observed" : self.getObservedIncator(),
-                                                        "startDate": Date()
-                                                    ]
-                                                   print("save")
-//                                                    self.assignmentVM.assignment(preActivity: self.preActivityModel.getdate(), clientUsername: self.client.data.userName, assignee: self.assignee!, assignment: assignmentData) { success, msg in
-//                                                        if success{
-//
-//                                                        }else{
-//
-//                                                        }
-//                                                    }
-                                                }
-                                               }
                                         
-                                            }
-                                        }
-                                        
-                                    }
-                                    
-                                   
-                                    
-                                }) {
-                                    HStack {
-                                        Text("SEND")
-                                        Image(systemName: "paperplane")
                                     }
                                 }
                             }
-                            .buttonStyle(neumorphic(color: Color.background))
-                           .shadow(color: Color.darkShadow, radius: 3, x: 2, y: 2)
-
-                            
-                                .padding(.top,100)
-                                .padding(.trailing,150)
-                        }
-                        
-
-                        
+                        }, label: {
+                            HStack{
+                                Text("send".uppercased())
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color("IconTabBar"))
+                                Image(systemName: "paperplane")
+                            }
+                        })
+                        .buttonStyle(neumorphic(color: Color.background))
+                        .padding(.leading,500)
                         
                         VStack(alignment: .center){
                         HStack{
@@ -321,17 +341,10 @@ struct MeasurementView: View {
                         }//VSTACK
                     }
                     
-        }
-       
-        .banner(data: $bannerData, show: $showBanner)
-       
-//                }//:GRID
-            
-            
-//          }
+        }.banner(data: $bannerData, show: $showBanner)
           .edgesIgnoringSafeArea(.all)
 
-
+        }
     }
             
           
@@ -340,6 +353,11 @@ struct MeasurementView: View {
 struct MeasurementView_Previews: PreviewProvider {
     static var previews: some View {
         MeasurementView( selectedActivities: [], client: UserModel(timestamp: 1, status: true, message: "ok", data: DataUserModel(type: "std", statusid: "11", statusname: "dddd", userName: "dddd", prefixname: "ddd", displayname_th: "dddd", displayname_en: "ddd", email: "dddd", department: "ddd", faculty: "dddd")), preActivityModel: PreActivityModel(presentation: "", precipitance: [String:[String:Bool]](), pattern: "", faultyThinking: "", intensityLevel: 43.2, emotionLevel: "", event: "", stateProblem: 2))
+            .environmentObject(Shop())
+            .environmentObject(ManualList())
+            .environmentObject(Measurement())
+            .environmentObject(ListClientRequest())
+            .environmentObject(Preact())
     }
 }
 //

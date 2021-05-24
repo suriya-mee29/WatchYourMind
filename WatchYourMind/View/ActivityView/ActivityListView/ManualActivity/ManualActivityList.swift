@@ -16,6 +16,11 @@ class Measurement: ObservableObject {
 
 
 struct ManualActivityList: View {
+    @EnvironmentObject var shop :Shop
+    @EnvironmentObject var ManualList : ManualList
+    @EnvironmentObject var measurement : Measurement
+    @EnvironmentObject var listClientRequest : ListClientRequest
+    @EnvironmentObject var preact : Preact
     
     let preActivityModel : PreActivityModel
     @State var selectedActivities = [ActivityModel]()
@@ -29,11 +34,12 @@ struct ManualActivityList: View {
     
     @State var iSSave : Bool = false
     @State var isIphone: Bool = false
+     let isCreateActivity : Bool
     
     @ObservedObject var activityStore = ActivityStore()
     
     let feedback = UIImpactFeedbackGenerator(style: .heavy)
-    @EnvironmentObject var measurement: Measurement
+   
     
 
     var body: some View {
@@ -126,7 +132,7 @@ struct ManualActivityList: View {
                 .shadow(radius: 8 )
            }
                 .padding()
-                    
+                    if !isCreateActivity{
                     Button(action: {
 
                     }, label: {
@@ -146,6 +152,8 @@ struct ManualActivityList: View {
                             }
 
                     }) //: BUTTON-NEXT
+                    }
+                    
             }//:HStack
            
           
@@ -352,6 +360,11 @@ struct ManualActivityList: View {
         else{
             
             MeasurementView( selectedActivities:self.selectedActivities, client: self.client, preActivityModel: self.preActivityModel)
+                .environmentObject(self.shop)
+                .environmentObject(self.ManualList)
+                .environmentObject(self.measurement)
+                .environmentObject(self.listClientRequest)
+                .environmentObject(self.preact)
         }
             
             
@@ -363,8 +376,12 @@ struct ManualActivityList: View {
 
 struct ManualActivityList_Previews: PreviewProvider {
     static var previews: some View {
-        ManualActivityList(preActivityModel: PreActivityModel(presentation: "", precipitance: [String:[String:Bool]](), pattern: "", faultyThinking: "", intensityLevel: 43.2, emotionLevel: "", event: "", stateProblem: 2), client: UserModel(timestamp: 1, status: true, message: "ok", data: DataUserModel(type: "std", statusid: "11", statusname: "dddd", userName: "dddd", prefixname: "ddd", displayname_th: "dddd", displayname_en: "ddd", email: "dddd", department: "ddd", faculty: "dddd")))
+        ManualActivityList(preActivityModel: PreActivityModel(presentation: "", precipitance: [String:[String:Bool]](), pattern: "", faultyThinking: "", intensityLevel: 43.2, emotionLevel: "", event: "", stateProblem: 2), client: UserModel(timestamp: 1, status: true, message: "ok", data: DataUserModel(type: "std", statusid: "11", statusname: "dddd", userName: "dddd", prefixname: "ddd", displayname_th: "dddd", displayname_en: "ddd", email: "dddd", department: "ddd", faculty: "dddd")), isCreateActivity: true)
+            .environmentObject(Shop())
+            .environmentObject(ManualList())
             .environmentObject(Measurement())
+            .environmentObject(ListClientRequest())
+            .environmentObject(Preact())
                     
     }
 }

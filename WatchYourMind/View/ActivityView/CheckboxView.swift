@@ -38,13 +38,14 @@ struct CheckboxView: View {
         var body: some View {
             Button(action:{
                 self.isMarked.toggle()
-                self.callback(self.id ,  self.isMarked)
+                self.callback(self.id, self.isMarked)
             }) {
                 HStack(alignment: .center, spacing: 10) {
                     Image(systemName: self.isMarked ? "checkmark.square" : "square")
+                        //                        .renderingMode(.original)
                         .resizable()
                         .aspectRatio(CGSize(width: 30, height: 30),contentMode: .fill)
-                        .fixedSize(horizontal: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
+                        //                        .fixedSize(horizontal: true/*@END_MENU_TOKEN@*/, vertical: /*@START_MENU_TOKEN@*/true)
                         .frame(width: self.size, height: self.size)
                         .accentColor(.black)
                     
@@ -53,10 +54,32 @@ struct CheckboxView: View {
                     Text(label)
                         .font(Font.system(size: size))
                     Spacer()
-                }.foregroundColor(Color.black)
-
+                }.fixedSize()
+                .foregroundColor(Color.black)
             }
             .foregroundColor(Color.white)
+//        }
+
+//             Button(action:{
+//                    //1. Save state
+//                    self.checkState = !self.checkState
+//                    print("State : \(self.checkState)")
+//
+//
+//            }) {
+//                HStack(alignment: .top, spacing: 10) {
+//
+//                            //2. Will update according to state
+//                       Rectangle()
+//                                .fill(self.checkState ? Color.green : Color.gray)
+//                                .frame(width:20, height:20, alignment: .center)
+//                                .cornerRadius(5)
+//
+//                       Text("Todo  item ")
+//
+//                }
+//            }
+//            .foregroundColor(Color.white)
         }
 
         

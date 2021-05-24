@@ -15,6 +15,12 @@ class ManualList: ObservableObject {
 
 
 struct PreActivity: View {
+    @EnvironmentObject var shop :Shop
+    @EnvironmentObject var ManualList : ManualList
+    @EnvironmentObject var measurement : Measurement
+    @EnvironmentObject var listClientRequest : ListClientRequest
+    @EnvironmentObject var preact : Preact
+    
     @State var header : String = ""
     @State var showAlert : Bool = false
     @State var alertMessage : String = ""
@@ -47,34 +53,31 @@ struct PreActivity: View {
     
     
     let prefeedback = UIImpactFeedbackGenerator(style: .heavy)
-    @EnvironmentObject var activitylist: ManualList
     
-    @EnvironmentObject var preactivity: Preact
+//    @EnvironmentObject var preactivity: Preact
     
     @State var preActivityModel : PreActivityModel?
      
     var body: some View {
         ZStack{
-            if activitylist.showingPage == false
+            if ManualList.showingPage == false
             {
             VStack{
                 ScrollView(.vertical, showsIndicators: false) {
                     NavigationPreActivity()
-              LazyVGrid(columns: gridLayout, alignment: .center, spacing: 10) {
+              LazyVGrid(columns: gridLayout, alignment: .leading, spacing: 10) {
 
                 VStack(alignment:. leading, spacing: 20) {
 
-                        Text("Ask for basic information before assigning activities.")
-                            .font(.system(size:30))
-                            .lineLimit(2)
-                           .foregroundColor(.black)
+                    Text("Preactivity")
+                        .font(.system(size: 50))
+                        .font(.headline)
+                        .fontWeight(.bold)
+//                        .padding(.leading)
 
 
                 }.padding(.horizontal,3)
                 VStack(alignment: .leading,spacing: 0){
-                        Text("Add User")
-                            .font(.system(size:50))
-                            .font(.title)
                     
                     Text("Event:")
                         .font(.system(size:40))
@@ -97,9 +100,12 @@ struct PreActivity: View {
                      Text("Percipitance:")
                         .font(.system(size:40))
                         .foregroundColor(.black)
-                    CheckboxView2(precipitance: self.$precipitance)
+                   
                     }
 
+                HStack(alignment:.center){
+                    CheckboxView2(precipitance: self.$precipitance)
+                }.padding(.horizontal,100)
 
                 VStack(alignment: .leading, spacing: 8){
 
@@ -115,25 +121,31 @@ struct PreActivity: View {
                     }
                 VStack(alignment: .leading, spacing: 8){
                 Text("Faulty Thinking")
-                    .font(.system(size:30))
+                    .font(.system(size:40))
                     .foregroundColor(.black)
                     .padding(.leading)
                     TextEdit(fullText: self.$faultyThinkingText)
                     .shadow(radius: 5 )
-                    .padding(.horizontal,10)
+//                    .padding(.horizontal,10)
                 }
                 VStack(alignment: .leading, spacing: 8){
                     Text("Intensity Level: ")
                         .font(.system(size:40))
-                        .foregroundColor(.gray)
+                        .foregroundColor(.black)
                     IntensityLevelView(sliderValue: self.$level)
                     }
-                        VStack(alignment: .center,spacing: 30) {
+                        VStack(alignment: .center) {
                             EmotionView(selected: self.$selectedEmotion)
-                        }.padding(.vertical,8)
+                        }
+                        .padding(.vertical,8)
 
             
-                    VStack{
+                VStack(alignment:.leading,spacing: 20){
+                        Text("Others")
+                            .font(.system(size:40))
+                            .foregroundColor(.black)
+                    
+                    VStack(alignment: .leading){
                         
                         HStack{
                            
@@ -147,13 +159,19 @@ struct PreActivity: View {
                             } label: {
                                 HStack{
                                     Image(systemName: !self.isClicked_sleep ? "checkmark.square":"checkmark.square.fill")
+                                        
+                                        .font(.system(size: 35))
                                     Text("Hour(s) of sleep / day")
+                                        .font(.system(size: 30))
                                 }
                             }
                             if isClicked_sleep{
                              TextField("number", text: self.$numberOf_sleep)
+                                .frame(width:80, height: 50)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
                             }
                         }
+                        .frame(height:40)
                         
                         HStack{
                            
@@ -167,13 +185,18 @@ struct PreActivity: View {
                             } label: {
                                 HStack{
                                     Image(systemName: !self.isClicked_exe ? "checkmark.square":"checkmark.square.fill")
-                                    Text("ex / day")
+                                        .font(.system(size: 35))
+                                    Text("Exercise is reduced / week")
+                                        .font(.system(size: 30))
                                 }
                             }
                             if isClicked_exe{
                              TextField("number", text: self.$numberOf_ex)
+                                .frame(width:80, height: 50)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                
                             }
-                        }
+                        }.frame(height:40)
                         
                         HStack{
                             Button {
@@ -185,12 +208,14 @@ struct PreActivity: View {
                             } label: {
                                 HStack{
                                     Image(systemName: self.activetype == "active" ? "checkmark.square": "checkmark.square.fill")
+                                        .font(.system(size: 35))
                                     Text(self.activetype)
+                                        .font(.system(size: 35))
                                 }
                             }
                         }
                         if isClicked_activetype{
-                            VStack{
+                            VStack(alignment:.leading){
                                 Button(action: {
                                     self.activetype = "hyperactive"
                                     self.isClicked_activetype = false
@@ -198,7 +223,9 @@ struct PreActivity: View {
                                 }) {
                                     HStack{
                                         Image(systemName: self.activetype == "active" ? "checkmark.square" : "checkmark.square.fill")
+                                            .font(.system(size: 30))
                                         Text("hyperactive")
+                                            .font(.system(size: 25))
                                     }
                                 }
                                 Button(action: {
@@ -207,18 +234,31 @@ struct PreActivity: View {
                                 }) {
                                     HStack{
                                         Image(systemName: self.activetype == "active" ? "checkmark.square" : "checkmark.square.fill")
+                                            .font(.system(size: 30))
                                         Text("hypoactive")
+                                            .font(.system(size: 25))
                                     }
                                 }
                             }
+                            .padding(.leading,30)
                         }
-
-                        TextField("The period of the problem", text: self.$periodof)
+                        
+                        HStack{
+                            Text("The period of the problem")
+                                .font(.system(size: 30))
+                        TextField("Enter number / day,week,month", text: self.$periodof)
+                            .font(Font.system(size: 25, design: .default))
+                            .frame(width: 400)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            
+                        }
                         
                     
 
-                        
+                }//VSTACK
+                .padding(.leading,25)
                     }//VSTACK
+                
                    
                
                
@@ -232,18 +272,19 @@ struct PreActivity: View {
 //                    TheperiodoftheproblemView(text: self.$period)
 //
 //                        }
-
+                HStack{
+                    Spacer()
                 Button(action: {
                 }, label: {
                     Image(systemName: "chevron.forward")
-                        .scaledToFit()
-                        .fixedSize()
-                        .foregroundColor(.black)
-                        .frame(width: 20, height: 20)
+                        .font(.system(size:30 ))
+                         .foregroundColor(.black)
+                         
+                        .frame(width: 90, height: 50)
                         .padding()
-                        .background(Color("bg-2"))
-                        .frame(width: 40, height: 40)
-                        .cornerRadius(100)
+                      .background(Color("bg-2"))
+//                        .frame(width: 60, height: 60)
+                        .cornerRadius(10)
                         .onTapGesture {
                             //1
                             if !self.persentationText.isEmpty{
@@ -293,9 +334,9 @@ struct PreActivity: View {
                                                     self.preActivityModel?.setEffact(effact)
                                                     
                                                     prefeedback.impactOccurred()
-                                                    self.activitylist.showingPage = true
+                                                    self.ManualList.showingPage = true
                                                     
-                                                }else{
+                                  }else{
                                                         print("Plese enter period of problem before you'll submit.")
                                                         self.header = "from invalide"
                                                         self.alertMessage = "Plese enter period of problem before you'll submit."
@@ -305,12 +346,12 @@ struct PreActivity: View {
                                                 }
                                                
                                                     
-                                                }else{
+                               }else{
                                                     print("Plese number of sleep before you'll submit.")
                                                     self.header = "from invalide"
                                                     self.alertMessage = "Plese number of sleep before you'll submit."
                                                     self.showAlert = true
-                                                }
+                               }
                                                    
                                             }else{
                                                 print("Plese enter emotion before you'll submit.")
@@ -333,11 +374,6 @@ struct PreActivity: View {
                                         self.alertMessage = "Plese enter pattern factor before you'll submit."
                                         self.showAlert = true
                                     }
-                                    
-                              
-                                
-                                
-                                
                             }else{
                                 print("Plese enter presentation factor before you'll submit.")
                                 self.header = "from invalide"
@@ -349,6 +385,7 @@ struct PreActivity: View {
                             
                         }
                 }) //: BUTTON-NEXT
+              }
               }//:LAZYVGRID
               .padding()
 
@@ -361,7 +398,12 @@ struct PreActivity: View {
             
         else{
             if let pre = self.preActivityModel{
-                ManualActivityList(preActivityModel: pre, client: self.client)
+                ManualActivityList(preActivityModel: pre, client: self.client, isCreateActivity: false)
+                    .environmentObject(self.shop)
+                    .environmentObject(self.ManualList)
+                    .environmentObject(self.measurement)
+                    .environmentObject(self.listClientRequest)
+                    .environmentObject(self.preact)
             }
             
         }
@@ -385,6 +427,11 @@ struct PreActivity: View {
 struct PreActivity_Previews: PreviewProvider {
     static var previews: some View {
         PreActivity(client: UserModel(timestamp: 1, status: true, message: "ok", data: DataUserModel(type: "std", statusid: "11", statusname: "dddd", userName: "dddd", prefixname: "ddd", displayname_th: "dddd", displayname_en: "ddd", email: "dddd", department: "ddd", faculty: "dddd")))
-        .environmentObject(ManualList())
+            .environmentObject(Shop())
+            .environmentObject(ManualList())
+            .environmentObject(Measurement())
+            .environmentObject(ListClientRequest())
+            .environmentObject(Preact())
+            .previewLayout(.fixed(width: 1000, height: 2500))
     }
 }

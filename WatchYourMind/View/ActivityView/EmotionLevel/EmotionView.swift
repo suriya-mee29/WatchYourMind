@@ -14,8 +14,9 @@ struct EmotionView: View {
         VStack(alignment: .leading, spacing: 8) {
             Text("Emotion Level: ")
                 .font(.system(size:40))
-                .foregroundColor(.gray)
-        
+                .foregroundColor(.black)
+                .padding(.bottom,30)
+//                .padding(.leading)
              
         HStack{
            
@@ -25,6 +26,7 @@ struct EmotionView: View {
                 print("\(selected)")
                 self.selected = selected
             }
+//            .padding(.horizontal,20)
         }
         }
 

@@ -9,20 +9,22 @@ import SwiftUI
 
 struct SearchView2: View {
     @EnvironmentObject var shop: Shop
+    private var user = [userRequest(imageUser: "image1", nameTH: "นางสาวทวิพร ทัดแก้ว", nameEN: "Tawiporn Tadkaew", email: "Tawiporn.tad@dome.tu.ac.th", faculty: "คณะวิทยาศาสตร์และเทคโนโลยี", branch: "คอมพิวเตอร์", progress: 50, progressColor: "saplingColor", dateEndup: "24-04-2021", dateAssign: "10-14-2021", status: "Sapling",gender:"Female"),
+                        userRequest(imageUser: "image2",nameTH: "นายพัชรจักขุ์ ยงวัฒนา",nameEN: "Mr.Patcharajak Yongwatthana", email: "Patcharajak.yon@dome.tu.ac.th",faculty:"Science and Technology",branch: "คอมพิวเตอร์",progress: 19, progressColor:"seedColor",dateEndup:"07-04-2021",dateAssign: "17-04-2021",status: "Seed",gender: "Male"),
+                        userRequest(imageUser: "image3",nameTH: "นายสุริยา มีขุนทด",nameEN: "Mr.Suriya Meekhuntod",email: "Suriya.mee@dome.tu.ac.th",faculty:"Science and Technology",branch: "คอมพิวเตอร์",progress: 100,progressColor:"bloomingColor",dateEndup:"03-04-2021",dateAssign: "15-04-2021",status: "Blooming",gender: "Male"
+        )
+    ]
+//    @State var showSheetView = false
+    @State var iSSave : Bool = false
+    @State var activityData = ManualActivityModel(id: "", createby: "", title: "", description: "", createDate: Date(), type: "", imageicon: "", link: "", pic: "", outcome:[])
 
-
-//    let array = ["Peter", "Paul", "Mary", "Anna-Lena", "George", "John", "Greg", "Thomas", "Robert", "Bernie", "Mike", "Benno", "Hugo", "Miles", "Michael", "Mikel", "Tim", "Tom", "Lottie", "Lorrie", "Barbara"]
-    private var todoItems = [ToDoItem(name: "Tawiporn Tadkaew", idusername: "6009650398"),
-                              ToDoItem(name: "Suriya Meekhuntod", idusername:"6009650026" ),
-                              ToDoItem(name: "Natnichar Yingyongdamrongsakun", idusername: "6009650505"),
-                              ToDoItem(name: "Patcharajak Yongwatthana", idusername: "6009650109"),
-                              ToDoItem(name: "Charinrat Soratsa", idusername: "6009650034"),
-                              ToDoItem(name: "Tawiporn Tadkaew", idusername: "6009650398")
-                                ]
+    
        @State private var searchText = ""
        @State private var showCancelButton: Bool = false
-    @State var showSheetView = false
+    @State var showSheetManualActivityList = false
+    @ObservedObject var arr : ManualActivtyViewModel = ManualActivtyViewModel()
 
+    
        var body: some View {
 
 //           NavigationView {
@@ -60,46 +62,168 @@ struct SearchView2: View {
                 }
             }
             .padding(.horizontal)
-            .navigationBarHidden(showCancelButton) // .animation(.default) // animation does not work properly
-            List(todoItems.filter({ searchText.isEmpty ? true : $0.name.contains(searchText)||$0.idusername.contains(searchText) })) { item in
-                Text(item.name)
-                Text(item.idusername)
-                
-            }//:List
-                            .edgesIgnoringSafeArea(.all)
-            //
-            //                   .navigationBarTitle(Text("Search"))
-//    .ignoresSafeArea(.all, edges: .top)
-//            .frame(height: UIScreen.Height, alignment: .center)
-            .resignKeyboardOnDragGesture()
+            .navigationBarHidden(showCancelButton)
             
-        })
+            
+            List(user.filter({ searchText.isEmpty ? true : $0.nameTH.contains(searchText)||$0.nameEN.contains(searchText)||$0.faculty.contains(searchText)||$0.branch.contains(searchText)||$0.status.contains(searchText) })) { item in
+                HStack{
+                    VStack(alignment: .center
+                    ){
+                    Image("\(item.imageUser)")
+                        .resizable()
+                        .renderingMode(.original)
+                        .aspectRatio(contentMode: .fill)
+                        .clipped()
+                        .clipShape(Circle())
+                        .frame(width:80, height: 80)
+                        .padding()
+                        
+//                        VStack(alignment:.center){
+                                ProgressBarView(value: CGFloat(item.progress), color: Color("\(item.progressColor)"),fontsize:18,circlelinewidth:10)
+                                    .frame(width: 90, height: 90)
+                                HStack{
+                                Text("Status:")
+                                Text("\(item.status)")
+                                }//:HSTACK-Status
+
+                    }//:VSTACK
+                    
+                    .padding(.leading,30)
+                        Divider()
+//                        .frame(height:200)
+                        .padding(.horizontal,50)
+                    
+                    
+//
+                    VStack(alignment:.leading){
+
+//
+                        HStack{
+                            Text("NameTH:")
+                                .foregroundColor(.gray)
+                                .font(.system(size: 20))
+
+                        Text("\(item.nameTH)")
+                            .font(.system(size: 21)).fontWeight(.semibold)
+                        }.padding(.vertical,5)
+
+                        HStack{
+                            Text("NameEN:")
+                                .font(.system(size: 20))
+                                .foregroundColor(.gray)
+
+                        Text("\(item.nameEN)")
+                            .font(.system(size: 21))
+                            .fontWeight(.semibold)
+                        }.padding(.vertical,5)
+////                        HStack-Name
+                        HStack{
+                            Text("Faculty:")
+                                .foregroundColor(.gray)
+                                .font(.system(size: 20))
+
+                            Text("\(item.faculty)")
+                                .font(.system(size: 21))
+                                .fontWeight(.semibold)                        }//:HSTACK-FACTORY
+                        .padding(.vertical,5)
+                        HStack{
+                            Text("Branch:")
+                                .font(.system(size: 20))
+                                .foregroundColor(.gray)
+
+                            Text("\(item.branch)")
+                                .font(.system(size: 21))
+                                .fontWeight(.semibold)                        }//:HSTACK-branch
+                        .padding(.vertical,5)
+                        HStack{
+                            Text("Email:")
+                                .font(.system(size: 20))
+                                .foregroundColor(.gray)
+                            Text("\(item.email)")
+                                .font(.system(size: 21))
+                                .fontWeight(.bold)
+                        }//:HSTACK-Assign
+                        .padding(.vertical,5)
+                }//:VSTACK
+                    .padding(.leading,50)
+
+//
+                //:VSTACK
+                    Spacer()
+                    Button(action: {
+                        self.showSheetManualActivityList.toggle()
+                        print("ReAssignActivity")
+                    },label : {
+//
+                        ZStack {
+
+                            RoundedRectangle(cornerRadius: 5)
+
+                                .frame(height:50)
+                                .foregroundColor(.purple)
+                                .frame(width: 160, alignment: .center)
+                            HStack{
+
+                            Image(systemName: "arrow.triangle.2.circlepath")
+                                .font(.system(size: 30))
+                                .foregroundColor(.white)
+                            Text("ReActivity")
+                                .font(.system(size: 15))
+                                .foregroundColor(.white)
+
+                        }//:HSTACK
+//
+//
+                        }//:ZSATCK
+//                        .onTapGesture {
+//                          feedback.impactOccurred()
+//                        preactivity.showingProduct = true
+//                        }
+
+
+                    })
+//
+//
+                }//:HSTACK
+//                .padding(.vertical,20)
+            }//:List
+//            .sheet(isPresented: $showSheetManualActivityList) {
+//                ManualActivityList2()
+//            }
+            
+            
+//            .sheet(isPresented: $showSheetView) {
+//                NewActivityView(iSSave: $iSSave, activityData: $activityData, showSheetView: $showSheetView )
+//            }
+//            .onChange(of: showSheetView, perform: { value in
+//                if iSSave  {
+//                    arr.AddActivity(manualActivityModel: activityData)
+//                iSSave = false
+//                }
+//            })
+        
+        })//:VSTACK
+        .edgesIgnoringSafeArea(.all)
+
+                   .resignKeyboardOnDragGesture()
+
         
         .background(Color("bg-3"))
         .zIndex(0)
         .ignoresSafeArea(.all, edges: .all)
-        
-//        .frame(height: 300)
 
-               
-//           }
        }
    }
 
 
 
-   struct ContentView_Previews: PreviewProvider {
-//    static let animals: [Animal] = Bundle.main.decode("animals.json")
+   struct SearchView2_Previews: PreviewProvider {
 
        static var previews: some View {
-//           Group {
         SearchView2()
-//                 .environment(\.colorScheme, .light)
             .environmentObject(Shop())
+//            .environmentObject(Measurement())
 
-//            SearchView2()
-//                 .environment(\.colorScheme, .dark)
-//           }
        }
    }
 

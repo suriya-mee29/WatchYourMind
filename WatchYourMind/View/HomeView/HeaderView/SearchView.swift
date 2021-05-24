@@ -43,7 +43,7 @@ struct SearchView: View {
     var body: some View {
         
         ZStack{
-        if shop.showingProduct == false && shop.selectedProduct == nil {
+        if shop.showingProduct == false{
             VStack {
                 VStack(spacing: 0){
                     HStack{

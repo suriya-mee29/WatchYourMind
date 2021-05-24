@@ -11,33 +11,16 @@ import Firebase
 
 @main
 struct WatchYourMindApp: App {
-//    @StateObject private var order = Order()
-//    static let animals: [Animal] = Bundle.main.decode("animals.json")
+
     
     init() {
         FirebaseApp.configure()
-        
-        
-       
+ 
     }
 
     var body: some Scene {
-        
-        
-        
         WindowGroup {
             ContentView2()
-//            LoginView(isAuthen: .constant(false))
-      //MainView()
-//            TableListUser(animals: WatchYourMindApp.animals)
-//                .modifier(SystemServices())
-
-                .environmentObject(Shop())
-                .environmentObject(Measurement())
-                .environmentObject(ManualList())
-                .environmentObject(PostActivity())
-                .environmentObject(ListClientRequest())
-                .environmentObject(Preact())
         }
     }
 }

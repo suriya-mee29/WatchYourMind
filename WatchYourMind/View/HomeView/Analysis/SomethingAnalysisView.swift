@@ -8,14 +8,21 @@
 import SwiftUI
 import SwiftUICharts
 
+class somethingAnalysis: ObservableObject {
+  @Published var showingPage: Bool = false
+  @Published var selectedPage: DefineAfterView? //= nil
+}
+
+
+
 struct SomethingAnalysisView: View {
+    
+    
+    let feedback = UIImpactFeedbackGenerator(style: .heavy)
+    @EnvironmentObject var somethingAnaly: somethingAnalysis
     @State private var gridLayout: [GridItem] = [ GridItem(.flexible()) ]
-//    @State var animals: [Animal] = Bundle.main.decode("animals.json")
-//    
     public var stylecard: ChartStyle2
     public var dropShadowcard: Bool
-
-    
     public init(style: ChartStyle2 = Styles.pieChartStyleOne, dropShadow: Bool? = true){
         self.stylecard = style
 
@@ -36,143 +43,156 @@ struct SomethingAnalysisView: View {
     @State private var isIphone : Bool = true
 
 
-    
-//    public init(style: ChartStyle2 = Styles.pieChartStyleOne, dropShadow: Bool? = true){
-//        self.stylecard = style
-//        self.dropShadowcard = dropShadow!
-//    }
-    
-
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
-        VStack{
-            if !isIphone{
-                VStack {
-                    HStack (alignment: .top){
-                    CardUser()
-                        .padding(.top,85)
-//                        .padding()
-                        PieChartView()
-                            .padding(.top,85)
+        ScrollView(.vertical, showsIndicators: false, content: {
+        ZStack{
+            if somethingAnaly.showingPage == false  {
+            VStack {
+        VStack(spacing: 0){
+            HStack{
+                Spacer()
 
-                    }//:HSATCK
                     
-                    Text("Timeline indicartors")
-                        .font(.system(size:40))
-                        .foregroundColor(.black)
-                        .padding(.top,30)
-                    ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
-                        BarChartView(data: ChartData(values: [("Sun",63150), ("Mon",50900), ("Tue",50900), ("Wen",50900), ("Thu",50900), ("Fri",50900), ("Sat",50900)]), title: "Sleeping", style: chartStylesleep, form: CGSize(width: 300, height: 420), cornerImage:Image(systemName: "bed.double.fill"))
-                            .environment(\.colorScheme, .light)
-                            .padding(.trailing,10)
-
-
-                BarChartView(data: ChartData(values: [("Sun",63150), ("Mon",50900), ("Tue",50900), ("Wen",50900), ("Thu",50900), ("Fri",50900), ("Sat",50900)]), title: "Moving", style: chartStylemove, form: CGSize(width: 300, height: 420), cornerImage:Image(systemName: "flame.fill"))
-                    .environment(\.colorScheme, .light)
-                    .padding(.trailing,10)
-
-//                    }.padding(.vertical)
-                
-//                HStack {form: CGSize(width: 300, height: 420),
-                    BarChartView(data: ChartData(values: [("Sun",63150), ("Mon",50900), ("Tue",50900), ("Wen",50900), ("Thu",50900), ("Fri",50900), ("Sat",50900)]), title: "Standing", style: chartStylestand, form: CGSize(width: 300, height: 420), cornerImage:Image(systemName: "figure.stand"))
-                        .environment(\.colorScheme, .light)
-                        .padding(.trailing,10)
-
-
-                BarChartView(data: ChartData(values: [("Sun",63150), ("Mon",50900), ("Tue",50900), ("Wen",50900), ("Thu",50900), ("Fri",50900), ("Sat",50900)]), title: "Steping", style: chartStylestep, form: CGSize(width: 300, height: 420), cornerImage:Image(systemName: "figure.walk"))
-                    .environment(\.colorScheme, .light)
-                }//:HSTACK
-                    .padding()
-                        
-                    }//:SCROLLVIEW
-                    .frame(width: UIScreen.Width)
-                    
-                }//VSTACK
-                
-                
-            } //:IF
-            else{
-                VStack {
-                    CardUser()
-                    AnalysisPreactivity()
-                    Text("Timeline indicartors")
-                        .font(.system(size:40))
-                        .foregroundColor(.black)
-                    HStack {
-                        BarChartView(data: ChartData(values: [("Sun",63150), ("Mon",50900), ("Tue",50900), ("Wen",50900), ("Thu",50900), ("Fri",50900), ("Sat",50900)]), title: "Sleeping", style: chartStylesleep, cornerImage:Image(systemName: "bed.double.fill"))
-                            .environment(\.colorScheme, .light)
-                            .padding(.trailing,10)
-
-
-                BarChartView(data: ChartData(values: [("Sun",63150), ("Mon",50900), ("Tue",50900), ("Wen",50900), ("Thu",50900), ("Fri",50900), ("Sat",50900)]), title: "Moving", style: chartStylemove, cornerImage:Image(systemName: "flame.fill"))
-                    .environment(\.colorScheme, .light)
-                    }.padding(.vertical)
-                    
-                    HStack {
-                        BarChartView(data: ChartData(values: [("Sun",63150), ("Mon",50900), ("Tue",50900), ("Wen",50900), ("Thu",50900), ("Fri",50900), ("Sat",50900)]), title: "Standing", style: chartStylestand, cornerImage:Image(systemName: "figure.stand"))
-                            .environment(\.colorScheme, .light)
-
-                    BarChartView(data: ChartData(values: [("Sun",63150), ("Mon",50900), ("Tue",50900), ("Wen",50900), ("Thu",50900), ("Fri",50900), ("Sat",50900)]), title: "Steping", style: chartStylestep, cornerImage:Image(systemName: "figure.walk"))
-                        .environment(\.colorScheme, .light)
-                    }
-                } .frame(width: UIScreen.Width)
-                
-
-            }//:else
-            
-            CardAssignsine_Outcome()
-                .padding(.top,50)
-//            ZStack{
-//                Rectangle()
-//                    .fill(self.stylecard.backgroundColor)
-//                    .cornerRadius(10)
-//                    .shadow(color: self.stylecard.dropShadowColor, radius: self.dropShadowcard ? 12 : 0)
-                    
-                
-                Text("Activity history")
-                    .font(.system(size: 30))
-                    .font(.title)
-//                    .fontWeight(.bold)
-//                            .font(.system(size: 20))
-//                        font(.headline)
-//                            .padding(.bottom)
-                    .padding(.top,100)
-                
                 ZStack {
-                    Rectangle()
-                        .fill(self.stylecard.backgroundColor)
-                        .cornerRadius(20)
-                        .shadow(color: self.stylecard.dropShadowColor, radius: self.dropShadowcard ? 12 : 0)
-//                            TableListUser(animals: self.animals)
-                    TableListUser2()
-                        .clipShape(RoundedRectangle(cornerRadius: 30))
-//                                .shadow(radius: 10 )
-                        .frame(width:900)
-//                        .padding()
-                }
-                .frame(width: UIScreen.Width-20,height: UIScreen.Height-500)
-//            }//:ZSTACK
-//            .padding(.top,70)
-
-            .padding(.horizontal)
-
-        }//:VSTACK
-        .onAppear(perform: {
-            if UIDevice.current.userInterfaceIdiom == .phone{
-               isIphone = true
-            }else{
-                isIphone = false
-            }
-        })//:onAppear
-//        LineChartView(data: [8,23,54,32,12,37,7,23,43], title: "Line chart", legend: "Basic",form: CGSize(width: 500, height: 100))
-        
-
-        
+                    
+                   
+                Button(action: {
+                }, label: {
+//                            Image(systemName: "person.badge.plus")
+                    Image(systemName: "chevron.right")
+                        .font(.system(size: 26))
+                        .scaledToFit()
+                         .fixedSize()
+                         .foregroundColor(.black)
+                         
+                        .frame(width: 20, height: 20)
+                        .padding()
+                        .background(Color.white)
+                        .frame(width: 40, height: 40)
+                        .cornerRadius(100)
+                        .onTapGesture {
+                          feedback.impactOccurred()
+                            somethingAnaly.showingPage = true
+                        }
+                }) //: BUTTON-BELL
+                }//:ZSTACK
+                .padding(.trailing,50)
+//                    Spacer()
+                
+                .frame( height: 80)
+                
+            }//:HSTACK
+            .background(Color.purple)
+            .edgesIgnoringSafeArea(.all)
+            
         }
-//        NavigationView {
-        
+        .padding(.top, UIApplication.shared.windows.first?.safeAreaInsets.top)
+                .background(Color.purple)
+        .shadow(color: Color.black.opacity(0.05), radius: 5, x: 0, y: 5)
+        .shadow(color: Color.black.opacity(0.05), radius: 5, x: 0, y: 5)
+                
+                VStack{
+                                    if !isIphone{
+                                        VStack {
 
+                                            HStack (alignment: .top){
+                                                VStack{
+                                            CardUser()
+                                                .padding(.top,85)
+                       
+                                                }
+                                                PieChartView()
+                                                    .padding(.top,85)
+
+                                            }//:HSATCK
+                                            CardAssignsine_Outcome()
+                                                .padding(.top,90)
+
+                                            Text("Timeline indicartors")
+                                                .font(.system(size:40))
+                                                .foregroundColor(.black)
+                                                .padding(.top,90)
+                                            ScrollView(.horizontal, showsIndicators: false) {
+                                            HStack {
+                                                BarChartView(data: ChartData(values: [("Sun",63150), ("Mon",50900), ("Tue",50900), ("Wen",50900), ("Thu",50900), ("Fri",50900), ("Sat",50900)]), title: "Sleeping", style: chartStylesleep, form: CGSize(width: 300, height: 420), cornerImage:Image(systemName: "bed.double.fill"))
+                                                    .environment(\.colorScheme, .light)
+                                                    .padding(.trailing,10)
+
+
+                                        BarChartView(data: ChartData(values: [("Sun",63150), ("Mon",50900), ("Tue",50900), ("Wen",50900), ("Thu",50900), ("Fri",50900), ("Sat",50900)]), title: "Moving", style: chartStylemove, form: CGSize(width: 300, height: 420), cornerImage:Image(systemName: "flame.fill"))
+                                            .environment(\.colorScheme, .light)
+                                            .padding(.trailing,10)
+
+                                            BarChartView(data: ChartData(values: [("Sun",63150), ("Mon",50900), ("Tue",50900), ("Wen",50900), ("Thu",50900), ("Fri",50900), ("Sat",50900)]), title: "Standing", style: chartStylestand, form: CGSize(width: 300, height: 420), cornerImage:Image(systemName: "figure.stand"))
+                                                .environment(\.colorScheme, .light)
+                                                .padding(.trailing,10)
+
+
+                                        BarChartView(data: ChartData(values: [("Sun",63150), ("Mon",50900), ("Tue",50900), ("Wen",50900), ("Thu",50900), ("Fri",50900), ("Sat",50900)]), title: "Steping", style: chartStylestep, form: CGSize(width: 300, height: 420), cornerImage:Image(systemName: "figure.walk"))
+                                            .environment(\.colorScheme, .light)
+                                        }//:HSTACK
+                                            .padding(.horizontal,30)
+                                            .padding(.vertical)
+
+                                            }//:SCROLLVIEW
+                                            .frame(width: UIScreen.Width)
+
+
+                                        }//VSTACK
+
+
+                                    } //:IF
+                                    else{
+                                        VStack {
+                                            CardUser()
+                                            AnalysisPreactivity()
+                                            Text("Timeline indicartors")
+                                                .font(.system(size:40))
+                                                .foregroundColor(.black)
+                                            HStack {
+                                                BarChartView(data: ChartData(values: [("Sun",63150), ("Mon",50900), ("Tue",50900), ("Wen",50900), ("Thu",50900), ("Fri",50900), ("Sat",50900)]), title: "Sleeping", style: chartStylesleep, cornerImage:Image(systemName: "bed.double.fill"))
+                                                    .environment(\.colorScheme, .light)
+                                                    .padding(.trailing,10)
+
+
+                                        BarChartView(data: ChartData(values: [("Sun",63150), ("Mon",50900), ("Tue",50900), ("Wen",50900), ("Thu",50900), ("Fri",50900), ("Sat",50900)]), title: "Moving", style: chartStylemove, cornerImage:Image(systemName: "flame.fill"))
+                                            .environment(\.colorScheme, .light)
+                                            }.padding(.vertical)
+
+                                            HStack {
+                                                BarChartView(data: ChartData(values: [("Sun",63150), ("Mon",50900), ("Tue",50900), ("Wen",50900), ("Thu",50900), ("Fri",50900), ("Sat",50900)]), title: "Standing", style: chartStylestand, cornerImage:Image(systemName: "figure.stand"))
+                                                    .environment(\.colorScheme, .light)
+
+                                            BarChartView(data: ChartData(values: [("Sun",63150), ("Mon",50900), ("Tue",50900), ("Wen",50900), ("Thu",50900), ("Fri",50900), ("Sat",50900)]), title: "Steping", style: chartStylestep, cornerImage:Image(systemName: "figure.walk"))
+                                                .environment(\.colorScheme, .light)
+                                            }
+                                        } .frame(width: UIScreen.Width)
+
+
+                                    }//:else
+
+                                }//:VSTACK
+            }
+                
+                
+                .onAppear(perform: {
+                    if UIDevice.current.userInterfaceIdiom == .phone{
+                       isIphone = true
+                    }else{
+                        isIphone = false
+                    }
+                })//:onAppear
+                
+            }
+            else{
+                DefineAfterView(iSSave: .constant(false))
+            }
+
+        
+        }//:ZSTACK
+        .ignoresSafeArea(.all, edges: .top)
+        })
+        .ignoresSafeArea(.all, edges: .top)
     }
 }
 
@@ -180,7 +200,8 @@ struct SomethingAnalysisView: View {
 struct SomethingAnalysisView_Previews: PreviewProvider {
     static var previews: some View {
         SomethingAnalysisView()
-            .previewLayout(.fixed(width: 1000, height: 2000))
+            .previewLayout(.sizeThatFits)
+            .environmentObject(somethingAnalysis())
     }
 }
-//
+

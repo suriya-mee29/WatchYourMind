@@ -19,18 +19,21 @@ struct IntensityLevelView: View {
         VStack {
             HStack(spacing: 25) {
                 Text("0%")
-                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    .font(.system(size: 25))
+                    .fontWeight(.bold)
                 Slider(value: $sliderValue, in: 0...100)
                     .accentColor(.purple)
                     
 
                 Text("100%")
-                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    .font(.system(size: 25))
+                    .fontWeight(.bold)
 
             }.foregroundColor(Color.purple)
-//            .padding(30)
+            .padding(.horizontal)
             HStack {
                 Text("Intensity Level is:")
+                    .font(.system(size: 30))
                 Text( "\(Int(sliderValue))%" )
                     .font(.system(size: 30))
                     .font(.headline)

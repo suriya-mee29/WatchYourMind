@@ -7,7 +7,6 @@
 import SwiftUI
 class Shop: ObservableObject {
   @Published var showingProduct: Bool = false
-  @Published var selectedProduct: User? //= nil
 }
 
 class ListClientRequest: ObservableObject {
@@ -17,11 +16,15 @@ class ListClientRequest: ObservableObject {
 
 struct HomeContentView: View {
     //MARK:- PROPERTIES
+    @EnvironmentObject var shop :Shop
+    @EnvironmentObject var ManualList : ManualList
+    @EnvironmentObject var measurement : Measurement
+    @EnvironmentObject var listClientRequest : ListClientRequest
+    @EnvironmentObject var preact : Preact
     
     let colorBackground: Color = Color("bg-3")
     @State var selectedTag: String?
     let feedback = UIImpactFeedbackGenerator(style: .heavy)
-    @EnvironmentObject var shop: Shop
     @State private var isAnimated: Bool = false
 
     @State private var searchText = ""
@@ -45,7 +48,6 @@ struct HomeContentView: View {
     
     @State var isExpandedButtonBell = false
     let feedbackbell = UIImpactFeedbackGenerator(style: .heavy)
-    @EnvironmentObject var clientRequest: ListClientRequest
     
     var psychologistManagement = PsychologistManagement()
     @Binding var isAuthen : Bool
@@ -54,11 +56,19 @@ struct HomeContentView: View {
     @State var alertMessage : String = ""
     @State var headerMag : String = ""
     
+    @ObservedObject var activityStore = ActivityStore()
+    
+    @State var digit : Int = 0
+    func numOfDigits() -> Float {
+    let numOfDigits = Float(String(digit).count)
+    return numOfDigits == 1 ? 1.5 : numOfDigits
+    }
+    
     //MARK:-BODY
     var body: some View {
        
         ZStack{
-            if shop.showingProduct == false && clientRequest.showingProduct == false {
+            if shop.showingProduct == false && listClientRequest.showingProduct == false {
             VStack {
                 VStack(spacing: 0){
                     HStack{
@@ -132,10 +142,10 @@ struct HomeContentView: View {
 
                             
                         ZStack {
-                           
                         Button(action: {
                         }, label: {
                             Image(systemName: "bell")
+                                .font(.system(size: 26))
                                 .scaledToFit()
                                  .fixedSize()
                                  .foregroundColor(.black)
@@ -147,15 +157,37 @@ struct HomeContentView: View {
                                 .cornerRadius(100)
                                 .onTapGesture {
                                   feedbackbell.impactOccurred()
-                                clientRequest.showingProduct = true
+                                listClientRequest.showingProduct = true
                                 }
                         }) //: BUTTON-BELL
-
+                            ZStack {
+                            
+                                
+                                Circle().fill(Color.red).frame(width: 25 * CGFloat(numOfDigits()), height:25, alignment: .topTrailing).position(CGPoint(x: 25, y: -5))
+                                
+                                Text("\(digit)")
+                                .foregroundColor(Color.white)
+                                    .font(Font.system(size: 15).bold()).position(CGPoint(x: 25, y: -5))
+                                    .onAppear(perform: {
+                                        self.activityStore.countNewClient { sucess, num, err in
+                                            if sucess {
+                                                self.digit = num
+                                            }else{
+                                                print("\(err)")
+                                            }
+                                        }
+                                    })
+                                    
+                                
+                          
+                            }
+                            .frame(width: 20, height: 20)
                         }//:ZSTACK
                         .padding(.trailing,10)
     //                    Spacer()
                         
                         .frame( height: 80)
+
                         
                         ZStack {
                            
@@ -387,9 +419,22 @@ struct HomeContentView: View {
             }
             }else if (shop.showingProduct == true){
                     
-                    SearchView2()}
+                    SearchView2()
+                        .environmentObject(self.shop)
+                        .environmentObject(self.ManualList)
+                        .environmentObject(self.measurement)
+                        .environmentObject(self.listClientRequest)
+                        .environmentObject(self.preact)
+                      
+                
+            }
                 else{
-                    FriendsView()
+                    FriendsView(clientNumber : self.digit)
+                        .environmentObject(self.shop)
+                        .environmentObject(self.ManualList)
+                        .environmentObject(self.measurement)
+                        .environmentObject(self.listClientRequest)
+                        .environmentObject(self.preact)
                         
                 }//:Else
         
@@ -415,11 +460,10 @@ struct HomeContentView_Previews: PreviewProvider {
     static var previews: some View {
         HomeContentView( isAuthen: .constant(true))
             .environmentObject(Shop())
-           
-            .environmentObject(PostActivity())
+            .environmentObject(ManualList())
+            .environmentObject(Measurement())
             .environmentObject(ListClientRequest())
             .environmentObject(Preact())
-            .environmentObject(Measurement())
 
         }
     }
