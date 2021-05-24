@@ -31,6 +31,7 @@ struct ContentView2: View {
                 .environmentObject(ManualList())
                 .environmentObject(ListClientRequest())
                 .environmentObject(Preact())
+                .environmentObject(somethingAnalysis())
         }else{
             LoginView(isAuthen: $isAuthen)
         }

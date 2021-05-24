@@ -19,6 +19,7 @@ struct MainView : View {
     @EnvironmentObject var measurement : Measurement
     @EnvironmentObject var listClientRequest : ListClientRequest
     @EnvironmentObject var preact : Preact
+    @EnvironmentObject var somethingAnalysis : somethingAnalysis
     
     
     
@@ -34,6 +35,7 @@ struct MainView : View {
                         .environmentObject(self.measurement)
                         .environmentObject(self.listClientRequest)
                         .environmentObject(self.preact)
+                        .environmentObject(self.somethingAnalysis)
                     
                     ManualActivityList(preActivityModel: PreActivityModel(presentation: "", precipitance: [String:[String:Bool]](), pattern: "", faultyThinking: "", intensityLevel: 43.2, emotionLevel: "", event: "", stateProblem: 2), client: UserModel(timestamp: 1, status: true, message: "ok", data: DataUserModel(type: "std", statusid: "11", statusname: "dddd", userName: "dddd", prefixname: "ddd", displayname_th: "dddd", displayname_en: "ddd", email: "dddd", department: "ddd", faculty: "dddd")), isCreateActivity: true)
                         .opacity(selectedTab == "Add Activity2" ? 1 : 0)
@@ -180,7 +182,7 @@ struct MainView_Previews: PreviewProvider {
         
 //            .environmentObject(HomeView())
 //
-//            .environmentObject(somethingAnalysis())
+            .environmentObject(somethingAnalysis())
         
     }
 }

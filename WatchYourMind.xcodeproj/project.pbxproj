@@ -1324,7 +1324,7 @@
 				CODE_SIGN_ENTITLEMENTS = WatchYourMind/WatchYourMind.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"WatchYourMind/Preview Content\"";
-				DEVELOPMENT_TEAM = 7RU68K58X9;
+				DEVELOPMENT_TEAM = 9DVU79YMW5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/WatchYourMind/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1333,7 +1333,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.swiftuimasterclass.WatchYourMind;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swiftuimasterclass2.WatchYourMind;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
@@ -1358,7 +1358,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.swiftuimuimasterclass.WatchYourMind;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swiftuimuimasterclass.2WatchYourMind;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;

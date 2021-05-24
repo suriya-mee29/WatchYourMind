@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TableListUser: View {
-    
+    @EnvironmentObject var somethingAnalysis : somethingAnalysis
     let animals : [User]
     @State var showSheetView = false
     var body: some View {
@@ -28,6 +28,7 @@ struct TableListUser: View {
                 }
                 .fullScreenCover(isPresented:$showSheetView){
                     FirstSheetView(showSheetView: self.$showSheetView)
+                        .environmentObject(somethingAnalysis)
                     CloseFullView()
                         .padding([.top,.trailing])
                 }
@@ -39,9 +40,11 @@ struct TableListUser: View {
 
 struct FirstSheetView: View {
     @Binding var showSheetView: Bool
+    @EnvironmentObject var somethingAnalysis : somethingAnalysis
     
     var body: some View {
         SomethingAnalysisView()
+            .environmentObject(somethingAnalysis)
     }
 }
 

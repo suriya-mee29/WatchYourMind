@@ -21,6 +21,7 @@ struct HomeContentView: View {
     @EnvironmentObject var measurement : Measurement
     @EnvironmentObject var listClientRequest : ListClientRequest
     @EnvironmentObject var preact : Preact
+    @EnvironmentObject var somethingAnalysis : somethingAnalysis
     
     let colorBackground: Color = Color("bg-3")
     @State var selectedTag: String?
@@ -404,6 +405,7 @@ struct HomeContentView: View {
                     .padding(.horizontal,2)
                     .padding(.vertical)
                     TableListUser(animals: self.animals)
+                        .environmentObject(somethingAnalysis)
                 }
                         .onChange(of: datePicker, perform: { value in
 
@@ -464,6 +466,7 @@ struct HomeContentView_Previews: PreviewProvider {
             .environmentObject(Measurement())
             .environmentObject(ListClientRequest())
             .environmentObject(Preact())
+            .environmentObject(somethingAnalysis())
 
         }
     }
